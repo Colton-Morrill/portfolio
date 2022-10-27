@@ -187,7 +187,11 @@ function calcDate(date1,date2) {
       </div>
 
       <footer className={styles.footer}>
-        <p>© <span id='year'></span> Colton Morrill</p>
+        <div>
+        <p className='text-center'>© <span id='year'></span> Colton Morrill</p>
+        <br />
+        <p className='text-center text-sm text-gray-500'>Built with Next.js and Tailwind</p>
+        </div>
       </footer>
     </div>
   )
