@@ -46,7 +46,7 @@ export default function Home({ Component, pageProps }) {
 
       <div className='flex mb-40 flex-col lg:flex-row'>
         <div className='w-full lg:w-1/3 h-96'>
-          <a href="https://profile.presssportsapp.com/media/PressSportsOfficial" target='_blank' className='relative w-full h-full block'>
+          <a href="https://profile.presssportsapp.com/media/PressSportsOfficial" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
             <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
             <video className='h-full w-full object-cover' muted autoPlay loop src='/Press-Sports-Background.mp4' />
           </a>
@@ -55,7 +55,7 @@ export default function Home({ Component, pageProps }) {
         </div>
 
         <div className='w-full lg:w-1/3 h-96 ml-8' data-scroll data-scroll-speed="2">
-          <a href="https://sicoustics.com/" target='_blank'  className='relative w-full h-full block'>
+          <a href="https://sicoustics.com/" target='_blank' rel="noreferrer"  className='relative w-full h-full block'>
             <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
             <video className='h-full w-full object-cover' muted autoPlay loop src='/sicoustics-video.mp4' />
           </a>
@@ -66,7 +66,7 @@ export default function Home({ Component, pageProps }) {
 
       <div className='flex justify-end mb-40 flex-col lg:flex-row'>
         <div className='w-full lg:w-1/3 h-96' data-scroll data-scroll-speed="1">
-          <a href="https://tacksystems.com/" target='_blank' className='relative w-full h-full block'>
+          <a href="https://tacksystems.com/" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
             <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-20 hover:bg-opacity-0 transition'></div>
             <Image className='object-cover' src='/tack-website.png' fill sizes='100%' alt="Screenshot of the Tack Systems LLC Homepage" />
           </a>
@@ -75,7 +75,7 @@ export default function Home({ Component, pageProps }) {
         </div>
 
         <div className='w-full lg:w-1/3 h-96 ml-8'>
-          <a href="https://play.google.com/store/apps/details?id=com.tacksystems.littlepatriots&hl=en_US&gl=US" target='_blank'  className='relative w-full h-full block'>
+          <a href="https://play.google.com/store/apps/details?id=com.tacksystems.littlepatriots&hl=en_US&gl=US" target='_blank' rel="noreferrer"  className='relative w-full h-full block'>
             <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-30 hover:bg-opacity-0 transition'></div>
             <Image className='object-cover' src='/loginmockup-01.svg' fill sizes='100%' alt="Promotional Image of the Little Patriots mobile application"  />
           </a>
@@ -86,7 +86,7 @@ export default function Home({ Component, pageProps }) {
 
       <div className='flex mb-40 flex-col lg:flex-row'>
         <div className='w-full lg:w-1/3 h-96'>
-          <a href="https://vibility.com/" target='_blank' className='relative w-full h-full block'>
+          <a href="https://vibility.com/" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
             <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
             <Image className='object-cover' src='/vibility.png' fill sizes='100%' alt="Screenshot of the Vibility websites homepage" />
           </a>
@@ -95,7 +95,7 @@ export default function Home({ Component, pageProps }) {
         </div>
 
         <div className='w-full lg:w-1/3 h-96 ml-8' data-scroll data-scroll-speed="1">
-          <a href="https://www.taga1.com/" target='_blank'  className='relative w-full h-full block'>
+          <a href="https://www.taga1.com/" target='_blank' rel="noreferrer"  className='relative w-full h-full block'>
             <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
             <Image className='object-cover' src='/taga.png' fill sizes='100%' alt="Screenshot of the Tejas General American Agencies Homepage"  />
           </a>
