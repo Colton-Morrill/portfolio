@@ -35,7 +35,6 @@ function calcDate(date1,date2) {
 
 
     let a = calcDate(today,past)
-    console.log(a) // retur
 
     document.getElementById("current-job").innerHTML = a;
 
