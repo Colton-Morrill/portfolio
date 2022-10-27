@@ -6,6 +6,39 @@ import { useEffect } from 'react';
 
 export default function Home({ Component, pageProps }) {
   useEffect(() => {
+
+    let today = new Date()
+    let past = new Date("04-01-2021")
+
+function calcDate(date1,date2) {
+    var diff = Math.floor(date1.getTime() - date2.getTime());
+    var day = 1000 * 60 * 60 * 24;
+
+    var days = Math.floor(diff/day);
+    var months = Math.floor(days/31);
+    var years = Math.floor(months/12);
+
+    var message = "";
+  
+
+    var year = 0;
+    var month = 0;
+
+    if (years === 1) {
+      year = 12;
+      month = months - year;
+    }
+    message += years + " yr " + month + " mo "
+
+    return message
+    }
+
+
+    let a = calcDate(today,past)
+    console.log(a) // retur
+
+    document.getElementById("current-job").innerHTML = a;
+
     document.getElementById("year").innerHTML = new Date().getFullYear();
     let scroll;
     import("locomotive-scroll").then((locomotiveModule) => {
@@ -127,7 +160,7 @@ export default function Home({ Component, pageProps }) {
             <ul className='list-none'>
               <li className='font-bold text-xl'>Lead Web Designer</li>
               <li className=''>Tack Systems LLC | Full Time</li>
-              <li className=''>April 2021 - Present | 1+ yr</li>
+              <li className=''>April 2021 - Present | <span id="current-job"></span></li>
             </ul>
           </div>
           <div className='flex items-center mb-10'>
