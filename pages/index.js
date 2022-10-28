@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { Mail, ArrowDownCircle } from 'lucide-react';
+import { Mail, ArrowDownCircle, ExternalLink } from 'lucide-react';
 import { useEffect } from 'react';
 
 export default function Home({ Component, pageProps }) {
@@ -83,14 +83,14 @@ function calcDate(date1,date2) {
       </Head>
 
       <main className="flex justify-center items-center flex-col h-screen w-full relative">
-        <h1 className='text-8xl' data-scroll data-scroll-direction='horizontal' data-scroll-speed='2'>
-          I Get <span className="text-sky-500 font-bold text-left">$H!T</span> Done
+        <h1 className='text-8xl font-bold' data-scroll data-scroll-direction='horizontal' data-scroll-speed='2'>
+          I Get <span className="text-sky-500 font-black text-left">$H!T</span> Done
         </h1>
         <div id="about" className='mt-20' data-scroll data-scroll-direction='horizontal' data-scroll-speed='-2'>
           <p className='font-semibold text-left lg:text-center text-2xl'>Hello, I am Colton Morrill, an experienced <span className='linear-wipe font-bold'>Frontend Developer</span> and <span className='linear-wipe font-bold'>Graphic Designer</span>.</p>
           <p className='font-semibold text-left lg:text-center text-2xl mt-16'>I specialize in React, Next.js, Flutter, and the .NET framework</p>
         </div>
-        <ArrowDownCircle className='absolute bottom-8 lg:bottom-16 animate-bounce' />
+        <ArrowDownCircle className='hidden lg:block absolute bottom-8 lg:bottom-16 animate-bounce' />
       </main>
 
       <div className='flex mb-16 lg:mb-40 flex-col lg:flex-row'>
@@ -153,13 +153,61 @@ function calcDate(date1,date2) {
         </div>
       </div>
 
+      <div className='mt-8 mb-40 flex flex-col items-center'>
+        <h3 className='text-4xl font-bold text-center mb-16'>More Projects</h3>
+        <div className='flex flex-col flex-wrap lg:flex-row justify-start lg:justify-center items-start lg:items-center ml-0 lg:ml-36'>
+          <div className='flex items-center font-bold transition rounded-2xl p-3 w-full lg:w-1/3' >
+            <Image className='mr-8' src='/tackicon.png' width={50} height={50} alt='Icon of the Tack Systems Logo' />
+            <div>
+              Tackify
+              <p className='font-bold text-sm text-gray-500'>.NET</p>
+            </div>
+          </div>
+          <div className='flex items-center font-bold transition rounded-2xl p-3 w-full lg:w-1/3'>
+            <Image className='mr-8' src='/tackicon.png' width={50} height={50} alt='Icon of the Tack Systems Logo' />
+            <div>
+              TackUI
+              <p className='font-bold text-sm text-gray-500'>.NET/SCSS</p>
+            </div>
+          </div>
+          <a className='relative hover:text-blue-500 flex items-center font-bold transition rounded-2xl hover:bg-gray-900 p-3 w-full lg:w-1/3' href="https://provider.tacksys.com/provider-match.aspx" target='_blank' rel="noreferrer">
+            <Image className='mr-8' src='/advisor-white.png' width={50} height={50} alt='Icon of the Vibility Logo' />
+            <div>
+              Vibility Advisor
+              <p className='font-bold text-sm text-gray-500 flex items-center'>.NET/SCSS <ExternalLink className="ml-2" size={12} /></p>
+            </div>
+          </a>
+          <a className='hover:text-blue-500 flex items-center font-bold transition rounded-2xl hover:bg-gray-900 p-3 w-full lg:w-1/3' href="https://play.google.com/store/apps/details?id=com.ctay.robal&hl=en_US&gl=US" target='_blank' rel="noreferrer">
+            <Image className='mr-8 object-fit' src='/robal.png' width={50} height={50} alt='Icon of the Robal Logo' />
+            <div>
+              Robal
+              <p className='font-bold text-sm text-gray-500 flex items-center'>.NET <ExternalLink className="ml-2" size={12} /></p>
+            </div>
+          </a>
+          <div className='flex items-center font-bold transition rounded-2xl p-3 w-full lg:w-1/3'>
+            <Image className='mr-8' src='/docs-logo.png' width={50} height={50} alt='Icon of the DOCS Logo' />
+            <div>
+              Document Imaging System
+              <p className='font-bold text-sm text-gray-500'>XAML</p>
+            </div>
+          </div>
+          <a className='hover:text-blue-500 flex items-center font-bold transition rounded-2xl hover:bg-gray-900 p-3 w-full lg:w-1/3' href="https://coltonmorrill.vercel.app/" target='_blank' rel="noreferrer">
+            <Image className='mr-8 rounded-lg' src='/vaporwave-01.svg' width={50} height={50} alt='Icon of the Vaporwave Demo Logo' />
+            <div>
+              Vaporwave 3D Demo
+              <p className='font-bold text-sm text-gray-500 flex items-center'>Threejs <ExternalLink className="ml-2" size={12} /></p>
+            </div>
+          </a>
+        </div>
+      </div>
+
       <div className='flex justify-center items-center w-full mt-8 mb-10 lg:mb-40 flex-col lg:flex-row max-w-screen-lg mx-auto'>
         <div className='mx-10'>
           <Image className='rounded-2xl' src="/colton-anna.jpeg" width={600} height={100} alt="Picture of Colton Morrill with his wife Anna, as they pose against a rocky wooded background" />
         </div>
         <div className='m-10'>
           <p className='font-bold mb-4'>Based in in Salt Lake City, Utah</p>
-          <p className='font-bold mb-4'>I am married and have one elderly cat and two guinea pigs. In my free time I like to play piano, play video games, and make digital art.</p>
+          <p className='font-bold mb-4'>I am married and have one cat and two guinea pigs. In my free time I like to play piano, play video games, and make digital art.</p>
           <p className='font-bold mb-2'>I graduated from Brigham Young University - Idaho with a degree in Web Design and Developement with an emphasis on Design.</p>
           <p className='mb-4 text-sm text-gray-300'>While in school I focused heavily on the fundamentals of creating applications for the web and alongside that I gained exceptional skills in graphic design. </p>
         </div>
