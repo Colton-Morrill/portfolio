@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Mail, ArrowDownCircle, ExternalLink } from 'lucide-react';
 import { useEffect } from 'react';
+import Navbar from '../components/navbar';
 
 export default function Home({ Component, pageProps }) {
   useEffect(() => {
@@ -62,7 +63,7 @@ function calcDate(date1,date2) {
     }
   });
   return (
-    <div className={styles.container} data-scroll-container>
+    <div className={styles.container} data-scroll-container id='scroll-container'>
       <Head>
         <title>Colton Morrill | Frontend Developer</title>
         <meta name="description" content="Frontend Developer specializing in front end technologies (HTML, CSS, JavaScript, SASS, Flutter, .NET, React, Nextjs, and ThreeJS)." />
@@ -81,8 +82,8 @@ function calcDate(date1,date2) {
         <meta name="twitter:description" content="Frontend Developer specializing in front end technologies (HTML, CSS, JavaScript, SASS, Flutter, .NET, React, Nextjs, and ThreeJS)." />
         <meta name="twitter:image" content="https://www.coltonmorrill.com/colton-anna.jpeg" />
       </Head>
-      <Image className='absolute top-8 left-8' src='/cm-logo-01.svg' width={25} height={25} alt="Promotional Image of the Little Patriots mobile application" />
-      <main className="flex justify-center items-center flex-col h-screen w-full relative mt-16 lg:mt-0">
+      <Navbar />
+      <main className="flex justify-center items-center flex-col h-screen w-full relative mt-16 lg:-mt-16">
         <h1 className='text-8xl font-bold' data-scroll data-scroll-direction='horizontal' data-scroll-speed='2'>
           I Get <span className="text-sky-500 font-black text-left">$H!T</span> Done
         </h1>
@@ -92,7 +93,7 @@ function calcDate(date1,date2) {
         </div>
         <ArrowDownCircle className='hidden lg:block absolute bottom-8 lg:bottom-16 animate-bounce' />
       </main>
-
+      <div id='projects' className='scroll-spacer'></div>
       <div className='flex mb-16 lg:mb-40 flex-col lg:flex-row'>
         <div className='w-full lg:w-1/3 h-96'>
           <a href="https://profile.presssportsapp.com/media/PressSportsOfficial" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
@@ -144,11 +145,11 @@ function calcDate(date1,date2) {
         </div>
 
         <div className='w-full lg:w-1/3 h-96 ml-0 lg:ml-8 mt-16 lg:mt-0' data-scroll data-scroll-speed="2">
-          <a href="https://www.taga1.com/" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
+          <a href="https://cleanrcans.com/" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
             <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
-            <video className='h-full w-full object-cover' muted autoPlay loop src='/taga-updated.mp4' />
+            <video className='h-full w-full object-cover' muted autoPlay loop src='/cleanrcans.mp4' />
           </a>
-          <p className='font-bold text-lg text-right'>Tejas General American Agency</p>
+          <p className='font-bold text-lg text-right'>CleanRCans</p>
           <p className='font-bold text-sm text-right text-gray-500'>Wordpress</p>
         </div>
       </div>
@@ -200,7 +201,7 @@ function calcDate(date1,date2) {
           </a>
         </div>
       </div>
-
+      <div id='about-me' className='scroll-spacer'></div>
       <div className='flex justify-center items-center w-full mt-8 mb-10 lg:mb-40 flex-col lg:flex-row max-w-screen-lg mx-auto'>
         <div className='mx-10'>
           <Image className='rounded-2xl' src="/colton-anna.jpeg" width={600} height={100} alt="Picture of Colton Morrill with his wife Anna, as they pose against a rocky wooded background" />
@@ -212,6 +213,7 @@ function calcDate(date1,date2) {
           <p className='mb-4 text-sm text-gray-300'>While in school I focused heavily on the fundamentals of creating applications for the web alongside gaining exceptional skills in graphic design. </p>
         </div>
       </div>
+      <div id='experience' className='scroll-spacer'></div>
       <div className='mt-8 mb-20 flex flex-col items-center'>
         <h3 className='text-4xl font-bold text-center mb-20'>Experience</h3>
         <div>
@@ -242,7 +244,7 @@ function calcDate(date1,date2) {
         </div>
       </div>
 
-      <div className='mt-8 mb-40 flex flex-col items-center'>
+      <div className='mt-8 mb-40 flex flex-col items-center' id="contact">
         <h3 className='text-4xl font-bold text-center mb-16'>Contact</h3>
         <a className='hover:text-blue-500 flex font-bold transition' href="mailto: cjmorrill@gmai.com"><Mail className='mr-4' /> cjmorrill@gmail.com</a>
       </div>
