@@ -65,20 +65,20 @@ function calcDate(date1,date2) {
     <div className={styles.container} data-scroll-container>
       <Head>
         <title>Colton Morrill | Frontend Developer</title>
-        <meta name="description" content="Web Designer specializing in front end technologies (HTML, CSS, JavaScript, SASS, Flutter, .NET, React, Nextjs, and ThreeJS)." />
+        <meta name="description" content="Frontend Developer specializing in front end technologies (HTML, CSS, JavaScript, SASS, Flutter, .NET, React, Nextjs, and ThreeJS)." />
         <link rel="icon" href="/favicon.ico" />
 
         <meta property="og:url" content="https://www.coltonmorrill.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Colton Morrill | Frontend Developer" />
-        <meta property="og:description" content="Web Designer specializing in front end technologies (HTML, CSS, JavaScript, SASS, Flutter, .NET, React, Nextjs, and ThreeJS)." />
+        <meta property="og:description" content="Frontend Developer specializing in front end technologies (HTML, CSS, JavaScript, SASS, Flutter, .NET, React, Nextjs, and ThreeJS)." />
         <meta property="og:image" content="https://www.coltonmorrill.com/colton-anna.jpeg" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="coltonmorrill.com" />
         <meta property="twitter:url" content="https://www.coltonmorrill.com/" />
         <meta name="twitter:title" content="Colton Morrill | Frontend Developer" />
-        <meta name="twitter:description" content="Web Designer specializing in front end technologies (HTML, CSS, JavaScript, SASS, Flutter, .NET, React, Nextjs, and ThreeJS)." />
+        <meta name="twitter:description" content="Frontend Developer specializing in front end technologies (HTML, CSS, JavaScript, SASS, Flutter, .NET, React, Nextjs, and ThreeJS)." />
         <meta name="twitter:image" content="https://www.coltonmorrill.com/colton-anna.jpeg" />
       </Head>
 
