@@ -15,7 +15,7 @@ const navigation = [
 
 const Navbar = () => {
   return (
-    <Disclosure as="nav" className="bg-black z-40 fixed left-0 right-0" id='home' data-scroll data-scroll-sticky data-scroll-target="#scroll-container">
+    <Disclosure as="nav" className="bg-black z-40 fixed top-0 left-0 right-0" id='home' data-scroll data-scroll-sticky data-scroll-target="#scroll-container">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
