@@ -1,7 +1,6 @@
 import {React, Fragment} from 'react'
 import { Menu, Transition, Disclosure } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link'
 
 const navigation = [
     { name: 'Projects', href: '#projects', current: false },
@@ -33,10 +32,8 @@ const Navbar = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <Link href="/" className="flex flex-shrink-0 items-center">
                 <img className='block h-8 w-auto lg:hidden' src='/cm-logo-01.svg' alt="Promotional Image of the Little Patriots mobile application" />
                 <img className='hidden h-8 w-auto lg:block' src='/cm-logo-01.svg' alt="Promotional Image of the Little Patriots mobile application" />
-                </Link>
                 <div className="hidden sm:block ml-auto">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
