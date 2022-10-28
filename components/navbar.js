@@ -3,6 +3,7 @@ import { Menu, Transition, Disclosure } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
+
     { name: 'Projects', href: '#projects', current: false },
     { name: 'About Me', href: '#about-me', current: false },
     { name: 'Experience', href: '#experience', current: false },
@@ -32,13 +33,14 @@ const Navbar = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <img className='block h-8 w-auto lg:hidden' src='/cm-logo-01.svg' alt="Promotional Image of the Little Patriots mobile application" />
-                <img className='hidden h-8 w-auto lg:block' src='/cm-logo-01.svg' alt="Promotional Image of the Little Patriots mobile application" />
+                <a href='#projects2' data-scroll-to>
+                  <img className='block h-8 w-auto lg:hidden' src='/cm-logo-01.svg' alt="Promotional Image of the Little Patriots mobile application" />
+                  <img className='hidden h-8 w-auto lg:block' src='/cm-logo-01.svg' alt="Promotional Image of the Little Patriots mobile application" />
+                </a>
                 <div className="hidden sm:block ml-auto">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <a
-                  
                         key={item.name}
                         href={item.href}
                         data-scroll-to

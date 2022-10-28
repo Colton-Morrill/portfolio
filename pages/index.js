@@ -83,11 +83,13 @@ function calcDate(date1,date2) {
         <meta name="twitter:image" content="https://www.coltonmorrill.com/colton-anna.jpeg" />
       </Head>
       <Navbar />
+      <div id='projects2' className='scroll-spacer'></div>
       <main className="flex justify-center items-center flex-col h-screen w-full relative mt-16 lg:-mt-16">
+      
         <h1 className='text-8xl font-bold lg:-mr-8' data-scroll data-scroll-direction='horizontal' data-scroll-speed='2'>
           I Get <span className="text-sky-500 font-black text-left">$H!T</span> Done
         </h1>
-        <div id="about" className='mt-20' data-scroll data-scroll-direction='horizontal' data-scroll-speed='-2'>
+        <div className='mt-20' data-scroll data-scroll-direction='horizontal' data-scroll-speed='-2'>
           <p className='font-semibold text-left lg:text-center text-2xl'>Hello, I am Colton Morrill, an experienced <span className='linear-wipe font-bold'>Frontend Developer</span> and <span className='linear-wipe font-bold'>Graphic Designer</span>.</p>
           <p className='font-semibold text-left lg:text-center text-2xl mt-16'>I specialize in React, Next.js, Flutter, and the .NET framework</p>
         </div>
