@@ -81,7 +81,7 @@ function calcDate(date1,date2) {
         <meta name="twitter:description" content="Frontend Developer specializing in front end technologies (HTML, CSS, JavaScript, SASS, Flutter, .NET, React, Nextjs, and ThreeJS)." />
         <meta name="twitter:image" content="https://www.coltonmorrill.com/colton-anna.jpeg" />
       </Head>
-
+      <Image className='absolute top-8 left-8' src='/cm-logo-01.svg' width={25} height={25} alt="Promotional Image of the Little Patriots mobile application" />
       <main className="flex justify-center items-center flex-col h-screen w-full relative">
         <h1 className='text-8xl font-bold' data-scroll data-scroll-direction='horizontal' data-scroll-speed='2'>
           I Get <span className="text-sky-500 font-black text-left">$H!T</span> Done
