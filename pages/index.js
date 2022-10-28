@@ -206,7 +206,7 @@ function calcDate(date1,date2) {
           <Image className='rounded-2xl' src="/colton-anna.jpeg" width={600} height={100} alt="Picture of Colton Morrill with his wife Anna, as they pose against a rocky wooded background" />
         </div>
         <div className='m-10'>
-          <p className='font-bold mb-4'>Based in in Salt Lake City, Utah</p>
+          <p className='font-bold mb-4'>Based in Salt Lake City, Utah</p>
           <p className='font-bold mb-4'>I am married and have one cat and two guinea pigs. In my free time I like to play piano, play video games, and make digital art.</p>
           <p className='font-bold mb-2'>I graduated from Brigham Young University - Idaho with a degree in Web Design and Developement with an emphasis on Design.</p>
           <p className='mb-4 text-sm text-gray-300'>While in school I focused heavily on the fundamentals of creating applications for the web and alongside that I gained exceptional skills in graphic design. </p>
