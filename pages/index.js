@@ -67,6 +67,12 @@ function calcDate(date1,date2) {
         <title>Colton Morrill | Frontend Developer</title>
         <meta name="description" content="Colton Morrill" />
         <link rel="icon" href="/favicon.ico" />
+
+        <meta property="og:title" content="Colton Morrill | Frontend Developer" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="/public/colton-anna.jpeg" />
+        <meta property="og:url" content="https://www.coltonmorrill.com" />
+
       </Head>
 
       <main className="flex justify-center items-center flex-col h-screen w-full relative">
@@ -130,7 +136,7 @@ function calcDate(date1,date2) {
           <p className='font-bold text-sm text-right text-gray-500'>.NET</p>
         </div>
 
-        <div className='w-full lg:w-1/3 h-96 ml-0 lg:ml-8 mt-16 lg:mt-0' data-scroll data-scroll-speed="1">
+        <div className='w-full lg:w-1/3 h-96 ml-0 lg:ml-8 mt-16 lg:mt-0' data-scroll data-scroll-speed="2">
           <a href="https://www.taga1.com/" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
             <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
             <video className='h-full w-full object-cover' muted autoPlay loop src='/taga.mp4' />
@@ -148,7 +154,7 @@ function calcDate(date1,date2) {
           <p className='font-bold mb-4'>Based in in Salt Lake City, Utah</p>
           <p className='font-bold mb-4'>I am married and have one elderly cat and two guinea pigs. In my free time I like to play piano, play video games, and make digital art.</p>
           <p className='font-bold mb-2'>I graduated from Brigham Young University - Idaho with a degree in Web Design and Developement with an emphasis on Design.</p>
-          <p className='font-bold mb-4 text-sm text-gray-500'>While in school I focused heavily on the fundamentals of creating applications for the web and alongside that I gained exceptional skills in graphic design. </p>
+          <p className='mb-4 text-sm text-gray-300'>While in school I focused heavily on the fundamentals of creating applications for the web and alongside that I gained exceptional skills in graphic design. </p>
         </div>
       </div>
       <div className='mt-8 mb-20 flex flex-col items-center'>
