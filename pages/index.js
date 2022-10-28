@@ -192,7 +192,7 @@ function calcDate(date1,date2) {
               <p className='font-bold text-sm text-gray-500'>XAML</p>
             </div>
           </div>
-          <a className='hover:text-blue-500 flex items-center font-bold transition rounded-2xl hover:bg-gray-900 p-3 w-full lg:w-1/3' href="https://coltonmorrill.vercel.app/" target='_blank' rel="noreferrer">
+          <a className='hover:text-blue-500 flex items-center font-bold transition rounded-2xl hover:bg-gray-900 p-3 w-full lg:w-1/3' href="https://vaporwave.coltonmorrill.com/" target='_blank' rel="noreferrer">
             <Image className='mr-8 rounded-lg' src='/vaporwave-01.svg' width={50} height={50} alt='Icon of the Vaporwave Demo Logo' />
             <div>
               Vaporwave 3D Demo
