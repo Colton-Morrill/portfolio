@@ -116,8 +116,8 @@ function calcDate(date1,date2) {
       <div className='flex justify-end mb-16 lg:mb-40 flex-col lg:flex-row'>
         <div className='w-full lg:w-1/3 h-96' data-scroll data-scroll-speed="1">
           <a href="https://tacksystems.com/" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
-            <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-20 hover:bg-opacity-0 transition'></div>
-            <video className='h-full w-full object-cover' muted autoPlay loop src='/tack.mp4' />
+            <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-40 hover:bg-opacity-0 transition'></div>
+            <video className='h-full w-full object-cover' muted autoPlay loop src='/tack-updated.mp4' />
           </a>
           <p className='font-bold text-lg text-right'>Tack Systems LLC</p>
           <p className='font-bold text-sm text-right text-gray-500'>.NET</p>
@@ -146,7 +146,7 @@ function calcDate(date1,date2) {
         <div className='w-full lg:w-1/3 h-96 ml-0 lg:ml-8 mt-16 lg:mt-0' data-scroll data-scroll-speed="2">
           <a href="https://www.taga1.com/" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
             <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
-            <video className='h-full w-full object-cover' muted autoPlay loop src='/taga.mp4' />
+            <video className='h-full w-full object-cover' muted autoPlay loop src='/taga-updated.mp4' />
           </a>
           <p className='font-bold text-lg text-right'>Tejas General American Agency</p>
           <p className='font-bold text-sm text-right text-gray-500'>Wordpress</p>
