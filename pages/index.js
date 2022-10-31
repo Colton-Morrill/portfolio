@@ -87,7 +87,7 @@ function calcDate(date1,date2) {
       <main className="flex justify-center items-center flex-col h-screen w-full relative mt-16 lg:-mt-16">
       
         <h1 className='text-8xl font-bold lg:-mr-8' data-scroll data-scroll-direction='horizontal' data-scroll-speed='2'>
-          I Get <span className="text-sky-500 font-black text-left">$H!T</span> Done
+          I <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-600 font-black text-left">Design</span>, I<span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-600 font-black text-left"> Code</span>, I Get It <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600 font-black text-left">Done</span>
         </h1>
         <div className='mt-20' data-scroll data-scroll-direction='horizontal' data-scroll-speed='-2'>
           <p className='font-semibold text-left lg:text-center text-2xl'>Hello, I am Colton Morrill, an experienced <span className='linear-wipe font-bold'>Frontend Developer</span> and <span className='linear-wipe font-bold'>Graphic Designer</span>.</p>
