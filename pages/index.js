@@ -84,7 +84,7 @@ function calcDate(date1,date2) {
       </Head>
       <Navbar />
       <div id='projects2' className='scroll-spacer'></div>
-      <main className="flex justify-center items-center flex-col h-screen w-full relative mt-16 lg:-mt-16 mb-52 lg:mb-0">
+      <main className="flex justify-center items-center flex-col h-screen w-full relative mt-40 lg:-mt-16 mb-52 lg:mb-0">
       
         <h1 className='text-8xl font-bold lg:-mr-8' data-scroll data-scroll-direction='horizontal' data-scroll-speed='2'>
           I <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-600 font-black text-left">Design</span>, I<span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-600 font-black text-left"> Code</span>, I Get It <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600 font-black text-left">Done</span>
