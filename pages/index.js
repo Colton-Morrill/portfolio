@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { Mail, ArrowDownCircle, ExternalLink } from 'lucide-react';
+import { Mail, ArrowDownCircle, ExternalLink, Linkedin, Github } from 'lucide-react';
 import { useEffect } from 'react';
 import Navbar from '../components/navbar';
 
@@ -249,6 +249,10 @@ function calcDate(date1,date2) {
       <div className='mt-8 mb-40 flex flex-col items-center' id="contact">
         <h3 className='text-4xl font-bold text-center mb-16'>Contact</h3>
         <a className='hover:text-blue-500 flex font-bold transition' href="mailto: cjmorrill@gmai.com"><Mail className='mr-4' /> cjmorrill@gmail.com</a>
+        <div className='flex items-center justify-center mt-6'>
+          <a className='hover:text-blue-500 flex font-bold transition' href="https://www.linkedin.com/in/colton-morrill-0b0aa4187/"  target='_blank' rel="noreferrer"><Linkedin className='mx-1' /></a>
+          <a className='hover:text-blue-500 flex font-bold transition' href="https://github.com/Colton-Morrill"  target='_blank' rel="noreferrer"><Github className='mx-1' /></a>
+        </div>
       </div>
 
       <footer className={styles.footer}>
