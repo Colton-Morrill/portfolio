@@ -9,7 +9,7 @@ export default function Home({ Component, pageProps }) {
   useEffect(() => {
 
     let today = new Date()
-    let past = new Date("04-01-2021")
+    let past = new Date("11-30-2022")
 
 function calcDate(date1,date2) {
     var diff = Math.floor(date1.getTime() - date2.getTime());
@@ -29,7 +29,7 @@ function calcDate(date1,date2) {
       year = 12;
       month = months - year;
     }
-    message += years + " yr " + month + " mo "
+    message += month + " mo "
 
     return message
     }
@@ -219,12 +219,20 @@ function calcDate(date1,date2) {
       <div className='mt-8 mb-20 flex flex-col items-center'>
         <h3 className='text-4xl font-bold text-center mb-20'>Experience</h3>
         <div>
+        <div className='flex items-center mb-10'>
+            <Image className='mr-8' src='/vibility-icon.png' width={50} height={50} alt='Icon of the Vibility Logo' />
+            <ul className='list-none'>
+              <li className='font-bold text-xl'>Frontend Developer</li>
+              <li className=''>Vibility | Full Time</li>
+              <li className=''>December 2022 - Present | <span id="current-job"></span></li>
+            </ul>
+          </div>
           <div className='flex items-center mb-10'>
             <Image className='mr-8' src='/tackicon.png' width={50} height={50} alt='Icon of the Tack Systems Logo' />
             <ul className='list-none'>
               <li className='font-bold text-xl'>Lead Web Designer</li>
               <li className=''>Tack Systems LLC | Full Time</li>
-              <li className=''>April 2021 - Present | <span id="current-job"></span></li>
+              <li className=''>April 2021 - November 2022 | 1 yr 7 mo</li>
             </ul>
           </div>
           <div className='flex items-center mb-10'>
