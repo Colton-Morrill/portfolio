@@ -86,7 +86,7 @@ function calcDate(date1,date2) {
       <div id='projects2' className='scroll-spacer'></div>
       <main className="flex justify-center items-center flex-col h-screen w-full relative mt-40 lg:-mt-16 mb-52 lg:mb-0">
       
-        <h1 className='text-9xl font-bold lg:-mr-8' data-scroll data-scroll-direction='horizontal' data-scroll-speed='2'>
+        <h1 className='text-9xl font-bold lg:-mr-14' data-scroll data-scroll-direction='horizontal' data-scroll-speed='2'>
           I<span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-600 font-black text-left"> $H!T</span> Done
         </h1>
         {/* <h1 className='text-8xl font-bold lg:-mr-8' data-scroll data-scroll-direction='horizontal' data-scroll-speed='2'>
