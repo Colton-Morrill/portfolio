@@ -209,7 +209,7 @@ function calcDate(date1,date2) {
         </div>
         <div className='m-10'>
           <p className='font-bold mb-4'>Based in <span className='linear-wipe font-bold'>Salt Lake City, Utah</span></p>
-          <p className='font-bold mb-4'>I am married and have one cat and two guinea pigs. In my free time I like to play piano, play video games, and make digital art.</p>
+          <p className='font-bold mb-4'>I am married and have one cat and one guinea pig. In my free time I like to play piano, play video games, and make digital art.</p>
           <p className='font-bold mb-2'>I graduated from Brigham Young University - Idaho with a degree in <span className='linear-wipe font-bold'>Web Design and Developement with an emphasis on Design</span>.</p>
           <p className='mb-4 text-sm text-gray-300'>While in school I focused heavily on the fundamentals of creating applications for the web alongside gaining exceptional skills in graphic design. </p>
         </div>
