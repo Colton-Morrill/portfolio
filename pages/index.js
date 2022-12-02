@@ -92,7 +92,7 @@ function calcDate(date1,date2) {
           <p className='font-semibold text-left lg:text-center text-2xl'>Hello, I am Colton Morrill, an experienced <span className='linear-wipe font-bold'>Frontend Developer</span> and <span className='linear-wipe font-bold'>Graphic Designer</span>.</p>
           <p className='font-semibold text-left lg:text-center text-2xl mt-16'>I specialize in React, Next.js, Flutter, and the .NET framework</p>
         </div>
-        <ArrowDownCircle className='hidden lg:block absolute bottom-8 lg:bottom-16 animate-bounce' />
+        <a href="#projects" className='hidden lg:block absolute bottom-8 lg:bottom-16 animate-bounce' data-scroll-to><ArrowDownCircle  /></a>
       </main>
       <div id='projects' className='scroll-spacer'></div>
       <div className='flex mb-16 lg:mb-40 flex-col lg:flex-row'>
