@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 import Navbar from '../components/navbar';
 import ProjectCard from '../components/ProjectCard';
 import ProjectCardSmall from '../components/ProjectCardSmall';
+import RainbowText from '../components/RainbowText';
+import ExperienceCard from '../components/ExperienceCard';
 
 export default function Home({ Component, pageProps }) {
   useEffect(() => {
@@ -39,7 +41,7 @@ export default function Home({ Component, pageProps }) {
 
     let a = calcDate(today, past)
 
-    document.getElementById("current-job").innerHTML = a;
+    // document.getElementById("current-job").innerHTML = a;
 
     document.getElementById("year").innerHTML = new Date().getFullYear();
     let scroll;
@@ -91,7 +93,7 @@ export default function Home({ Component, pageProps }) {
           I <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-600 font-black text-left">Design</span>, I<span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-600 font-black text-left"> Code</span>, I Get It <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-600 font-black text-left">Done</span>
         </h1>
         <div className='mt-20' data-scroll data-scroll-direction='horizontal' data-scroll-speed='-2'>
-          <p className='font-semibold text-left lg:text-center text-2xl'>Hello, I am Colton Morrill, an experienced <span className='linear-wipe font-bold'>Frontend Developer</span> and <span className='linear-wipe font-bold'>Graphic Designer</span>.</p>
+          <p className='font-semibold text-left lg:text-center text-2xl'>Hello, I am Colton Morrill, an experienced <RainbowText text="Frontend Developer" /> and <RainbowText text="Graphic Designer" />.</p>
           <p className='font-semibold text-left lg:text-center text-2xl mt-16'>I specialize in React, Next.js, Flutter, and the .NET framework</p>
         </div>
         <a href="#projects" className='hidden lg:block absolute bottom-8 lg:bottom-16 animate-bounce group' data-scroll-to><ArrowDownCircle className='group-hover:text-blue-500 group-hover:transition' /></a>
@@ -129,9 +131,9 @@ export default function Home({ Component, pageProps }) {
           <Image className='rounded-2xl' src="/colton-anna.jpeg" width={600} height={100} alt="Picture of Colton Morrill with his wife Anna, as they pose against a rocky wooded background" />
         </div>
         <div className='m-10'>
-          <p className='font-bold mb-4'>Based in <span className='linear-wipe font-bold'>Salt Lake City, Utah</span></p>
+          <p className='font-bold mb-4'>Based in <RainbowText text="Salt Lake City, Utah" /></p>
           <p className='font-bold mb-4'>I am married and have one cat and one guinea pig. In my free time I like to play piano, play video games, and make digital art.</p>
-          <p className='font-bold mb-2'>I graduated from Brigham Young University - Idaho with a degree in <span className='linear-wipe font-bold'>Web Design and Developement with an emphasis on Design</span>.</p>
+          <p className='font-bold mb-2'>I graduated from Brigham Young University - Idaho with a degree in <RainbowText text="Web Design and Developement with an emphasis on Design" />.</p>
           <p className='mb-4 text-sm text-gray-300'>While in school I focused heavily on the fundamentals of creating applications for the web alongside gaining exceptional skills in graphic design. </p>
         </div>
       </div>
@@ -139,38 +141,10 @@ export default function Home({ Component, pageProps }) {
       <div className='mt-8 mb-20 flex flex-col items-center'>
         <h3 className='text-4xl font-bold text-center mb-20'>Experience</h3>
         <div>
-          <div className='flex items-center mb-10'>
-            <Image className='mr-8' src='/vibility-icon.png' width={50} height={50} alt='Icon of the Vibility Logo' />
-            <ul className='list-none'>
-              <li className='font-bold text-xl'>Frontend Developer</li>
-              <li className=''>Vibility | Full Time</li>
-              <li className=''>December 2022 - Present | <span id="current-job"></span></li>
-            </ul>
-          </div>
-          <div className='flex items-center mb-10'>
-            <Image className='mr-8' src='/tackicon.png' width={50} height={50} alt='Icon of the Tack Systems Logo' />
-            <ul className='list-none'>
-              <li className='font-bold text-xl'>Lead Web Designer</li>
-              <li className=''>Tack Systems LLC | Full Time</li>
-              <li className=''>April 2021 - November 2022 | 1 yr 7 mo</li>
-            </ul>
-          </div>
-          <div className='flex items-center mb-10'>
-            <Image className='mr-8 rounded' src='/seo-rei.jpg' width={50} height={50} alt='CEO of SEO4REI' />
-            <ul className='list-none'>
-              <li className='font-bold text-xl'>Director of Web/UI/UX Design</li>
-              <li className=''>SEO For Real Estate Investors | Full Time</li>
-              <li className=''>November 2020 - April 2021 | 5 mo</li>
-            </ul>
-          </div>
-          <div className='flex items-center mb-10'>
-            <Image className='mr-8 rounded' src='/seo-rei.jpg' width={50} height={50} alt='CEO of SEO4REI' />
-            <ul className='list-none'>
-              <li className='font-bold text-xl'>Web Designer and SEO Support</li>
-              <li className=''>SEO For Real Estate Investors | Full Time</li>
-              <li className=''>June 2020 - November 2021 | 5 mo</li>
-            </ul>
-          </div>
+          <ExperienceCard ImagePath="/vibility-icon.png" ImageAlt="Icon of the Vibility Logo" JobPosition="Frontend Developer" Company="Vibility | Full Time" Duration="December 2022 - Present" />
+          <ExperienceCard ImagePath="/tackicon.png" ImageAlt="Icon of the Tack Systems Logo" JobPosition="Lead Web Designer" Company="Tack Systems LLC | Full Time" Duration="April 2021 - November 2022 | 1 yr 7 mo" />
+          <ExperienceCard ImagePath="/seo-rei.jpg" ImageAlt="CEO of SEO4REI" JobPosition="Director of Web/UI/UX Design" Company="SEO For Real Estate Investors | Full Time" Duration="November 2020 - April 2021 | 5 mo" />
+          <ExperienceCard ImagePath="/seo-rei.jpg" ImageAlt="CEO of SEO4REI" JobPosition="Web Designer and SEO Support" Company="SEO For Real Estate Investors | Full Time" Duration="June 2020 - November 2021 | 5 mo" />
         </div>
       </div>
 
