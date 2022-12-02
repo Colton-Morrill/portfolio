@@ -5,6 +5,7 @@ import { Mail, ArrowDownCircle, ExternalLink, Linkedin, Github } from 'lucide-re
 import { useEffect } from 'react';
 import Navbar from '../components/navbar';
 import ProjectCard from '../components/ProjectCard';
+import ProjectCardSmall from '../components/ProjectCardSmall';
 
 export default function Home({ Component, pageProps }) {
   useEffect(() => {
@@ -114,48 +115,12 @@ export default function Home({ Component, pageProps }) {
       <div className='mt-8 mb-40 flex flex-col items-center'>
         <h3 className='text-4xl font-bold text-center mb-16'>More Projects</h3>
         <div className='flex flex-col flex-wrap lg:flex-row justify-start lg:justify-center items-start lg:items-center ml-0 lg:ml-36'>
-          <div className='flex items-center font-bold transition rounded-2xl p-3 w-full lg:w-1/3' >
-            <Image className='mr-8' src='/tackicon.png' width={50} height={50} alt='Icon of the Tack Systems Logo' />
-            <div>
-              Tackify
-              <p className='font-bold text-sm text-gray-500'>.NET</p>
-            </div>
-          </div>
-          <div className='flex items-center font-bold transition rounded-2xl p-3 w-full lg:w-1/3'>
-            <Image className='mr-8' src='/tackicon.png' width={50} height={50} alt='Icon of the Tack Systems Logo' />
-            <div>
-              TackUI
-              <p className='font-bold text-sm text-gray-500'>.NET/SCSS</p>
-            </div>
-          </div>
-          <a className='relative hover:text-blue-500 flex items-center font-bold transition rounded-2xl hover:bg-gray-900 p-3 w-full lg:w-1/3' href="https://provider.tacksys.com/provider-match.aspx" target='_blank' rel="noreferrer">
-            <Image className='mr-8' src='/advisor-white.png' width={50} height={50} alt='Icon of the Vibility Logo' />
-            <div>
-              Vibility Advisor
-              <p className='font-bold text-sm text-gray-500 flex items-center'>.NET/SCSS <ExternalLink className="ml-2" size={12} /></p>
-            </div>
-          </a>
-          <a className='hover:text-blue-500 flex items-center font-bold transition rounded-2xl hover:bg-gray-900 p-3 w-full lg:w-1/3' href="https://play.google.com/store/apps/details?id=com.ctay.robal&hl=en_US&gl=US" target='_blank' rel="noreferrer">
-            <Image className='mr-8 object-fit' src='/robal.png' width={50} height={50} alt='Icon of the Robal Logo' />
-            <div>
-              Robal
-              <p className='font-bold text-sm text-gray-500 flex items-center'>.NET <ExternalLink className="ml-2" size={12} /></p>
-            </div>
-          </a>
-          <div className='flex items-center font-bold transition rounded-2xl p-3 w-full lg:w-1/3'>
-            <Image className='mr-8' src='/docs-logo.png' width={50} height={50} alt='Icon of the DOCS Logo' />
-            <div>
-              Document Imaging System
-              <p className='font-bold text-sm text-gray-500'>XAML</p>
-            </div>
-          </div>
-          <a className='hover:text-blue-500 flex items-center font-bold transition rounded-2xl hover:bg-gray-900 p-3 w-full lg:w-1/3' href="https://vaporwave.coltonmorrill.com/" target='_blank' rel="noreferrer">
-            <Image className='mr-8 rounded-lg' src='/vaporwave-01.svg' width={50} height={50} alt='Icon of the Vaporwave Demo Logo' />
-            <div>
-              Vaporwave 3D Demo
-              <p className='font-bold text-sm text-gray-500 flex items-center'>Threejs <ExternalLink className="ml-2" size={12} /></p>
-            </div>
-          </a>
+          <ProjectCardSmall ImagePath="/tackicon.png" ImageAlt="Icon of the Tack Systems Logo" ProjectName="Tackify" ProjectSoftware=".NET" />
+          <ProjectCardSmall ImagePath="/tackicon.png" ImageAlt="Icon of the Tack Systems Logo" ProjectName="TackUI" ProjectSoftware=".NET/SCSS" />
+          <ProjectCardSmall ImagePath="/advisor-white.png" ImageAlt="Icon of the Vibility Logo" ProjectName="Vibility Advisor" ProjectSoftware=".NET/SCSS" />
+          <ProjectCardSmall ProjectUrl="https://play.google.com/store/apps/details?id=com.ctay.robal&hl=en_US&gl=US" ImagePath="/robal.png" ImageAlt="Icon of the Robal Logo" ProjectName="Robal" ProjectSoftware=".NET" />
+          <ProjectCardSmall ImagePath="/docs-logo.png" ImageAlt="Icon of the DOCS Logo" ProjectName="Document Imaging System" ProjectSoftware="XAML" />
+          <ProjectCardSmall ProjectUrl="https://vaporwave.coltonmorrill.com/" ImagePath="/vaporwave-01.svg" ImageAlt="Icon of the DOCS Logo" ProjectName="Vaporwave 3D Demo" ProjectSoftware="Threejs" />
         </div>
       </div>
       <div id='about-me' className='scroll-spacer'></div>
