@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Mail, ArrowDownCircle, Linkedin, Github } from 'lucide-react';
 import { useEffect } from 'react';
-import Navbar from '../components/navbar';
+import Navbar from '../components/NavBar';
 import ProjectCard from '../components/ProjectCard';
 import ProjectCardSmall from '../components/ProjectCardSmall';
 import RainbowText from '../components/RainbowText';
