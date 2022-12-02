@@ -8,7 +8,7 @@ const ExperienceCard = (props) => {
             <ul className='list-none'>
                 <li className='font-bold text-xl'>{props.JobPosition}</li>
                 <li className=''>{props.Company}</li>
-                <li className=''>{props.Duration}</li>
+                <li className=''>{props.Duration} <span id="current-job"></span></li>
             </ul>
         </div>
     )

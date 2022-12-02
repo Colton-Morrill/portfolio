@@ -33,7 +33,7 @@ export default function Home() {
         year = 12;
         month = months - year;
       }
-      message += month + " mo "
+      message += " | " + month + " mo "
 
       return message
     }
@@ -41,7 +41,7 @@ export default function Home() {
 
     let a = calcDate(today, past)
 
-    // document.getElementById("current-job").innerHTML = a;
+    document.getElementById("current-job").innerHTML = a;
 
     document.getElementById("year").innerHTML = new Date().getFullYear();
     let scroll;
