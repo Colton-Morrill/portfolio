@@ -34,8 +34,8 @@ const Navbar = () => {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <a href='#projects2' data-scroll-to>
-                  <img className='block h-8 w-auto lg:hidden' src='/cm-logo-01.svg' alt="Promotional Image of the Little Patriots mobile application" />
-                  <img className='hidden h-8 w-auto lg:block' src='/cm-logo-01.svg' alt="Promotional Image of the Little Patriots mobile application" />
+                  <img className='block h-8 w-auto lg:hidden' src='/cm-logo-01.svg' alt="The Colton Morrill Logo" />
+                  <img className='hidden h-8 w-auto lg:block' src='/cm-logo-01.svg' alt="The Colton Morrill Logo" />
                 </a>
                 <div className="hidden sm:block ml-auto">
                   <div className="flex space-x-4">
