@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { Mail, ArrowDownCircle, ExternalLink, Linkedin, Github } from 'lucide-react';
+import { Mail, ArrowDownCircle, Linkedin, Github } from 'lucide-react';
 import { useEffect } from 'react';
 import Navbar from '../components/navbar';
 import ProjectCard from '../components/ProjectCard';
@@ -9,7 +9,7 @@ import ProjectCardSmall from '../components/ProjectCardSmall';
 import RainbowText from '../components/RainbowText';
 import ExperienceCard from '../components/ExperienceCard';
 
-export default function Home({ Component, pageProps }) {
+export default function Home() {
   useEffect(() => {
 
     let today = new Date()
