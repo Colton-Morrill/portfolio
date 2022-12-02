@@ -92,7 +92,7 @@ function calcDate(date1,date2) {
           <p className='font-semibold text-left lg:text-center text-2xl'>Hello, I am Colton Morrill, an experienced <span className='linear-wipe font-bold'>Frontend Developer</span> and <span className='linear-wipe font-bold'>Graphic Designer</span>.</p>
           <p className='font-semibold text-left lg:text-center text-2xl mt-16'>I specialize in React, Next.js, Flutter, and the .NET framework</p>
         </div>
-        <a href="#projects" className='hidden lg:block absolute bottom-8 lg:bottom-16 animate-bounce' data-scroll-to><ArrowDownCircle  /></a>
+        <a href="#projects" className='hidden lg:block absolute bottom-8 lg:bottom-16 animate-bounce group' data-scroll-to><ArrowDownCircle className='group-hover:text-blue-500 group-hover:transition' /></a>
       </main>
       <div id='projects' className='scroll-spacer'></div>
       <div className='flex mb-16 lg:mb-40 flex-col lg:flex-row'>
@@ -266,7 +266,7 @@ function calcDate(date1,date2) {
         <div>
         <p className='text-center'>© <span id='year'></span> Colton Morrill</p>
         <br />
-        <p className='text-center text-sm text-gray-500'>Built with Next.js and Tailwind</p>
+        <p className='text-center text-sm text-gray-500'>Built with <a className='inline-block text-blue-500 hover:text-blue-300 transition' href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a> and <a className='inline-block text-blue-500 hover:text-blue-300 transition' href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a></p>
         </div>
       </footer>
     </div>
