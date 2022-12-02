@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import { Mail, ArrowDownCircle, ExternalLink, Linkedin, Github } from 'lucide-react';
 import { useEffect } from 'react';
 import Navbar from '../components/navbar';
+import ProjectCard from '../components/ProjectCard';
 
 export default function Home({ Component, pageProps }) {
   useEffect(() => {
@@ -11,31 +12,31 @@ export default function Home({ Component, pageProps }) {
     let today = new Date()
     let past = new Date("11-30-2022")
 
-function calcDate(date1,date2) {
-    var diff = Math.floor(date1.getTime() - date2.getTime());
-    var day = 1000 * 60 * 60 * 24;
+    function calcDate(date1, date2) {
+      var diff = Math.floor(date1.getTime() - date2.getTime());
+      var day = 1000 * 60 * 60 * 24;
 
-    var days = Math.floor(diff/day);
-    var months = Math.floor(days/31);
-    var years = Math.floor(months/12);
+      var days = Math.floor(diff / day);
+      var months = Math.floor(days / 31);
+      var years = Math.floor(months / 12);
 
-    var message = "";
-  
+      var message = "";
 
-    var year = 0;
-    var month = 0;
 
-    if (years === 1) {
-      year = 12;
-      month = months - year;
+      var year = 0;
+      var month = 0;
+
+      if (years === 1) {
+        year = 12;
+        month = months - year;
+      }
+      message += month + " mo "
+
+      return message
     }
-    message += month + " mo "
-
-    return message
-    }
 
 
-    let a = calcDate(today,past)
+    let a = calcDate(today, past)
 
     document.getElementById("current-job").innerHTML = a;
 
@@ -96,63 +97,18 @@ function calcDate(date1,date2) {
       </main>
       <div id='projects' className='scroll-spacer'></div>
       <div className='flex mb-16 lg:mb-40 flex-col lg:flex-row'>
-        <div className='w-full lg:w-1/3 h-96'>
-          <a href="https://profile.presssportsapp.com/media/PressSportsOfficial" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
-            <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
-            <video className='h-full w-full object-cover' muted autoPlay loop src='/Press-Sports-Background.mp4' />
-          </a>
-          <p className='font-bold text-lg text-right items-center'>Press Sports</p>
-          <p className='font-bold text-sm text-gray-500 text-right'>Next.Js</p>
-        </div>
-
-        <div className='w-full lg:w-1/3 h-96 ml-0 lg:ml-8 mt-16 lg:mt-0' data-scroll data-scroll-speed="2">
-          <a href="https://sicoustics.com/" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
-            <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
-            <video className='h-full w-full object-cover' muted autoPlay loop src='/sicoustics-video.mp4' />
-          </a>
-          <p className='font-bold text-lg text-right'>SiCoustics</p>
-          <p className='font-bold text-sm text-right text-gray-500'>Wordpress</p>
-        </div>
+        <ProjectCard UrlPath="https://profile.presssportsapp.com/media/PressSportsOfficial" ImagePath="/Press-Sports-Background.mp4" ProjectTitle="Press Sports" ProjectSoftware="Next.Js" />
+        <ProjectCard UrlPath="https://sicoustics.com/" ImagePath="/sicoustics-video.mp4" ProjectTitle="SiCoustics" ProjectSoftware="Wordpress" Scroll="2" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
       </div>
 
       <div className='flex justify-end mb-16 lg:mb-40 flex-col lg:flex-row'>
-        <div className='w-full lg:w-1/3 h-96' data-scroll data-scroll-speed="1">
-          <a href="https://tacksystems.com/" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
-            <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-40 hover:bg-opacity-0 transition'></div>
-            <video className='h-full w-full object-cover' muted autoPlay loop src='/tack-updated.mp4' />
-          </a>
-          <p className='font-bold text-lg text-right'>Tack Systems LLC</p>
-          <p className='font-bold text-sm text-right text-gray-500'>.NET</p>
-        </div>
-
-        <div className='w-full lg:w-1/3 h-96 ml-0 lg:ml-8 mt-16 lg:mt-0'>
-          <a href="https://play.google.com/store/apps/details?id=com.tacksystems.littlepatriots&hl=en_US&gl=US" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
-            <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-30 hover:bg-opacity-0 transition'></div>
-            <Image className='object-cover' src='/loginmockup-01.svg' fill sizes='100%' alt="Promotional Image of the Little Patriots mobile application" />
-          </a>
-          <p className='font-bold text-lg text-right'>Little Patriots</p>
-          <p className='font-bold text-sm text-right text-gray-500'>Google Flutter</p>
-        </div>
+        <ProjectCard UrlPath="https://tacksystems.com/" ImagePath="/tack-updated.mp4" ProjectTitle="Tack Systems LLC" ProjectSoftware=".NET" Scroll="1" />
+        <ProjectCard UrlPath="https://play.google.com/store/apps/details?id=com.tacksystems.littlepatriots&hl=en_US&gl=US" ImagePath="/loginmockup-01.svg" ImageAlt="Promotional Image of the Little Patriots mobile application" ProjectTitle="Little Patriots" ProjectSoftware="Google Flutter" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
       </div>
 
       <div className='flex mb-36 lg:mb-40 flex-col lg:flex-row'>
-        <div className='w-full lg:w-1/3 h-96'>
-          <a href="https://vibility.com/" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
-            <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
-            <Image className='object-cover' src='/vibility.png' fill sizes='100%' alt="Screenshot of the Vibility websites homepage" />
-          </a>
-          <p className='font-bold text-lg text-right'>Vibility LMS</p>
-          <p className='font-bold text-sm text-right text-gray-500'>.NET</p>
-        </div>
-
-        <div className='w-full lg:w-1/3 h-96 ml-0 lg:ml-8 mt-16 lg:mt-0' data-scroll data-scroll-speed="2">
-          <a href="https://cleanrcans.com/" target='_blank' rel="noreferrer" className='relative w-full h-full block'>
-            <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
-            <video className='h-full w-full object-cover' muted autoPlay loop src='/cleanrcans.mp4' />
-          </a>
-          <p className='font-bold text-lg text-right'>CleanRCans</p>
-          <p className='font-bold text-sm text-right text-gray-500'>Wordpress</p>
-        </div>
+        <ProjectCard UrlPath="https://vibility.com/" ImagePath="/vibility.png" ProjectTitle="Vibility LMS" ProjectSoftware=".NET" ImageAlt="Screenshot of the Vibility websites homepage" />
+        <ProjectCard UrlPath="https://cleanrcans.com/" ImagePath="/cleanrcans.mp4" ProjectTitle="CleanRCans" ProjectSoftware="Wordpress" Scroll="2" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
       </div>
 
       <div className='mt-8 mb-40 flex flex-col items-center'>
@@ -218,7 +174,7 @@ function calcDate(date1,date2) {
       <div className='mt-8 mb-20 flex flex-col items-center'>
         <h3 className='text-4xl font-bold text-center mb-20'>Experience</h3>
         <div>
-        <div className='flex items-center mb-10'>
+          <div className='flex items-center mb-10'>
             <Image className='mr-8' src='/vibility-icon.png' width={50} height={50} alt='Icon of the Vibility Logo' />
             <ul className='list-none'>
               <li className='font-bold text-xl'>Frontend Developer</li>
@@ -257,16 +213,16 @@ function calcDate(date1,date2) {
         <h3 className='text-4xl font-bold text-center mb-16'>Contact</h3>
         <a className='hover:text-blue-500 flex font-bold transition' href="mailto: cjmorrill@gmai.com"><Mail className='mr-4' /> cjmorrill@gmail.com</a>
         <div className='flex items-center justify-center mt-6'>
-          <a className='hover:text-blue-500 flex font-bold transition' href="https://www.linkedin.com/in/colton-morrill-0b0aa4187/"  target='_blank' rel="noreferrer"><Linkedin className='mx-1' /></a>
-          <a className='hover:text-blue-500 flex font-bold transition' href="https://github.com/Colton-Morrill"  target='_blank' rel="noreferrer"><Github className='mx-1' /></a>
+          <a className='hover:text-blue-500 flex font-bold transition' href="https://www.linkedin.com/in/colton-morrill-0b0aa4187/" target='_blank' rel="noreferrer"><Linkedin className='mx-1' /></a>
+          <a className='hover:text-blue-500 flex font-bold transition' href="https://github.com/Colton-Morrill" target='_blank' rel="noreferrer"><Github className='mx-1' /></a>
         </div>
       </div>
 
       <footer className={styles.footer}>
         <div>
-        <p className='text-center'>© <span id='year'></span> Colton Morrill</p>
-        <br />
-        <p className='text-center text-sm text-gray-500'>Built with <a className='inline-block text-blue-500 hover:text-blue-300 transition' href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a> and <a className='inline-block text-blue-500 hover:text-blue-300 transition' href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a></p>
+          <p className='text-center'>© <span id='year'></span> Colton Morrill</p>
+          <br />
+          <p className='text-center text-sm text-gray-500'>Built with <a className='inline-block text-blue-500 hover:text-blue-300 transition' href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a> and <a className='inline-block text-blue-500 hover:text-blue-300 transition' href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a></p>
         </div>
       </footer>
     </div>
