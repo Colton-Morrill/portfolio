@@ -8,6 +8,7 @@ import ProjectCard from '../components/ProjectCard';
 import ProjectCardSmall from '../components/ProjectCardSmall';
 import RainbowText from '../components/RainbowText';
 import ExperienceCard from '../components/ExperienceCard';
+import Footer from '../components/Footer';
 
 export default function Home() {
   useEffect(() => {
@@ -156,14 +157,7 @@ export default function Home() {
           <a className='hover:text-blue-500 flex font-bold transition' href="https://github.com/Colton-Morrill" target='_blank' rel="noreferrer"><Github className='mx-1' /></a>
         </div>
       </div>
-
-      <footer className={styles.footer}>
-        <div>
-          <p className='text-center'>© <span id='year'></span> Colton Morrill</p>
-          <br />
-          <p className='text-center text-sm text-gray-500'>Built with <a className='inline-block text-blue-500 hover:text-blue-300 transition' href="https://nextjs.org/" target="_blank" rel="noreferrer">Next.js</a> and <a className='inline-block text-blue-500 hover:text-blue-300 transition' href="https://tailwindcss.com/" target="_blank" rel="noreferrer">Tailwind</a></p>
-        </div>
-      </footer>
+    <Footer />
     </div>
   )
 }
