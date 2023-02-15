@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
 
     let today = new Date()
-    let past = new Date("11-30-2022")
+    let past = new Date("12-1-2022")
 
     function calcDate(date1, date2) {
       var diff = Math.floor(date1.getTime() - date2.getTime());
@@ -26,15 +26,27 @@ export default function Home() {
 
       var message = "";
 
-
+      var fullYear = 0;
       var year = 0;
       var month = 0;
 
-      if (years === 1) {
-        year = 12;
-        month = months - year;
+      console.log(months);
+      if (years >= 1) {
+        fullYear = 12 * years;
+        year = years + " yr ";
+        var monthCalc = months - fullYear;
+        month = monthCalc + " mo ";
       }
-      message += " | " + month + " mo "
+      else if (month < 1 && year < 1) {
+        message += ""
+      }
+      else {
+        year = "";
+        month = months + " mo ";
+      } 
+      else {
+        message += " | " + year + month;
+      }
 
       return message
     }
@@ -95,7 +107,7 @@ export default function Home() {
         </h1>
         <div className='mt-20' data-scroll data-scroll-direction='horizontal' data-scroll-speed='-2'>
           <p className='font-semibold text-left lg:text-center text-2xl'>Hello, I am Colton Morrill, an experienced <RainbowText text="Frontend Developer" /> and <RainbowText text="Graphic Designer" />.</p>
-          <p className='font-semibold text-left lg:text-center text-2xl mt-16'>I specialize in React, Next.js, Flutter, and the .NET framework</p>
+          <p className='font-semibold text-left lg:text-center text-2xl mt-16'>I specialize in React, Next.js, React Native, and the .NET framework</p>
         </div>
         <a href="#projects" className='hidden lg:block absolute bottom-8 lg:bottom-16 animate-bounce group' data-scroll-to><ArrowDownCircle className='group-hover:text-blue-500 group-hover:transition' /></a>
       </main>
