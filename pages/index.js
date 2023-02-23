@@ -31,30 +31,12 @@ export default function Home() {
       var month = 0;
 
       console.log(months);
-      if (years >= 1) {
-        fullYear = 12 * years;
-        year = years + " yr ";
-        var monthCalc = months - fullYear;
-        month = monthCalc + " mo ";
-      }
-      else if (month < 1 && year < 1) {
-        message += ""
-      }
-      else {
-        year = "";
-        month = months + " mo ";
-      } 
-      else {
-        message += " | " + year + month;
-      }
-
-      return message
     }
 
 
-    let a = calcDate(today, past)
+    // let a = calcDate(today, past)
 
-    document.getElementById("current-job").innerHTML = a;
+    // document.getElementById("current-job").innerHTML = a;
 
     document.getElementById("year").innerHTML = new Date().getFullYear();
     let scroll;
