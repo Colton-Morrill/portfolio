@@ -13,7 +13,7 @@ const ProjectCard = (props) => {
     return (
         <div className={`w-full lg:w-1/3 h-96 ${props.Spacer}`} data-scroll data-scroll-speed={props.Scroll}>
             <a href={props.UrlPath} target='_blank' rel="noreferrer" className='relative w-full h-full block'>
-                <div className='absolute bg-cyan-900 h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
+                <div className='absolute h-full w-full z-10 bg-opacity-60 hover:bg-opacity-0 transition'></div>
                 {isVideo &&
                 <video className='h-full w-full object-cover' muted autoPlay loop src={props.ImagePath} />
                 }
