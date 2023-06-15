@@ -106,7 +106,7 @@ export default function Home() {
 
       <div className='flex mb-36 lg:mb-40 flex-col lg:flex-row'>
         <ProjectCard UrlPath="https://vibility.com/" ImagePath="/vibility.png" ProjectTitle="Vibility LMS" ProjectSoftware=".NET" ImageAlt="Screenshot of the Vibility websites homepage" />
-        <ProjectCard UrlPath="https://cleanrcans.com/" ImagePath="/cleanrcans.mp4" ProjectTitle="CleanRCans" ProjectSoftware="Wordpress" Scroll="2" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
+        <ProjectCard UrlPath="https://vaporwave.coltonmorrill.com/" ImagePath="/vapor.mp4" ProjectTitle="Vaporwave 3D" ProjectSoftware="Three.js" Scroll="2" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
       </div>
 
       <div className='mt-8 mb-40 flex flex-col items-center'>
@@ -117,7 +117,7 @@ export default function Home() {
           <ProjectCardSmall ProjectUrl="https://play.google.com/store/apps/details?id=com.tacksystems.littlepatriots&hl=en_US&gl=US" ImagePath="/little-pat.png" ImageAlt="Icon of the Tack Systems Logo" ProjectName="Little Patriots" ProjectSoftware="Google Flutter" />
           <ProjectCardSmall ProjectUrl="https://play.google.com/store/apps/details?id=com.ctay.robal&hl=en_US&gl=US" ImagePath="/robal.png" ImageAlt="Icon of the Robal Logo" ProjectName="Robal" ProjectSoftware=".NET" />
           <ProjectCardSmall ImagePath="/docs-logo.png" ImageAlt="Icon of the DOCS Logo" ProjectName="Document Imaging System" ProjectSoftware="XAML" />
-          <ProjectCardSmall ProjectUrl="https://vaporwave.coltonmorrill.com/" ImagePath="/vaporwave-01.svg" ImageAlt="Icon of the DOCS Logo" ProjectName="Vaporwave 3D Demo" ProjectSoftware="Threejs" />
+          <ProjectCardSmall ProjectUrl="https://cleanrcans.com/" ImagePath="/cleanrcans.jpg" ImageAlt="Icon of the DOCS Logo" ProjectName="CleanRCans" ProjectSoftware="Wordpress" />
         </div>
       </div>
       <div id='about-me' className='scroll-spacer'></div>
