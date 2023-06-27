@@ -136,7 +136,7 @@ export default function Home() {
       <div className='mt-8 mb-20 flex flex-col items-center'>
         <h3 className='text-4xl font-bold text-center mb-20'>Experience</h3>
         <div>
-          <ExperienceCard ImagePath="/icon.png" ImageAlt="Icon of the Vibility Logo" JobPosition="Frontend Developer" Company="Vibility | Full Time" Duration="December 2022 - Present" />
+          <ExperienceCard ImagePath="/icon.png" ImageAlt="Icon of the Vibility Logo" JobPosition="Frontend Developer" Company="Vibility | Full Time" Duration="November 2022 - July 2023 | 8 mo" />
           <ExperienceCard ImagePath="/tackicon.png" ImageAlt="Icon of the Tack Systems Logo" JobPosition="Lead Web Designer" Company="Tack Systems LLC | Full Time" Duration="April 2021 - November 2022 | 1 yr 7 mo" />
           <ExperienceCard ImagePath="/seo-rei.jpg" ImageAlt="CEO of SEO4REI" JobPosition="Director of Web/UI/UX Design" Company="SEO For Real Estate Investors | Full Time" Duration="November 2020 - April 2021 | 5 mo" />
           <ExperienceCard ImagePath="/seo-rei.jpg" ImageAlt="CEO of SEO4REI" JobPosition="Web Designer and SEO Support" Company="SEO For Real Estate Investors | Full Time" Duration="June 2020 - November 2021 | 5 mo" />
