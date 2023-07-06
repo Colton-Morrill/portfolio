@@ -100,7 +100,7 @@ export default function Home() {
       </div>
 
       <div className='flex justify-end mb-16 lg:mb-40 flex-col lg:flex-row'>
-        <ProjectCard UrlPath="https://portal.aptogenix.com/Account/Login?ReturnUrl=%2F" ImagePath="/apto.mp4" ProjectTitle="AptoGenix" ProjectSoftware=".NET" Scroll="1" />
+        <ProjectCard UrlPath="https://shop.aptogenix.com" ImagePath="/apto.mp4" ProjectTitle="AptoGenix" ProjectSoftware=".NET" Scroll="1" />
         <ProjectCard UrlPath="#" ImagePath="/mwc.png" ImageAlt="Promotional Image of the My Wellness Curriculum mobile application" ProjectTitle="My Wellness Curriculum" ProjectSoftware="React Native" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
       </div>
 
