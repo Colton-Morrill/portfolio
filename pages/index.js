@@ -34,6 +34,7 @@ export default function Home() {
     }
 
 
+
     // let a = calcDate(today, past)
 
     // document.getElementById("current-job").innerHTML = a;
@@ -61,6 +62,104 @@ export default function Home() {
       if (scroll) scroll.destroy();
     }
   });
+
+  const projects = [
+    {
+      press: [
+        {
+          image: '/press-1-01.png',
+          code: 'press',
+        },
+        {
+          image: '/press-2-01.png',
+          code: 'press',
+        },
+        {
+          image: '/press-3-01.png',
+          code: 'press',
+        },
+      ],
+      sic: [
+        {
+          image: '/sic-1-01.png',
+          code: 'sic',
+        },
+        {
+          image: '/sic-3-01.png',
+          code: 'sic',
+        },
+        {
+          image: '/sic-2-01.png',
+          code: 'sic',
+        },
+      ],
+      apto: [
+        {
+          image: '/apto-1-01.png',
+          code: 'apto',
+        },
+        {
+          image: '/apto-2-01.png',
+          code: 'apto',
+        },
+      ],
+      mwc: [
+        {
+          image: '/mwc-1-01.png',
+          code: 'mwc',
+        },
+        
+        {
+          image: '/mwc-2-01.png',
+          code: 'mwc',
+        },
+        
+        {
+          image: '/mwc-3-01.png',
+          code: 'mwc',
+        },
+        
+        {
+          image: '/mwc-4-01.png',
+          code: 'mwc',
+        },
+      ],
+      vib: [
+        {
+          image: '/vib-1-01.png',
+          code: 'vibility',
+        },
+        
+        {
+          image: '/vib-2-01.png',
+          code: 'vibility',
+        },
+        
+        {
+          image: '/vib-3-01.png',
+          code: 'vibility',
+        },
+      ],
+      clean: [
+        {
+          image: '/clean-1-01.png',
+          code: 'clean',
+        },
+        
+        {
+          image: '/clean-2-01.png',
+          code: 'clean',
+        },
+        
+        {
+          image: '/clean-3-01.png',
+          code: 'clean',
+        },
+      ],
+    },
+     
+    // More questions...
+  ]
   return (
     <div className={styles.container} data-scroll-container id='scroll-container'>
       <Head>
@@ -95,18 +194,18 @@ export default function Home() {
       </main>
       <div id='projects' className='scroll-spacer'></div>
       <div className='flex mb-16 lg:mb-40 flex-col lg:flex-row'>
-        <ProjectCard UrlPath="https://profile.presssportsapp.com/media/PressSportsOfficial" ImagePath="/Press-Sports-Background.mp4" ProjectTitle="Press Sports" ProjectSoftware="Next.Js" />
-        <ProjectCard UrlPath="https://sicoustics.com/" ImagePath="/sicoustics-video.mp4" ProjectTitle="SiCoustics" ProjectSoftware="Wordpress" Scroll="2" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
+        <ProjectCard UrlPath="https://profile.presssportsapp.com/media/PressSportsOfficial" className="bg-gradient-to-r from-cyan-800 to-sky-300" ImagePath={projects[0].press} ProjectTitle="Press Sports" ProjectSoftware="Next.Js" />
+        <ProjectCard UrlPath="https://sicoustics.com/" className="bg-gradient-to-r from-blue-500 to-blue-900" ImagePath={projects[0].sic}  ProjectTitle="SiCoustics" ProjectSoftware="Wordpress" Scroll="2" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
       </div>
 
       <div className='flex justify-end mb-16 lg:mb-40 flex-col lg:flex-row'>
-        <ProjectCard UrlPath="https://shop.aptogenix.com" ImagePath="/apto.mp4" ProjectTitle="AptoGenix" ProjectSoftware=".NET" Scroll="1" />
-        <ProjectCard UrlPath="#" ImagePath="/mwc.png" ImageAlt="Promotional Image of the My Wellness Curriculum mobile application" ProjectTitle="My Wellness Curriculum" ProjectSoftware="React Native" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
+        <ProjectCard UrlPath="https://shop.aptogenix.com" className="bg-gradient-to-r from-teal-900 to-teal-200"  ImagePath={projects[0].apto} ProjectTitle="AptoGenix" ProjectSoftware=".NET" Scroll="1" />
+        <ProjectCard UrlPath="#" className="bg-gradient-to-r from-green-300 to-lime-100" ImagePath={projects[0].mwc} ImageAlt="Promotional Image of the My Wellness Curriculum mobile application" ProjectTitle="My Wellness Curriculum" ProjectSoftware="React Native" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
       </div>
 
       <div className='flex mb-36 lg:mb-40 flex-col lg:flex-row'>
-        <ProjectCard UrlPath="https://vibility.com/" ImagePath="/vibility.png" ProjectTitle="Vibility LMS" ProjectSoftware=".NET" ImageAlt="Screenshot of the Vibility websites homepage" />
-        <ProjectCard UrlPath="https://vaporwave.coltonmorrill.com/" ImagePath="/vapor.mp4" ProjectTitle="Vaporwave 3D" ProjectSoftware="Three.js" Scroll="2" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
+        <ProjectCard className="bg-gradient-to-r from-indigo-600 to-violet-800" UrlPath="https://vibility.com/" ImagePath={projects[0].vib} ProjectTitle="Vibility LMS" ProjectSoftware=".NET" ImageAlt="Screenshot of the Vibility websites homepage" />
+        <ProjectCard className="bg-gradient-to-r from-cyan-200 to-blue-500" UrlPath="https://cleanrcans.com/" ImagePath={projects[0].clean} ProjectTitle="CleanRCans" ProjectSoftware="Wordpress" Scroll="2" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
       </div>
 
       <div className='mt-8 mb-40 flex flex-col items-center'>
@@ -117,7 +216,7 @@ export default function Home() {
           <ProjectCardSmall ProjectUrl="https://play.google.com/store/apps/details?id=com.tacksystems.littlepatriots&hl=en_US&gl=US" ImagePath="/little-pat.png" ImageAlt="Icon of the Tack Systems Logo" ProjectName="Little Patriots" ProjectSoftware="Google Flutter" />
           <ProjectCardSmall ProjectUrl="https://play.google.com/store/apps/details?id=com.ctay.robal&hl=en_US&gl=US" ImagePath="/robal.png" ImageAlt="Icon of the Robal Logo" ProjectName="Robal" ProjectSoftware=".NET" />
           <ProjectCardSmall ImagePath="/docs-logo.png" ImageAlt="Icon of the DOCS Logo" ProjectName="Document Imaging System" ProjectSoftware="XAML" />
-          <ProjectCardSmall ProjectUrl="https://cleanrcans.com/" ImagePath="/cleanrcans.jpg" ImageAlt="Icon of the DOCS Logo" ProjectName="CleanRCans" ProjectSoftware="Wordpress" />
+          <ProjectCardSmall ProjectUrl="https://vaporwave.coltonmorrill.com/" ImagePath="/vaporwave-01.svg" ImageAlt="Icon of the Vaporwave Logo" ProjectName="Vaporwave 3D" ProjectSoftware="Three.js" />
         </div>
       </div>
       <div id='about-me' className='scroll-spacer'></div>
