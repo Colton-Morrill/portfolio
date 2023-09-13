@@ -84,7 +84,7 @@ const ProjectCard = (props) => {
                             }
                         }
                         return (
-                            <Image key={i} className={'scale-125 xl:scale-100 absolute w-full rounded transition duration-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ' + animateRule + " " + delay} src={image.image} width={0} height={0} sizes='100%' alt={image.image} />
+                            <Image key={i} className={'scale-150 xl:scale-100 absolute w-full rounded transition duration-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ' + animateRule + " " + delay} src={image.image} width={0} height={0} sizes='100%' alt={image.image} />
                         )
                     })}
                 </div>
