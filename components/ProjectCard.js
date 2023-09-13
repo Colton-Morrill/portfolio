@@ -14,12 +14,15 @@ const ProjectCard = (props) => {
                         if (image.code === 'mwc') {
                             animateRule = "group-hover:-translate-y-1/3";
                             if (i === 0) {
-                                delay = "delay-50";
+                                delay = "delay-0";
                             }
                             else if (i === 1) {
-                                delay = "delay-100";
+                                delay = "delay-50";
                             }
                             else if (i === 2) {
+                                delay = "delay-100";
+                            }
+                            else if (i === 3) {
                                 delay = "delay-300";
                             }
                             else {
@@ -28,6 +31,9 @@ const ProjectCard = (props) => {
                         }
                         else if (image.code === 'apto') {
                             if (i === 0) {
+                                animateRule = "group-hover:-translate-y-1/4";
+                            }
+                            else if (i === 1) {
                                 animateRule = "group-hover:-translate-y-1/4";
                             }
                             else {
@@ -39,37 +45,46 @@ const ProjectCard = (props) => {
                                 animateRule = "group-hover:-translate-y-2/3";
                             }
                             else if (i === 1) {
-                                animateRule = "group-hover:-translate-y-1/4";
+                                animateRule = "group-hover:-translate-y-2/3";
                             }
                             else if (i === 2) {
+                                animateRule = "group-hover:-translate-y-1/4";
+                            }
+                            else {
+                                
                                 animateRule = "group-hover:-translate-y-3/4";
                             }
                         }
                         else if (image.code === 'clean') {
                             if (i === 0) {
-                                animateRule = "group-hover:-translate-y-2/3";
+                                animateRule = "group-hover:-translate-y-1/3";
                             }
                             else if (i === 1) {
                                 animateRule = "group-hover:-translate-y-2/3";
                             }
                             else if (i === 2) {
+                                animateRule = "group-hover:-translate-y-2/3";
+                            }
+                            else {
                                 animateRule = "group-hover:-translate-y-1/3";
                             }
                         }
                         else {
                             if (i === 0) {
-                                animateRule = "group-hover:-translate-y-1/3";
+                                animateRule = "group-hover:-translate-y-2/3";
                             }
                             else if (i === 1) {
-                                animateRule = "group-hover:-translate-x-1/3";
+                                animateRule = "group-hover:-translate-y-1/3";
                             }
                             else if (i === 2) {
+                                animateRule = "group-hover:-translate-x-1/3";
+                            }
+                            else  {
                                 animateRule = "group-hover:-translate-x-2/3";
                             }
                         }
                         return (
-                            
-                            <Image key={i} className={'absolute w-full rounded transition duration-500 top-1/2 left-1/2  -translate-x-1/2 -translate-y-1/2 ' + animateRule + " " + delay} src={image.image} width={0} height={0} sizes='100%' alt={image.image} />
+                            <Image key={i} className={'scale-125 xl:scale-100 absolute w-full rounded transition duration-500 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ' + animateRule + " " + delay} src={image.image} width={0} height={0} sizes='100%' alt={image.image} />
                         )
                     })}
                 </div>

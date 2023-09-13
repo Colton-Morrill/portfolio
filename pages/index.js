@@ -67,6 +67,10 @@ export default function Home() {
     {
       press: [
         {
+          image: '/backdrop-01.png',
+          code: 'press',
+        },
+        {
           image: '/press-1-01.png',
           code: 'press',
         },
@@ -80,6 +84,10 @@ export default function Home() {
         },
       ],
       sic: [
+        {
+          image: '/backdrop-flipped-01.png',
+          code: 'press',
+        },
         {
           image: '/sic-1-01.png',
           code: 'sic',
@@ -95,6 +103,10 @@ export default function Home() {
       ],
       apto: [
         {
+          image: '/backdrop-flipped-01.png',
+          code: 'press',
+        },
+        {
           image: '/apto-1-01.png',
           code: 'apto',
         },
@@ -104,6 +116,10 @@ export default function Home() {
         },
       ],
       mwc: [
+        {
+          image: '/backdrop-01.png',
+          code: 'press',
+        },
         {
           image: '/mwc-1-01.png',
           code: 'mwc',
@@ -126,6 +142,10 @@ export default function Home() {
       ],
       vib: [
         {
+          image: '/backdrop-flipped-01.png',
+          code: 'press',
+        },
+        {
           image: '/vib-1-01.png',
           code: 'vibility',
         },
@@ -141,6 +161,10 @@ export default function Home() {
         },
       ],
       clean: [
+        {
+          image: '/backdrop-01.png',
+          code: 'press',
+        },
         {
           image: '/clean-1-01.png',
           code: 'clean',
