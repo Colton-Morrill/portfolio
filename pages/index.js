@@ -249,7 +249,7 @@ export default function Home() {
         <div className='m-10'>
           <p className='font-bold mb-4'>Based in <RainbowText text="Salt Lake City, Utah" /></p>
           <p className='font-bold mb-4'>I am married and have one cat and two guinea pigs. In my free time I like to play piano, play video games, and make digital art.</p>
-          <p className='font-bold mb-2'>I graduated from Brigham Young University - Idaho with a degree in <RainbowText text="Web Design and Developement with an emphasis on Design" />.</p>
+          <p className='font-bold mb-2'>I graduated from Brigham Young University - Idaho with a degree in <RainbowText text="Web Design and Development with an emphasis on Design" />.</p>
           <p className='mb-4 text-sm text-gray-300'>While in school I focused heavily on the fundamentals of creating applications for the web alongside gaining exceptional skills in graphic design. </p>
         </div>
       </div>
