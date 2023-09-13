@@ -45,14 +45,14 @@ const ProjectCard = (props) => {
                                 animateRule = "group-hover:-translate-y-2/3";
                             }
                             else if (i === 1) {
-                                animateRule = "group-hover:-translate-y-2/3";
+                                animateRule = "group-hover:-translate-y-1/3";
                             }
                             else if (i === 2) {
-                                animateRule = "group-hover:-translate-y-1/4";
+                                animateRule = "group-hover:-translate-y-3/4";
                             }
                             else {
                                 
-                                animateRule = "group-hover:-translate-y-3/4";
+                                animateRule = "group-hover:-translate-y-1/4";
                             }
                         }
                         else if (image.code === 'clean') {
