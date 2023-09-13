@@ -181,8 +181,6 @@ export default function Home() {
         },
       ],
     },
-     
-    // More questions...
   ]
   return (
     <div className={styles.container} data-scroll-container id='scroll-container'>
