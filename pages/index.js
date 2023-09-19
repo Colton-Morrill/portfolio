@@ -9,6 +9,8 @@ import ProjectCardSmall from '../components/ProjectCardSmall';
 import RainbowText from '../components/RainbowText';
 import ExperienceCard from '../components/ExperienceCard';
 import Footer from '../components/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFigma, faReact, faGithub, faWordpress, faAws, faMicrosoft, faJira, faHtml5, faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
 
 export default function Home() {
   useEffect(() => {
@@ -216,18 +218,18 @@ export default function Home() {
       </main>
       <div id='projects' className='scroll-spacer'></div>
       <div className='flex mb-16 lg:mb-40 flex-col lg:flex-row'>
-        <ProjectCard UrlPath="https://profile.presssportsapp.com/media/PressSportsOfficial" className="bg-gradient-to-r from-cyan-800 to-sky-300" ImagePath={projects[0].press} ProjectTitle="Press Sports" ProjectSoftware="Next.Js" />
-        <ProjectCard UrlPath="https://sicoustics.com/" className="bg-gradient-to-r from-blue-500 to-blue-900" ImagePath={projects[0].sic}  ProjectTitle="SiCoustics" ProjectSoftware="Wordpress" Scroll="2" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
+        <ProjectCard UrlPath="https://profile.presssportsapp.com/media/PressSportsOfficial" className="bg-gradient-to-r from-cyan-800 to-sky-300" ImagePath={projects[0].press} ProjectTitle="Press Sports" ProjectSoftware="Next.Js, Figma" />
+        <ProjectCard UrlPath="https://sicoustics.com/" className="bg-gradient-to-r from-blue-500 to-blue-900" ImagePath={projects[0].sic}  ProjectTitle="SiCoustics" ProjectSoftware="Wordpress, Adobe CC" Scroll="2" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
       </div>
 
       <div className='flex justify-end mb-16 lg:mb-40 flex-col lg:flex-row'>
-        <ProjectCard UrlPath="https://shop.aptogenix.com" className="bg-gradient-to-r from-teal-900 to-teal-200"  ImagePath={projects[0].apto} ProjectTitle="AptoGenix" ProjectSoftware=".NET" Scroll="1" />
-        <ProjectCard UrlPath="#" className="bg-gradient-to-r from-green-300 to-lime-100" ImagePath={projects[0].mwc} ImageAlt="Promotional Image of the My Wellness Curriculum mobile application" ProjectTitle="My Wellness Curriculum" ProjectSoftware="React Native" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
+        <ProjectCard UrlPath="https://shop.aptogenix.com" className="bg-gradient-to-r from-teal-900 to-teal-200"  ImagePath={projects[0].apto} ProjectTitle="AptoGenix" ProjectSoftware=".NET, Figma, Adobe CC" Scroll="1" />
+        <ProjectCard UrlPath="#" className="bg-gradient-to-r from-green-300 to-lime-100" ImagePath={projects[0].mwc} ImageAlt="Promotional Image of the My Wellness Curriculum mobile application" ProjectTitle="My Wellness Curriculum" ProjectSoftware="React Native, Adobe CC" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
       </div>
 
       <div className='flex mb-36 lg:mb-40 flex-col lg:flex-row'>
-        <ProjectCard className="bg-gradient-to-r from-indigo-600 to-violet-800" UrlPath="https://vibility.com/" ImagePath={projects[0].vib} ProjectTitle="Vibility LMS" ProjectSoftware=".NET" ImageAlt="Screenshot of the Vibility websites homepage" />
-        <ProjectCard className="bg-gradient-to-r from-cyan-200 to-blue-500" UrlPath="https://cleanrcans.com/" ImagePath={projects[0].clean} ProjectTitle="CleanRCans" ProjectSoftware="Wordpress" Scroll="2" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
+        <ProjectCard className="bg-gradient-to-r from-indigo-600 to-violet-800" UrlPath="https://vibility.com/" ImagePath={projects[0].vib} ProjectTitle="Vibility LMS" ProjectSoftware=".NET, Figma, Adobe CC" ImageAlt="Screenshot of the Vibility websites homepage" />
+        <ProjectCard className="bg-gradient-to-r from-cyan-200 to-blue-500" UrlPath="https://cleanrcans.com/" ImagePath={projects[0].clean} ProjectTitle="CleanRCans" ProjectSoftware="Wordpress, Adobe CC" Scroll="2" Spacer="ml-0 lg:ml-8 mt-16 lg:mt-0" />
       </div>
 
       <div className='mt-8 mb-40 flex flex-col items-center'>
@@ -245,6 +247,18 @@ export default function Home() {
       <div className='flex justify-center items-center w-full mt-8 mb-10 lg:mb-40 flex-col lg:flex-row max-w-screen-lg mx-auto'>
         <div className='mx-10'>
           <Image className='rounded-2xl' src="/profile.jpg" width={600} height={100} alt="Picture of Colton Morrill posing for the camera." />
+          <div className='flex flex-row justify-between items-center py-3'>
+            <FontAwesomeIcon icon={faReact} className='w-6 text-gray-600' />
+            <FontAwesomeIcon icon={faFigma} className='w-6 text-gray-600'/>
+            <FontAwesomeIcon icon={faWordpress} className='w-6 text-gray-600' />
+            <FontAwesomeIcon icon={faHtml5} className='w-6 text-gray-600' />
+            <FontAwesomeIcon icon={faCss3} className='w-6 text-gray-600' />
+            <FontAwesomeIcon icon={faJs} className='w-6 text-gray-600' />
+            <FontAwesomeIcon icon={faAws} className='w-6 text-gray-600' />
+            <FontAwesomeIcon icon={faMicrosoft} className='w-6 text-gray-600' />
+            <FontAwesomeIcon icon={faJira} className='w-6 text-gray-600' />
+            <FontAwesomeIcon icon={faGithub} className='w-6 text-gray-600' />
+          </div>
         </div>
         <div className='m-10'>
           <p className='font-bold mb-4'>Based in <RainbowText text="Salt Lake City, Utah" /></p>
