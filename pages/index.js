@@ -213,7 +213,7 @@ export default function Home() {
           </h1>
           <div className='mt-20' data-scroll data-scroll-direction='horizontal' data-scroll-speed='-2'>
             <p className='font-semibold text-left lg:text-center text-2xl'>Hello, I am Colton Morrill, an experienced <RainbowText text="Frontend Developer" /> and <RainbowText text="Graphic Designer" />.</p>
-            <p className='font-semibold text-left lg:text-center text-2xl mt-16'>I specialize in React, Next.js, React Native, and the .NET framework</p>
+            <p className='font-semibold text-left lg:text-center text-2xl mt-16'>I specialize in React, Next.js, React Native, WordPress, and the .NET framework</p>
           </div>
           <a href="#projects" className='hidden lg:block absolute bottom-8 lg:bottom-16 animate-bounce group' data-scroll-to><ArrowDownCircle className='group-hover:text-blue-500 group-hover:transition' /></a>
         </main>
