@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css'
 
 const Footer = () => {
     return (
-        <footer className={styles.footer}>
+        <footer className={" "}>
             <div>
                 <p className='text-center'>© <span id='year'></span> Colton Morrill</p>
                 <br />
