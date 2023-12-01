@@ -247,7 +247,7 @@ export default function Home() {
         <div id='about-me' className='scroll-spacer'></div>
         <div className='flex justify-center items-center w-full mt-8 mb-10 lg:mb-40 flex-col lg:flex-row max-w-screen-lg mx-auto'>
           <div className='mx-10'>
-            <Image className='rounded-2xl' src="/profile.jpg" width={600} height={100} alt="Picture of Colton Morrill posing for the camera." />
+            <Image className='rounded-2xl h-80 object-cover' src="/headshot2023.jpg" width={600} height={100} alt="Picture of Colton Morrill posing for the camera." />
             <div className='flex flex-row justify-between items-center py-3'>
               <FontAwesomeIcon icon={faReact} className='w-6 text-gray-600' />
               <FontAwesomeIcon icon={faFigma} className='w-6 text-gray-600' />
@@ -275,8 +275,7 @@ export default function Home() {
             <ExperienceCard ImagePath="/phoenix.jpg" ImageAlt="Icon of the Vibility Logo" JobPosition="Frontend Developer" Company="Phoenix Cyber | Full Time" Duration="July 2023 - Present" />
             <ExperienceCard ImagePath="/icon.png" ImageAlt="Icon of the Vibility Logo" JobPosition="Frontend Developer" Company="Vibility | Full Time" Duration="November 2022 - July 2023 | 8 mo" />
             <ExperienceCard ImagePath="/tackicon.png" ImageAlt="Icon of the Tack Systems Logo" JobPosition="Lead Web Designer" Company="Tack Systems LLC | Full Time" Duration="April 2021 - November 2022 | 1 yr 7 mo" />
-            <ExperienceCard ImagePath="/seo-rei.jpg" ImageAlt="CEO of SEO4REI" JobPosition="Director of Web/UI/UX Design" Company="SEO For Real Estate Investors | Full Time" Duration="November 2020 - April 2021 | 5 mo" />
-            <ExperienceCard ImagePath="/seo-rei.jpg" ImageAlt="CEO of SEO4REI" JobPosition="Web Designer and SEO Support" Company="SEO For Real Estate Investors | Full Time" Duration="June 2020 - November 2021 | 5 mo" />
+            <ExperienceCard ImagePath="/seo-rei.jpg" ImageAlt="CEO of SEO4REI" JobPosition="Director of Web/UI/UX Design & SEO Support" Company="SEO For Real Estate Investors | Full Time" Duration="June 2020 - April 2021 | 10 mo" />
           </div>
         </div>
 
