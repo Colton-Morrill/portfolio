@@ -213,7 +213,7 @@ export default function Home() {
           </h1>
           <div className='mt-20' data-scroll data-scroll-direction='horizontal' data-scroll-speed='-2'>
             <p className='font-semibold text-left lg:text-center text-2xl'>Hello, I am Colton Morrill, an experienced <RainbowText text="Frontend Developer" /> and <RainbowText text="Graphic Designer" />.</p>
-            <p className='font-semibold text-left lg:text-center text-2xl mt-16'>I specialize in React, Next.js, React Native, WordPress, and the .NET framework</p>
+            <p className='font-semibold text-left lg:text-center text-2xl mt-16'>I specialize in React, Next.js, Preact, React Native, WordPress, and the .NET framework</p>
           </div>
           <a href="#projects" className='hidden lg:block absolute bottom-8 lg:bottom-16 animate-bounce group' data-scroll-to><ArrowDownCircle className='group-hover:text-blue-500 group-hover:transition' /></a>
         </main>
@@ -247,7 +247,7 @@ export default function Home() {
         <div id='about-me' className='scroll-spacer'></div>
         <div className='flex justify-center items-center w-full mt-8 mb-10 lg:mb-40 flex-col lg:flex-row max-w-screen-lg mx-auto'>
           <div className='mx-10'>
-            <Image className='rounded-2xl h-80 object-cover' src="/headshot2023.jpg" width={600} height={100} alt="Picture of Colton Morrill posing for the camera." />
+            <Image className='rounded-2xl h-80 object-cover' src="/headshot2025.jpg" width={600} height={100} alt="Picture of Colton Morrill posing for the camera." />
             <div className='flex flex-row justify-between items-center py-3'>
               <FontAwesomeIcon icon={faReact} className='w-6 text-gray-600' />
               <FontAwesomeIcon icon={faFigma} className='w-6 text-gray-600' />
@@ -263,7 +263,7 @@ export default function Home() {
           </div>
           <div className='m-10'>
             <p className='font-bold mb-4'>Based in <RainbowText text="Salt Lake City, Utah" /></p>
-            <p className='font-bold mb-4'>I am married and have one cat and two guinea pigs. In my free time I like to play piano, play video games, and make digital art.</p>
+            <p className='font-bold mb-4'>I am married and have one cat. In my free time I like to play synth in my band, play video games, and make digital art.</p>
             <p className='font-bold mb-2'>I graduated from Brigham Young University - Idaho with a degree in <RainbowText text="Web Design and Development with an emphasis on Design" />.</p>
             <p className='mb-4 text-sm text-gray-300'>While in school I focused heavily on the fundamentals of creating applications for the web alongside gaining exceptional skills in graphic design. </p>
           </div>
@@ -272,7 +272,7 @@ export default function Home() {
         <div className='mt-8 mb-20 flex flex-col items-center'>
           <h3 className='text-4xl font-bold text-center mb-20'>Experience</h3>
           <div>
-            <ExperienceCard ImagePath="/phoenix.jpg" ImageAlt="Icon of the Vibility Logo" JobPosition="Frontend Developer" Company="Phoenix Cyber | Full Time" Duration="July 2023 - Present" />
+            <ExperienceCard ImagePath="/phoenix.jpg" ImageAlt="Icon of the Vibility Logo" JobPosition="Frontend Developer" Company="Phoenix Cyber | Full Time" Duration="July 2023 - June 2025 | 2 yrs" />
             <ExperienceCard ImagePath="/icon.png" ImageAlt="Icon of the Vibility Logo" JobPosition="Frontend Developer" Company="Vibility | Full Time" Duration="November 2022 - July 2023 | 8 mo" />
             <ExperienceCard ImagePath="/tackicon.png" ImageAlt="Icon of the Tack Systems Logo" JobPosition="Lead Web Designer" Company="Tack Systems LLC | Full Time" Duration="April 2021 - November 2022 | 1 yr 7 mo" />
             <ExperienceCard ImagePath="/seo-rei.jpg" ImageAlt="CEO of SEO4REI" JobPosition="Director of Web/UI/UX Design & SEO Support" Company="SEO For Real Estate Investors | Full Time" Duration="June 2020 - April 2021 | 10 mo" />
