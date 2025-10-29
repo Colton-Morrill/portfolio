@@ -163,20 +163,20 @@ export default function Home() {
       <div className={styles.container} data-scroll-container id='scroll-container'>
         <Head>
           <title>Colton Morrill | Frontend Developer</title>
-          <meta name="description" content="Frontend Developer specializing in front end technologies (HTML, CSS, JavaScript, SASS, Flutter, .NET, React, Nextjs, and ThreeJS)." />
+          <meta name="description" content="Frontend Developer specializing in modern front end technologies (React, Next.JS, JavaScript, React Native, CSS, HTML, SASS, Flutter, .NET, and ThreeJS)." />
           <link rel="icon" href="/favicon.ico" />
 
           <meta property="og:url" content="https://www.coltonmorrill.com/" />
           <meta property="og:type" content="website" />
           <meta property="og:title" content="Colton Morrill | Frontend Developer" />
-          <meta property="og:description" content="Frontend Developer specializing in front end technologies (HTML, CSS, JavaScript, SASS, Flutter, .NET, React, Nextjs, and ThreeJS)." />
+          <meta property="og:description" content="Frontend Developer specializing in modern front end technologies (React, Next.JS, JavaScript, React Native, CSS, HTML, SASS, Flutter, .NET, and ThreeJS)." />
           <meta property="og:image" content="https://www.coltonmorrill.com/colton-anna.jpeg" />
 
           <meta name="twitter:card" content="summary_large_image" />
           <meta property="twitter:domain" content="coltonmorrill.com" />
           <meta property="twitter:url" content="https://www.coltonmorrill.com/" />
           <meta name="twitter:title" content="Colton Morrill | Frontend Developer" />
-          <meta name="twitter:description" content="Frontend Developer specializing in front end technologies (HTML, CSS, JavaScript, SASS, Flutter, .NET, React, Nextjs, and ThreeJS)." />
+          <meta name="twitter:description" content="Frontend Developer specializing in modern front end technologies (React, Next.JS, JavaScript, React Native, CSS, HTML, SASS, Flutter, .NET, and ThreeJS)." />
           <meta name="twitter:image" content="https://www.coltonmorrill.com/colton-anna.jpeg" />
         </Head>
         <Navbar />
