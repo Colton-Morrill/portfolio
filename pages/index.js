@@ -11,6 +11,7 @@ import ExperienceCard from '../components/ExperienceCard';
 import Footer from '../components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFigma, faReact, faGithub, faWordpress, faAws, faMicrosoft, faJira, faHtml5, faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
+import { ExternalLink } from 'lucide-react';
 
 export default function Home() {
 
@@ -237,7 +238,7 @@ export default function Home() {
           </div>
           <div className='m-10'>
             <p className='font-bold mb-4'>Based in <RainbowText text="Salt Lake City, Utah" /></p>
-            <p className='font-bold mb-4'>I am married and have one cat. In my free time I like to play synth in my band, play video games, and make digital art.</p>
+            <p className='font-bold mb-4'>I am married and have one cat. In my free time I like to play synth in my <a className="inline text-blue-500 hover:text-blue-400 transition" href="https://www.lepidoptra.band" target='_blank'>band <ExternalLink className='inline' size={12} /></a>, play video games, and make digital art.</p>
             <p className='font-bold mb-2'>I graduated from Brigham Young University - Idaho with a degree in <RainbowText text="Web Design and Development with an emphasis on Design" />.</p>
             <p className='mb-4 text-sm text-gray-300'>While in school I focused heavily on the fundamentals of creating applications for the web alongside gaining exceptional skills in graphic design. </p>
           </div>
