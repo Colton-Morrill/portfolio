@@ -249,7 +249,8 @@ export default function Home() {
             <ExperienceCard ImagePath="/phoenix.jpg" ImageAlt="Icon of the Vibility Logo" JobPosition="Frontend Developer" Company="Phoenix Cyber" Duration="July 2023 - June 2025 | 2 yrs" location="Salt Lake City, Utah"/>
             <ExperienceCard ImagePath="/icon.png" ImageAlt="Icon of the Vibility Logo" JobPosition="Frontend Developer" Company="Vibility" Duration="November 2022 - July 2023 | 8 mo" location="Salt Lake City, Utah"/>
             <ExperienceCard ImagePath="/tackicon.png" ImageAlt="Icon of the Tack Systems Logo" JobPosition="Web Designer / Frontend Developer" Company="Tack Systems LLC" Duration="April 2021 - November 2022 | 1 yr 7 mo" location="Salt Lake City, Utah"/>
-            <ExperienceCard ImagePath="/seo-rei.jpg" ImageAlt="CEO of SEO4REI" JobPosition="Web Design & SEO Support" Company="SEO For Real Estate Investors" Duration="June 2020 - April 2021 | 10 mo" location="Rexburg, Idaho"/>
+            <ExperienceCard ImagePath="/seo-rei.jpg" ImageAlt="CEO of SEO4REI" JobPosition="Web Designer & SEO Support" Company="SEO For Real Estate Investors" Duration="June 2020 - April 2021 | 10 mo" location="Rexburg, Idaho"/>
+            <ExperienceCard ImagePath="/chick_fil_a_franchise_logo.jpg" ImageAlt="Chick-Fil-A brands official logo" JobPosition="Web Designer" Company="Chick-Fil-A Franchise" Duration="April 2020 - May 2020 | Contract" location="Coralville, Iowa"/>
           </div>
         </div>
 
