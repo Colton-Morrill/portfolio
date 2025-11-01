@@ -50,7 +50,6 @@ export default function Home() {
       }
     }
     setup();
-    window.addEventListener("resize", setup);
     animateText();
 
     document.getElementById("year").innerHTML = new Date().getFullYear();
@@ -250,30 +249,30 @@ export default function Home() {
 <h1 className="text text-8xl font-bold">
   I{" "}
   <span
-    className="gradient-text"
+    className="gradient-text font-black"
     style={{
       '--from': '#a855f7', // purple
-      '--to': '#3b82f6',   // blue
+      '--to': '#643bf6ff',   // blue
     }}
   >
     Design
   </span>
   , I{" "}
   <span
-    className="gradient-text"
+    className="gradient-text font-black"
     style={{
-      '--from': '#22c55e', // green
-      '--to': '#06b6d4',   // cyan
+      '--from': '#1fb857ff', // green
+      '--to': '#07b69eff',   // cyan
     }}
   >
     Code
   </span>
   , I Get It{" "}
   <span
-    className="gradient-text"
+    className="gradient-text font-black"
     style={{
       '--from': '#facc15', // yellow
-      '--to': '#fb923c',   // orange
+      '--to': '#fba23cff',   // orange
     }}
   >
     Done

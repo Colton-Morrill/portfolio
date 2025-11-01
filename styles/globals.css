@@ -30,16 +30,6 @@ a {
   box-sizing: border-box;
 }
 
-h1::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url('/public/cardboard-flat.png');
-  mix-blend-mode: multiply;
-  opacity: 0.4;
-  pointer-events: none;
-}
-
 .linear-wipe {
   text-align: center;
 
@@ -76,60 +66,29 @@ h1::after {
   pointer-events: none;
 }
 
-.gradient-text {
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-  background-size: 200% 200%;
-}
-
+/* Gradient Text with Noise Overlay */
 .gradient-text {
   display: inline-block;
+  position: relative;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  /* Gradient (base layer) + Noise (overlay layer) */
-  background-image:
-    linear-gradient(to right, var(--from), var(--to)),
-    url('/public/cardboard-flat.png');
-
-  /* Blend noise subtly but visibly */
-
-
-  /* Proper scaling for both layers */
-
+  background-image: url("https://www.transparenttextures.com/patterns/otis-redding.png"),
+    linear-gradient(to bottom, var(--from), var(--to));
+  background-blend-mode: overlay;
+  background-size: cover, 150px 150px;
   background-repeat: no-repeat, repeat;
-  background-position: center, 0 0;
-
-  /* Slight movement in the grain */
-  animation: grainShift 8s steps(10) infinite;
-
-  /* Optional isolation for Safari/WebKit */
+  background-position: center;
   isolation: isolate;
-
-  background-blend-mode: multiply;
-background-size: 100% 100%, 80px 80px;
 }
-
-@keyframes grainShift {
-  0% { background-position: center, 0 0; }
-  100% { background-position: center, 150px 150px; }
-}
-
-
-
-/* Key GSAP fix: reapply gradient background to each SplitText wrapper */
 .gradient-text div,
 .gradient-text span {
   background: inherit !important;
   -webkit-background-clip: text !important;
   color: transparent !important;
   -webkit-text-fill-color: transparent !important;
+  line-height: 1.3;
 }
-
 @media (prefers-color-scheme: dark) {
 }
