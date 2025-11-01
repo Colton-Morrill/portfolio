@@ -60,9 +60,14 @@ export default function Home() {
         start: "top center",
       },
       innerText: 5,
+      fontSize: "4rem",
       duration: 2,
       snap: { innerText: 1 },
     });
+
+    let mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
     gsap.fromTo(
       ".si-move",
       { y: 50 },
@@ -103,6 +108,7 @@ export default function Home() {
       }
     );
   });
+  }, []);
 
   // Project Image Data
   const projects = [
