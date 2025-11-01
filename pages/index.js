@@ -24,10 +24,12 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Home() {
   useEffect(() => {
     gsap.registerPlugin(SplitText);
+    gsap.registerPlugin(ScrollTrigger);
     let split, animation;
     function animateText() {
       animation && animation.revert();
@@ -51,27 +53,55 @@ export default function Home() {
     }
     setup();
     animateText();
-
     document.getElementById("year").innerHTML = new Date().getFullYear();
-    let scroll;
-    import("locomotive-scroll").then((locomotiveModule) => {
-      scroll = new locomotiveModule.default({
-        el: document.querySelector("[data-scroll-container]"),
-        smooth: true,
-        smoothMobile: false,
-        resetNativeScroll: true,
-        reloadOnContextChange: true,
-        smartphone: {
-          smooth: false,
-        },
-        tablet: {
-          smooth: true,
-        },
-      });
+    gsap.to("#year-counter", {
+      scrollTrigger: {
+        trigger: "#experience",
+        start: "top center",
+      },
+      innerText: 5,
+      duration: 2,
+      snap: { innerText: 1 },
     });
-    return () => {
-      if (scroll) scroll.destroy();
-    };
+    gsap.fromTo(
+      ".si-move",
+      { y: 50 },
+      {
+        y: -100,
+        scrollTrigger: {
+          trigger: ".first-row",
+          start: "top center",
+          end: "bottom top",
+          scrub: 1,
+        },
+      }
+    );
+    gsap.fromTo(
+      ".apto-move",
+      { y: 50 },
+      {
+        y: -100,
+        scrollTrigger: {
+          trigger: ".second-row",
+          start: "top center",
+          end: "bottom top",
+          scrub: 1,
+        },
+      }
+    );
+    gsap.fromTo(
+      ".clean-move",
+      { y: 50 },
+      {
+        y: -100,
+        scrollTrigger: {
+          trigger: ".third-row",
+          start: "top center",
+          end: "bottom top",
+          scrub: 1,
+        },
+      }
+    );
   });
 
   // Project Image Data
@@ -246,38 +276,38 @@ export default function Home() {
         <Navbar />
         <div id="projects2" className="scroll-spacer"></div>
         <main className="flex justify-center items-center flex-col h-screen w-full relative mt-40 lg:-mt-16 mb-52 lg:mb-0 overflow-hidden">
-<h1 className="text text-8xl font-bold">
-  I{" "}
-  <span
-    className="gradient-text font-black"
-    style={{
-      '--from': '#a855f7', // purple
-      '--to': '#643bf6ff',   // blue
-    }}
-  >
-    Design
-  </span>
-  , I{" "}
-  <span
-    className="gradient-text font-black"
-    style={{
-      '--from': '#1fb857ff', // green
-      '--to': '#07b69eff',   // cyan
-    }}
-  >
-    Code
-  </span>
-  , I Get It{" "}
-  <span
-    className="gradient-text font-black"
-    style={{
-      '--from': '#facc15', // yellow
-      '--to': '#fba23cff',   // orange
-    }}
-  >
-    Done
-  </span>
-</h1>
+          <h1 className="text text-8xl font-bold">
+            I{" "}
+            <span
+              className="gradient-text font-black"
+              style={{
+                "--from": "#a855f7", // purple
+                "--to": "#643bf6ff", // blue
+              }}
+            >
+              Design
+            </span>
+            , I{" "}
+            <span
+              className="gradient-text font-black"
+              style={{
+                "--from": "#1fb857ff", // green
+                "--to": "#07b69eff", // cyan
+              }}
+            >
+              Code
+            </span>
+            , I Get It{" "}
+            <span
+              className="gradient-text font-black"
+              style={{
+                "--from": "#facc15", // yellow
+                "--to": "#fba23cff", // orange
+              }}
+            >
+              Done
+            </span>
+          </h1>
           <div
             className="mt-20"
             data-scroll
@@ -303,7 +333,7 @@ export default function Home() {
           </a>
         </main>
         <div id="projects" className="scroll-spacer"></div>
-        <div className="flex mb-16 lg:mb-40 flex-col lg:flex-row">
+        <div className="flex mb-16 lg:mb-40 flex-col lg:flex-row first-row">
           <ProjectCard
             UrlPath="https://profile.presssportsapp.com/media/PressSportsOfficial"
             className="bg-gradient-to-r from-cyan-800 to-sky-300"
@@ -314,6 +344,7 @@ export default function Home() {
           <ProjectCard
             UrlPath="https://sicoustics.com/"
             className="bg-gradient-to-r from-blue-500 to-blue-900"
+            anim="si-move"
             ImagePath={projects[0].sic}
             ProjectTitle="SiCoustics"
             ProjectSoftware="Wordpress, Adobe CC"
@@ -322,10 +353,11 @@ export default function Home() {
           />
         </div>
 
-        <div className="flex justify-end mb-16 lg:mb-40 flex-col lg:flex-row">
+        <div className="flex justify-end mb-16 lg:mb-40 flex-col lg:flex-row second-row">
           <ProjectCard
             UrlPath="https://shop.aptogenix.com"
             className="bg-gradient-to-r from-teal-900 to-teal-200"
+            anim="apto-move"
             ImagePath={projects[0].apto}
             ProjectTitle="AptoGenix"
             ProjectSoftware=".NET, Figma, Adobe CC"
@@ -342,7 +374,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="flex mb-36 lg:mb-40 flex-col lg:flex-row">
+        <div className="flex mb-36 lg:mb-40 flex-col lg:flex-row third-row">
           <ProjectCard
             className="bg-gradient-to-r from-indigo-600 to-violet-800"
             UrlPath="https://vibility.com/"
@@ -353,6 +385,7 @@ export default function Home() {
           />
           <ProjectCard
             className="bg-gradient-to-r from-cyan-200 to-blue-500"
+            anim="clean-move"
             UrlPath="https://cleanrcans.com/"
             ImagePath={projects[0].clean}
             ProjectTitle="CleanRCans"
@@ -460,10 +493,16 @@ export default function Home() {
         </div>
         <div id="experience" className="scroll-spacer"></div>
         <div className="mt-8 mb-20 flex flex-col items-center">
-          <h3 className="text-4xl font-bold text-center mb-20">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-600 font-black text-left">
-              5+
-            </span>{" "}
+          <h3 className="text-5xl font-bold text-center mb-20">
+            <span
+              id="year-counter"
+              className="years-experience text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-600 font-black text-left"
+            >
+              0
+            </span>
+            <span className=" text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-600 font-black text-left">
+              {"+ "}
+            </span>
             Years of Professional Experience
           </h3>
           <div>

@@ -5,7 +5,7 @@ import RainbowText from './RainbowText'
 const ProjectCard = (props) => {
     const images = props.ImagePath;
     return (
-        <div className={`w-full lg:w-1/3 h-96 group ${props.Spacer}`} data-scroll data-scroll-speed={props.Scroll}>
+        <div className={`w-full lg:w-1/3 h-96 group ${props.Spacer} ${props.anim}`} data-scroll data-scroll-speed={props.Scroll}>
             <a href={props.UrlPath} target='_blank' rel="noreferrer" className='w-full h-full block overflow-hidden'>
                 <div className={'relative w-full h-full bg-opacity-60 hover:bg-opacity-0 transition ' + props.className}>
                     {images && images.map((image, i) => {
