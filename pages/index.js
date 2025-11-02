@@ -304,7 +304,7 @@ export default function Home() {
         </Head>
         <Navbar />
         <div id="projects2" className="scroll-spacer"></div>
-        <main className="flex justify-start sm:justify-center items-start sm:items-center flex-col h-screen w-full relative mt-40 lg:-mt-16 pb-16 sm:pb-0 overflow-hidden">
+        <main className="flex justify-start sm:justify-center items-start sm:items-center flex-col h-screen w-full relative mt-40 lg:-mt-16 mb-16 sm:mb-0 overflow-hidden">
           <h1 className="hidden sm:block text text-8xl font-bold">
             I{" "}
             <span
@@ -386,7 +386,7 @@ export default function Home() {
               <RainbowText text="Frontend Developer" /> and{" "}
               <RainbowText text="Graphic Designer" />.
             </p>
-            <p className="font-semibold text-left lg:text-center text-2xl mt-16">
+            <p className="font-semibold text-left lg:text-center text-2xl mt-16 leading-[1.4] sm:leading">
               I specialize in React, Next.js, Preact, React Native, WordPress,
               and the .NET framework
             </p>
