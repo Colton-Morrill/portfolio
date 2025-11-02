@@ -1,7 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { Mail, ArrowDownCircle, Linkedin, Github, ExternalLink } from "lucide-react";
+import {
+  Mail,
+  ArrowDownCircle,
+  Linkedin,
+  Github,
+  ExternalLink,
+} from "lucide-react";
 import { useEffect } from "react";
 import Navbar from "../components/NavBar";
 import ProjectCard from "../components/ProjectCard";
@@ -28,32 +34,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Home() {
   useEffect(() => {
+    document.getElementById("year").innerHTML = new Date().getFullYear();
     gsap.registerPlugin(SplitText);
     gsap.registerPlugin(ScrollTrigger);
     let split, animation;
-    function animateText() {
-      animation && animation.revert();
-      animation = gsap.from(split.chars, {
-        y: -100,
-        opacity: 0,
-        duration: 0.7,
-        ease: "power4",
-        stagger: 0.04,
-      });
-    }
-    function setup() {
-      split && split.revert();
-      animation && animation.revert();
-      split = new SplitText(".text", { type: "chars" });
+    let mm = gsap.matchMedia();
 
-      const container = document.getElementById("chars");
-      if (!container) {
-        console.error("Couldn't find #char element");
-      }
-    }
-    setup();
-    animateText();
-    document.getElementById("year").innerHTML = new Date().getFullYear();
     gsap.to("#year-counter", {
       scrollTrigger: {
         trigger: "#experience",
@@ -65,49 +51,86 @@ export default function Home() {
       snap: { innerText: 1 },
     });
 
-    let mm = gsap.matchMedia();
+    function animateText() {
+      animation = gsap.from(split.chars, {
+        y: -100,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power4",
+        stagger: 0.04,
+      });
+    }
+    
+    function setup() {
+      split = new SplitText(".text", { type: "chars" });
+    }
 
+    let mobileSplit = new SplitText(".mobile-text1", { type: "chars" });
+    let mobileSplit2 = new SplitText(".mobile-text2", { type: "chars" });
+    let mobileSplit3 = new SplitText(".mobile-text3", { type: "chars" });
+    var tl = gsap.timeline();
+    tl.from(mobileSplit.chars, {
+        y: -100,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power4",
+        stagger: 0.04,
+      }).from(mobileSplit2.chars, {
+        y: -100,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power4",
+        stagger: 0.04,
+      }).from(mobileSplit3.chars, {
+        y: -100,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power4",
+        stagger: 0.04,
+      })
     mm.add("(min-width: 768px)", () => {
-    gsap.fromTo(
-      ".si-move",
-      { y: 50 },
-      {
-        y: -100,
-        scrollTrigger: {
-          trigger: ".first-row",
-          start: "top center",
-          end: "bottom top",
-          scrub: 1,
-        },
-      }
-    );
-    gsap.fromTo(
-      ".apto-move",
-      { y: 50 },
-      {
-        y: -100,
-        scrollTrigger: {
-          trigger: ".second-row",
-          start: "top center",
-          end: "bottom top",
-          scrub: 1,
-        },
-      }
-    );
-    gsap.fromTo(
-      ".clean-move",
-      { y: 50 },
-      {
-        y: -100,
-        scrollTrigger: {
-          trigger: ".third-row",
-          start: "top center",
-          end: "bottom top",
-          scrub: 1,
-        },
-      }
-    );
-  });
+      setup();
+      animateText();
+      gsap.fromTo(
+        ".si-move",
+        { y: 50 },
+        {
+          y: -100,
+          scrollTrigger: {
+            trigger: ".first-row",
+            start: "top center",
+            end: "bottom top",
+            scrub: 1,
+          },
+        }
+      );
+      gsap.fromTo(
+        ".apto-move",
+        { y: 50 },
+        {
+          y: -100,
+          scrollTrigger: {
+            trigger: ".second-row",
+            start: "top center",
+            end: "bottom top",
+            scrub: 1,
+          },
+        }
+      );
+      gsap.fromTo(
+        ".clean-move",
+        { y: 50 },
+        {
+          y: -100,
+          scrollTrigger: {
+            trigger: ".third-row",
+            start: "top center",
+            end: "bottom top",
+            scrub: 1,
+          },
+        }
+      );
+    });
   }, []);
 
   // Project Image Data
@@ -281,8 +304,8 @@ export default function Home() {
         </Head>
         <Navbar />
         <div id="projects2" className="scroll-spacer"></div>
-        <main className="flex justify-center items-center flex-col h-screen w-full relative mt-40 lg:-mt-16 mb-52 lg:mb-0 overflow-hidden">
-          <h1 className="text text-8xl font-bold">
+        <main className="flex justify-start sm:justify-center items-start sm:items-center flex-col h-screen w-full relative mt-40 lg:-mt-16 mb-0 overflow-hidden">
+          <h1 className="hidden sm:block text text-8xl font-bold">
             I{" "}
             <span
               className="gradient-text font-black"
@@ -304,6 +327,44 @@ export default function Home() {
               Code
             </span>
             , I Get It{" "}
+            <span
+              className="gradient-text font-black"
+              style={{
+                "--from": "#facc15", // yellow
+                "--to": "#fba23cff", // orange
+              }}
+            >
+              Done
+            </span>
+          </h1>
+          <h1 className="sm:hidden mobile-text1 leading-[1.3] text-7xl font-bold">
+            I{" "}
+            <span
+              className="gradient-text font-black"
+              style={{
+                "--from": "#a855f7", // purple
+                "--to": "#643bf6ff", // blue
+              }}
+            >
+              Design
+            </span>
+            ,
+          </h1>
+          <h1 className="sm:hidden mobile-text2 leading-[1.3] text-7xl font-bold">
+            I{" "}
+            <span
+              className="gradient-text font-black"
+              style={{
+                "--from": "#1fb857ff", // green
+                "--to": "#07b69eff", // cyan
+              }}
+            >
+              Code
+            </span>
+            ,
+          </h1>
+          <h1 className="sm:hidden mobile-text3 leading-[1.3] text-7xl font-bold">
+            I Get It{" "}
             <span
               className="gradient-text font-black"
               style={{
@@ -477,11 +538,32 @@ export default function Home() {
               <FontAwesomeIcon icon={faGithub} className="w-6 text-gray-600" />
             </div>
           </div>
-          <div className='m-10'>
-            <p className='font-bold mb-4'>Based in <RainbowText text="Salt Lake City, Utah" /></p>
-            <p className='font-bold mb-4'>I am married and have one cat. In my free time I like to play synth in my <a className="inline text-blue-500 hover:text-blue-400 transition" href="https://www.lepidoptra.band" target='_blank'>band <ExternalLink className='inline' size={12} /></a>, play video games, and make digital art.</p>
-            <p className='font-bold mb-2'>I graduated from Brigham Young University - Idaho with a degree in <RainbowText text="Web Design and Development with an emphasis on Design" />.</p>
-            <p className='mb-4 text-sm text-gray-300'>While in school I focused heavily on the fundamentals of creating applications for the web alongside gaining exceptional skills in graphic design. </p>
+          <div className="m-10">
+            <p className="font-bold mb-4">
+              Based in <RainbowText text="Salt Lake City, Utah" />
+            </p>
+            <p className="font-bold mb-4">
+              I am married and have one cat. In my free time I like to play
+              synth in my{" "}
+              <a
+                className="inline text-blue-500 hover:text-blue-400 transition"
+                href="https://www.lepidoptra.band"
+                target="_blank"
+              >
+                band <ExternalLink className="inline" size={12} />
+              </a>
+              , play video games, and make digital art.
+            </p>
+            <p className="font-bold mb-2">
+              I graduated from Brigham Young University - Idaho with a degree in{" "}
+              <RainbowText text="Web Design and Development with an emphasis on Design" />
+              .
+            </p>
+            <p className="mb-4 text-sm text-gray-300">
+              While in school I focused heavily on the fundamentals of creating
+              applications for the web alongside gaining exceptional skills in
+              graphic design.{" "}
+            </p>
           </div>
         </div>
         <div id="experience" className="scroll-spacer"></div>
