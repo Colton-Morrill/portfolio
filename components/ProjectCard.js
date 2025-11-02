@@ -89,7 +89,7 @@ const ProjectCard = (props) => {
                     })}
                 </div>
             </a>
-            <p className='font-bold text-lg text-right items-center text-white group-hover:hidden'>{props.ProjectTitle}</p>
+            <p className='font-bold text-lg text-right items-center text-[#d6cee1] group-hover:hidden'>{props.ProjectTitle}</p>
             <RainbowText className='!font-bold text-lg !text-right items-center hidden group-hover:block' text={props.ProjectTitle} />
             <p className='!font-bold text-sm text-gray-500 text-right group-hover:hidden'>{props.ProjectSoftware}</p>
             <RainbowText className='!font-bold !text-right text-sm text-gray-500 text-right hidden group-hover:block' text={props.ProjectSoftware} />

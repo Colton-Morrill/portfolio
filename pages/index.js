@@ -571,7 +571,7 @@ export default function Home() {
           <h3 className="text-5xl font-bold text-center mb-20">
             <span
               id="year-counter"
-              className="years-experience text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-cyan-600 font-black text-left"
+              className="years-experience text-transparent bg-clip-text bg-gradient-to-b from-green-400 to-green-600 font-black text-left"
             >
               0
             </span>
