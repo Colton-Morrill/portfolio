@@ -3,15 +3,16 @@ import Image from 'next/image'
 import { ExternalLink } from 'lucide-react';
 
 const ProjectCardSmall = (props) => {
-    var ProjectUrl = props.ProjectUrl;
+    const ProjectUrl = props.ProjectUrl;
+
     return (
-        <a href={props.ProjectUrl} className='relative hover:text-blue-500 flex items-center font-bold transition rounded-2xl hover:bg-gray-900 p-3 w-full lg:w-1/3' target='_blank' rel="noreferrer">
-            <Image className='mr-8 rounded-lg' src={props.ImagePath} width={50} height={50} alt={props.ImageAlt} />
-            <div>
-                {props.ProjectName}
-                <p className='font-bold text-sm text-gray-500 flex items-center'>{props.ProjectSoftware}
+        <a href={props.ProjectUrl} className='relative flex w-full items-center gap-5 rounded-[1.5rem] bg-white/[0.02] px-4 py-5 font-bold text-slate-100 ring-1 ring-white/6 transition duration-300 hover:translate-x-1 lg:w-[calc(33.333%-1rem)]' target='_blank' rel="noreferrer">
+            <Image className='rounded-2xl bg-slate-950/40 p-2 ring-1 ring-white/10' src={props.ImagePath} width={58} height={58} alt={props.ImageAlt} />
+            <div className='min-w-0'>
+                <p className='truncate text-base'>{props.ProjectName}</p>
+                <p className='mt-1 flex items-center text-sm font-medium text-slate-500'>{props.ProjectSoftware}
                     {ProjectUrl &&
-                        <ExternalLink className="ml-2" size={12} />
+                        <ExternalLink className="ml-2 shrink-0" size={12} />
                     }
                 </p>
             </div>

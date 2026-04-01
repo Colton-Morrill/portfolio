@@ -92,3 +92,17 @@ a {
 }
 @media (prefers-color-scheme: dark) {
 }
+
+body {
+  background-color: #030712;
+  background-image:
+    radial-gradient(circle at top, rgba(129, 140, 248, 0.2), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.14), transparent 20%),
+    linear-gradient(180deg, #050816 0%, #030712 52%, #020617 100%);
+}
+
+.gradient-text {
+  background-image: linear-gradient(to bottom, var(--from), var(--to));
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
