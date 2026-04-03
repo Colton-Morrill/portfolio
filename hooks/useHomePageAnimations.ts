@@ -310,48 +310,6 @@ export function useHomePageAnimations() {
       }
 
       if (document.querySelector(".contact-reveal")) {
-        const contactStage = document.querySelector<HTMLElement>(".contact-backdrop-stage");
-
-        if (contactStage) {
-          ScrollTrigger.create({
-            trigger: ".contact-zone",
-            start: "top bottom",
-            end: "bottom top",
-            onEnter: () => contactStage.classList.add("is-active"),
-            onEnterBack: () => contactStage.classList.add("is-active"),
-            onLeave: () => contactStage.classList.remove("is-active"),
-            onLeaveBack: () => contactStage.classList.remove("is-active"),
-          });
-        }
-
-        gsap.fromTo(".contact-backdrop-stage", {
-          autoAlpha: 0,
-          y: 40,
-          scale: 0.98,
-        }, {
-          autoAlpha: 1,
-          y: 0,
-          scale: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".contact-zone",
-            start: "top bottom",
-            end: "top 38%",
-            scrub: true,
-          },
-        });
-
-        gsap.to(".contact-map-veil", {
-          opacity: 1,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".contact-zone",
-            start: "top bottom",
-            end: "top 32%",
-            scrub: true,
-          },
-        });
-
         const contactCard = document.querySelector(".contact-card-shell");
         if (contactCard) {
           gsap.from(contactCard, {

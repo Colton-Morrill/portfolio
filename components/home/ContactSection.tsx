@@ -13,6 +13,15 @@ export default function ContactSection() {
       <SectionShell className="contact-shell relative z-[2] flex h-full flex-1 flex-col px-6 py-8 sm:px-10 lg:px-14 lg:py-10 xl:px-16">
         <div className="flex min-h-0 flex-1 items-center justify-center">
           <div className="contact-card-shell relative z-[2] w-full max-w-5xl overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.042),rgba(255,255,255,0.016)_18%,rgba(4,6,14,0.8)_100%)] px-5 py-6 shadow-[0_24px_90px_rgba(0,0,0,0.28)] sm:px-7 lg:px-8 lg:py-8">
+            <div className="pointer-events-none absolute inset-0 opacity-[0.7] [mask-image:radial-gradient(80%_72%_at_50%_46%,black,transparent_100%)]">
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:48px_48px]" />
+            </div>
+            <div className="pointer-events-none absolute inset-0 opacity-[0.28] [mask-image:radial-gradient(58%_52%_at_50%_38%,black,transparent_100%)]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.78)_1px,transparent_1px)] bg-[size:22px_22px]" />
+            </div>
+            <div className="pointer-events-none absolute left-[-6%] top-[-8%] h-52 w-52 rounded-full bg-cyan-400/[0.12] blur-[84px]" />
+            <div className="pointer-events-none absolute right-[-4%] top-[10%] h-60 w-60 rounded-full bg-indigo-500/[0.16] blur-[96px]" />
+            <div className="pointer-events-none absolute bottom-[-10%] left-1/2 h-44 w-[56%] -translate-x-1/2 rounded-full bg-[radial-gradient(circle_at_center,rgba(91,104,255,0.18)_0%,rgba(34,211,238,0.12)_36%,transparent_74%)] blur-[74px]" />
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,8,18,0.26)_0%,rgba(5,8,18,0.1)_22%,rgba(5,8,18,0.34)_100%)]" />
 
             <div className="relative z-[2] grid min-h-[44vh] gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">

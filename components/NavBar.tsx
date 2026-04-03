@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -15,7 +16,7 @@ function classNames(...classes: Array<string | false | null | undefined>) {
 
 export default function Navbar() {
   return (
-    <Disclosure as="nav" className="nav-load fixed inset-x-0 top-4 z-50" id="home">
+    <Disclosure as="nav" className="nav-load fixed inset-x-0 top-2 z-50 sm:top-4" id="home">
       {({ open }) => (
         <>
           <div className="section-shell">
@@ -38,7 +39,7 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex flex-1 items-center justify-center sm:justify-between">
-                  <a href="/" className="flex shrink-0 items-center">
+                  <Link href="/" className="flex shrink-0 items-center">
                     <Image
                       className="block h-8 w-auto opacity-95 transition hover:opacity-100 lg:hidden"
                       src="/cm-logo-01.svg"
@@ -55,7 +56,7 @@ export default function Navbar() {
                       height={28}
                       priority
                     />
-                  </a>
+                  </Link>
 
                   <div className="hidden items-center gap-1 sm:flex">
                     {navigation.map((item) => (
