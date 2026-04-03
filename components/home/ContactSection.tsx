@@ -4,6 +4,25 @@ import { ArrowUpRight, Mail } from "lucide-react";
 
 import SectionShell from "@/components/home/SectionShell";
 
+const contactParticles = [
+  { left: "7%", top: "16%", size: 4, duration: "7.2s", delay: "0s", x: "18px", y: "-28px", color: "#8be9ff", glow: "rgba(139,233,255,0.58)" },
+  { left: "12%", top: "46%", size: 3, duration: "8.5s", delay: "0.9s", x: "-12px", y: "-24px", color: "#a7b7ff", glow: "rgba(167,183,255,0.52)" },
+  { left: "16%", top: "68%", size: 4, duration: "9.2s", delay: "1.2s", x: "-14px", y: "-30px", color: "#72f1d1", glow: "rgba(114,241,209,0.54)" },
+  { left: "23%", top: "28%", size: 3, duration: "8.4s", delay: "0.8s", x: "16px", y: "-22px", color: "#9fe8ff", glow: "rgba(159,232,255,0.52)" },
+  { left: "28%", top: "54%", size: 2, duration: "7.7s", delay: "1.7s", x: "12px", y: "-18px", color: "#8aa2ff", glow: "rgba(138,162,255,0.48)" },
+  { left: "33%", top: "76%", size: 4, duration: "10.6s", delay: "1.8s", x: "-16px", y: "-30px", color: "#88f0ff", glow: "rgba(136,240,255,0.58)" },
+  { left: "39%", top: "20%", size: 3, duration: "7.9s", delay: "0.3s", x: "14px", y: "-18px", color: "#7cf2cb", glow: "rgba(124,242,203,0.54)" },
+  { left: "45%", top: "42%", size: 4, duration: "9.8s", delay: "1.5s", x: "20px", y: "-28px", color: "#b2bbff", glow: "rgba(178,187,255,0.55)" },
+  { left: "51%", top: "66%", size: 3, duration: "8.1s", delay: "2.2s", x: "-10px", y: "-24px", color: "#78e5ff", glow: "rgba(120,229,255,0.5)" },
+  { left: "57%", top: "14%", size: 2, duration: "8.8s", delay: "2.1s", x: "-8px", y: "-16px", color: "#7ef0d5", glow: "rgba(126,240,213,0.48)" },
+  { left: "63%", top: "40%", size: 3, duration: "7.4s", delay: "0.6s", x: "15px", y: "-21px", color: "#96acff", glow: "rgba(150,172,255,0.52)" },
+  { left: "68%", top: "72%", size: 4, duration: "10.1s", delay: "2.4s", x: "-18px", y: "-28px", color: "#6ef3ff", glow: "rgba(110,243,255,0.58)" },
+  { left: "74%", top: "24%", size: 3, duration: "8.1s", delay: "1.1s", x: "16px", y: "-20px", color: "#90f0d8", glow: "rgba(144,240,216,0.5)" },
+  { left: "81%", top: "52%", size: 4, duration: "9.5s", delay: "0.5s", x: "-12px", y: "-26px", color: "#a0b2ff", glow: "rgba(160,178,255,0.56)" },
+  { left: "87%", top: "20%", size: 3, duration: "8.7s", delay: "1.9s", x: "10px", y: "-18px", color: "#7ce8ff", glow: "rgba(124,232,255,0.5)" },
+  { left: "91%", top: "64%", size: 2, duration: "7.8s", delay: "0.4s", x: "-8px", y: "-20px", color: "#77efc8", glow: "rgba(119,239,200,0.46)" },
+] as const;
+
 export default function ContactSection() {
   return (
     <section
@@ -16,8 +35,27 @@ export default function ContactSection() {
             <div className="pointer-events-none absolute inset-0 opacity-[0.7] [mask-image:radial-gradient(80%_72%_at_50%_46%,black,transparent_100%)]">
               <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.07)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:48px_48px]" />
             </div>
-            <div className="pointer-events-none absolute inset-0 opacity-[0.28] [mask-image:radial-gradient(58%_52%_at_50%_38%,black,transparent_100%)]">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.78)_1px,transparent_1px)] bg-[size:22px_22px]" />
+            <div className="pointer-events-none absolute inset-0 opacity-[0.7] [mask-image:radial-gradient(76%_68%_at_50%_42%,black,transparent_100%)]">
+              <div className="absolute inset-0">
+                {contactParticles.map((particle, index) => (
+                  <span
+                    key={`${particle.left}-${particle.top}-${index}`}
+                    className="contact-card-particle absolute rounded-full bg-white shadow-[0_0_14px_rgba(255,255,255,0.45)]"
+                    style={{
+                      left: particle.left,
+                      top: particle.top,
+                      width: `${particle.size}px`,
+                      height: `${particle.size}px`,
+                      backgroundColor: particle.color,
+                      boxShadow: `0 0 14px ${particle.glow}`,
+                      animationDuration: particle.duration,
+                      animationDelay: particle.delay,
+                      ["--particle-x" as string]: particle.x,
+                      ["--particle-y" as string]: particle.y,
+                    }}
+                  />
+                ))}
+              </div>
             </div>
             <div className="pointer-events-none absolute left-[-6%] top-[-8%] h-52 w-52 rounded-full bg-cyan-400/[0.12] blur-[84px]" />
             <div className="pointer-events-none absolute right-[-4%] top-[10%] h-60 w-60 rounded-full bg-indigo-500/[0.16] blur-[96px]" />

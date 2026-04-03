@@ -287,6 +287,26 @@ textarea {
   }
 }
 
+@keyframes contact-card-particle-drift {
+  0% {
+    transform: translate3d(0, 12px, 0) scale(0.7);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.95;
+  }
+  48% {
+    opacity: 0.62;
+  }
+  72% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(var(--particle-x, 10px), var(--particle-y, -18px), 0) scale(1.16);
+    opacity: 0;
+  }
+}
+
 .contact-grid-drift {
   animation: contact-grid-drift 14s linear infinite alternate;
   transform: translateZ(0);
@@ -309,6 +329,13 @@ textarea {
 
 .contact-particle {
   animation: contact-particle-float 7s ease-in-out infinite;
+}
+
+.contact-card-particle {
+  animation: contact-card-particle-drift 8s ease-in-out infinite;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  filter: blur(0.2px);
 }
 
 .hero-wave-layer,
@@ -355,7 +382,8 @@ textarea {
   .contact-grid-drift-slow,
   .contact-glow-pulse,
   .contact-glow-pulse-slow,
-  .contact-particle {
+  .contact-particle,
+  .contact-card-particle {
     animation: none !important;
   }
 }
