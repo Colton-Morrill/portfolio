@@ -29,26 +29,26 @@ export default function HeroSection({
         <p className="hero-eyebrow text-[0.6rem] font-medium uppercase tracking-[0.28em] text-slate-500 pb-4">
           Frontend Engineer
         </p>
-        <h1 className="text hidden max-w-[min(100%,68rem)] overflow-visible pr-12 text-[clamp(4.1rem,6.8vw,6.35rem)] font-semibold leading-[0.91] tracking-[-0.06em] sm:block lg:pr-16">
+        <h1 className="text hidden  overflow-visible pr-12 text-[clamp(4.1rem,6.8vw,6.35rem)] font-semibold leading-[0.91] tracking-[-0.06em] sm:block lg:pr-16">
           <span className="block">
             Frontend <span className="gradient-text font-black" style={gradientPurple}>Engineering</span>
           </span>
           <span className="block">
-            with Product <span className="gradient-text font-black" style={gradientGreen}>Instinct</span>,
+            with Design <span className="gradient-text font-black" style={gradientGreen}>Instinct</span>,
           </span>
           <span className="block">
-            <span className="gradient-text font-black" style={gradientGold}>Built to Ship</span>
+            and <span className="gradient-text font-black" style={gradientGold}>Code That Delivers</span>
           </span>
         </h1>
         <div className="space-y-2 sm:hidden">
-          <h1 className="mobile-text1 text-[2.85rem] font-semibold leading-[0.98] tracking-[-0.05em]">
+          <h1 className="mobile-text1 text-[2.65rem] font-semibold leading-[0.98] tracking-[-0.05em]">
             Frontend <span className="gradient-text font-black" style={gradientPurple}>Engineering</span>
           </h1>
-          <h1 className="mobile-text2 text-[2.85rem] font-semibold leading-[0.98] tracking-[-0.05em]">
-            with Product <span className="gradient-text font-black" style={gradientGreen}>Instinct</span>,
+          <h1 className="mobile-text2 text-[2.65rem] font-semibold leading-[0.98] tracking-[-0.05em]">
+            with Design <span className="gradient-text font-black" style={gradientGreen}>Instinct</span>,
           </h1>
-          <h1 className="mobile-text3 text-[2.85rem] font-semibold leading-[0.98] tracking-[-0.05em]">
-            <span className="gradient-text font-black" style={gradientGold}>Built to Ship</span>
+          <h1 className="mobile-text3 text-[2.65rem] font-semibold leading-[0.98] tracking-[-0.05em]">
+            and <span className="gradient-text font-black" style={gradientGold}>Code That Delivers</span>
           </h1>
         </div>
         <div className="hero-subcopy mt-12 max-w-3xl space-y-5 lg:mt-14">
