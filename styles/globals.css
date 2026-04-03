@@ -5,7 +5,20 @@
 html {
   color-scheme: dark;
 }
+
+html,
 body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
   color: #d6cee1;
   background: black;
   background-color: #000000;
@@ -16,8 +29,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -28,6 +39,27 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+p,
+li,
+a,
+button,
+input,
+textarea {
+  font-family: var(--font-body), sans-serif;
 }
 
 .linear-wipe {
@@ -71,14 +103,15 @@ a {
   display: inline-block;
   position: relative;
   color: transparent;
+  overflow: visible;
+  padding-inline: 0.12em;
+  margin-inline: -0.12em;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-image: url("https://www.transparenttextures.com/patterns/otis-redding.png"),
-    linear-gradient(to bottom, var(--from), var(--to));
-  background-blend-mode: overlay;
-  background-size: cover, 150px 150px;
-  background-repeat: no-repeat, repeat;
+  background-image: linear-gradient(180deg, var(--from), var(--to));
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   background-position: center;
   isolation: isolate;
 }
@@ -90,5 +123,365 @@ a {
   -webkit-text-fill-color: transparent !important;
   line-height: 1.3;
 }
+
+.split-word,
+.split-char {
+  overflow: visible;
+  padding-inline: 0.12em;
+  margin-inline: -0.12em;
+}
+
+.chrome-text {
+  color: #d9deef;
+  text-shadow: none;
+  filter: none;
+}
+
+.section-title {
+  text-wrap: balance;
+  line-height: 1.02;
+  padding-bottom: 0.08em;
+}
+
+.section-copy {
+  max-width: 66ch;
+  text-wrap: pretty;
+}
+
+.section-title div,
+.section-title span {
+  line-height: inherit !important;
+  padding-bottom: 0.08em;
+}
+
+.soft-accent {
+  color: #e7ecfa;
+  font-weight: 600;
+}
+
+.about-accent {
+  color: #f4f7ff;
+  font-weight: 600;
+  text-shadow: 0 0 18px rgba(129, 140, 248, 0.14);
+}
+
+.fundlaunch-dock {
+  scrollbar-width: none;
+}
+
+.fundlaunch-dock::-webkit-scrollbar {
+  display: none;
+}
+
+.fundlaunch-card-flip-out {
+  animation: fundlaunch-card-flip-out 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.fundlaunch-image-shift-out {
+  animation: fundlaunch-image-shift-out 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fundlaunch-card-flip-out {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 1;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 16px 42px rgba(0,0,0,0.28);
+  }
+  55% {
+    transform: translate3d(-18px, 12px, 0) scale(0.985) rotate(-4deg);
+    opacity: 1;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 28px 56px rgba(0,0,0,0.34);
+  }
+  100% {
+    transform: translate3d(-112px, 34px, 0) scale(0.94) rotate(-10deg);
+    opacity: 0;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 32px 64px rgba(0,0,0,0.12);
+  }
+}
+
+@keyframes fundlaunch-image-shift-out {
+  0% {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+    filter: saturate(1);
+  }
+  55% {
+    transform: scale(1.035) translateX(-10px);
+    opacity: 1;
+    filter: saturate(1.08);
+  }
+  100% {
+    transform: scale(1.05) translateX(-24px);
+    opacity: 0;
+    filter: saturate(1.04);
+  }
+}
+
+@keyframes elegant-shape-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -120px, 0) rotate(var(--shape-rotate-start, 0deg));
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) rotate(var(--shape-rotate-end, 0deg));
+  }
+}
+
+@keyframes contact-grid-drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-38px, 28px, 0);
+  }
+}
+
+@keyframes contact-grid-drift-slow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(18px, -20px, 0);
+  }
+}
+
+@keyframes contact-glow-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.82;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes contact-glow-pulse-slow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.72;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.94;
+  }
+}
+
+@keyframes contact-particle-float {
+  0% {
+    transform: translate3d(0, 12px, 0) scale(0.9);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.72;
+  }
+  80% {
+    opacity: 0.34;
+  }
+  100% {
+    transform: translate3d(0, -18px, 0) scale(1.08);
+    opacity: 0;
+  }
+}
+
+.contact-grid-drift {
+  animation: contact-grid-drift 14s linear infinite alternate;
+  transform: translateZ(0);
+}
+
+.contact-grid-drift-slow {
+  animation: contact-grid-drift-slow 19s linear infinite alternate;
+  transform: translateZ(0);
+}
+
+.contact-glow-pulse {
+  animation: contact-glow-pulse 7s ease-in-out infinite;
+  transform: translateZ(0);
+}
+
+.contact-glow-pulse-slow {
+  animation: contact-glow-pulse-slow 10s ease-in-out infinite;
+  transform: translateZ(0);
+}
+
+.contact-particle {
+  animation: contact-particle-float 7s ease-in-out infinite;
+}
+
+.hero-wave-layer,
+.contact-backdrop-stage,
+.hero-shape-shell {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.hero-wave-layer,
+.contact-backdrop-stage {
+  contain: paint;
+}
+
+.hero-shape-shell {
+  contain: layout paint;
+}
+
+.contact-backdrop-stage .contact-grid-drift,
+.contact-backdrop-stage .contact-grid-drift-slow,
+.contact-backdrop-stage .contact-glow-pulse,
+.contact-backdrop-stage .contact-glow-pulse-slow,
+.contact-backdrop-stage .contact-particle {
+  animation-play-state: paused;
+}
+
+.contact-backdrop-stage.is-active .contact-grid-drift,
+.contact-backdrop-stage.is-active .contact-grid-drift-slow,
+.contact-backdrop-stage.is-active .contact-glow-pulse,
+.contact-backdrop-stage.is-active .contact-glow-pulse-slow,
+.contact-backdrop-stage.is-active .contact-particle {
+  animation-play-state: running;
+}
+
+@media (max-width: 900px) {
+  .contact-grid-drift,
+  .contact-grid-drift-slow {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-grid-drift,
+  .contact-grid-drift-slow,
+  .contact-glow-pulse,
+  .contact-glow-pulse-slow,
+  .contact-particle {
+    animation: none !important;
+  }
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .about-accent {
+    background-image: linear-gradient(135deg, #f7f9ff 0%, #c7d2fe 48%, #7dd3fc 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .chrome-text {
+    background-image:
+      linear-gradient(180deg, rgba(225,230,244,0.98) 0%, rgba(209,216,236,0.96) 44%, rgba(188,198,227,0.92) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .chrome-text div,
+  .chrome-text span {
+    background: inherit !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+    color: transparent !important;
+    -webkit-text-fill-color: transparent !important;
+    line-height: inherit !important;
+  }
+}
 @media (prefers-color-scheme: dark) {
+}
+
+@layer components {
+  .glass-surface {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.06) 18%, rgba(9, 11, 19, 0.28) 100%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+      0 24px 70px rgba(2, 6, 23, 0.36);
+    backdrop-filter: blur(16px) saturate(145%) brightness(1.04);
+    -webkit-backdrop-filter: blur(16px) saturate(145%) brightness(1.04);
+    isolation: isolate;
+  }
+
+  .glass-surface::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    padding: 1px;
+    opacity: 0.75;
+    pointer-events: none;
+  }
+
+  .glass-surface::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+      radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.28), transparent 24%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 14%, rgba(255, 255, 255, 0) 36%);
+    mix-blend-mode: screen;
+    opacity: 0.8;
+    pointer-events: none;
+  }
+
+  .glass-media {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background:
+      linear-gradient(180deg, rgba(10, 14, 24, 0.2) 0%, rgba(10, 14, 24, 0.1) 100%),
+      rgba(255, 255, 255, 0.04);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      inset 0 -16px 30px rgba(2, 6, 23, 0.18);
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+  }
+
+  .glass-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      url("/noise.png"),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 26%, rgba(2, 6, 23, 0.18) 100%);
+    background-size: 180px 180px, auto;
+    mix-blend-mode: soft-light;
+    opacity: 0.16;
+    pointer-events: none;
+  }
+
+  .glass-chip {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.04) 18%, rgba(10, 12, 20, 0.3) 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.16),
+      0 18px 36px rgba(2, 6, 23, 0.22);
+    backdrop-filter: blur(12px) saturate(132%);
+    -webkit-backdrop-filter: blur(12px) saturate(132%);
+  }
+
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-10 lg:px-14 xl:px-16;
+  }
+
+  .section-gap-lg {
+    @apply mt-8 mb-40;
+  }
+
+  .section-gap-md {
+    @apply mt-8 mb-20;
+  }
 }

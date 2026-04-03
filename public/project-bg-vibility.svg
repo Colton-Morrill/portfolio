@@ -1,0 +1,40 @@
+<svg width="1600" height="1100" viewBox="0 0 1600 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1100" fill="#0A0A16"/>
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+  <g opacity="0.94">
+    <circle cx="290" cy="250" r="290" fill="#6B7CFF"/>
+    <circle cx="290" cy="250" r="290" fill="url(#glow1)"/>
+    <circle cx="1220" cy="210" r="270" fill="#A498FF"/>
+    <circle cx="1220" cy="210" r="270" fill="url(#glow2)"/>
+    <circle cx="990" cy="830" r="390" fill="#3B38B8"/>
+    <circle cx="990" cy="830" r="390" fill="url(#glow3)"/>
+  </g>
+  <g opacity="0.16">
+    <path d="M0 861C213 763 358 720 562 741C759 761 893 822 1112 796C1302 773 1460 694 1600 638" stroke="white" stroke-width="2"/>
+    <path d="M36 942C277 837 400 818 643 850C887 882 1015 932 1215 885C1375 847 1504 769 1600 716" stroke="white" stroke-width="2"/>
+  </g>
+  <g opacity="0.14">
+    <rect x="126" y="152" width="410" height="245" rx="28" stroke="white" stroke-width="2"/>
+    <rect x="1024" y="170" width="312" height="200" rx="28" stroke="white" stroke-width="2"/>
+    <rect x="812" y="695" width="452" height="256" rx="28" stroke="white" stroke-width="2"/>
+  </g>
+  <defs>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(290 250) rotate(90) scale(290)">
+      <stop stop-color="#B0B9FF"/>
+      <stop offset="1" stop-color="#B0B9FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1220 210) rotate(90) scale(270)">
+      <stop stop-color="#D4CFFF"/>
+      <stop offset="1" stop-color="#D4CFFF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(990 830) rotate(90) scale(390)">
+      <stop stop-color="#8079FF"/>
+      <stop offset="1" stop-color="#8079FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="190" y1="55" x2="1440" y2="1037" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#11142A"/>
+      <stop offset="0.45" stop-color="#262565"/>
+      <stop offset="1" stop-color="#130F2D"/>
+    </linearGradient>
+  </defs>
+</svg>
