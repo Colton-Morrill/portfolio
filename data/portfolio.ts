@@ -439,7 +439,7 @@ export const experienceItems: ExperienceData[] = [
     ImageAlt: "Fund Launch logo",
     JobPosition: "Front End Software Engineer",
     Company: "Fund Launch",
-    Duration: "November 2025 - Present",
+    Duration: "November 2025 - April 2026 | 6 mo",
     location: "Lehi, Utah",
   },
   {
