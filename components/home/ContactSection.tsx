@@ -74,14 +74,6 @@ export default function ContactSection() {
 
               <div className="lg:justify-self-end">
                 <div className="rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(5,8,18,0.76),rgba(5,8,18,0.92))] p-5 backdrop-blur-xl lg:p-6">
-                  <a
-                    className="group inline-flex items-center gap-4 text-[1.02rem] font-semibold leading-7 text-[#f5efff] transition hover:text-cyan-200 lg:text-[1.08rem]"
-                    href="mailto:cjmorrill@gmail.com"
-                  >
-                    <Mail className="h-5 w-5" />
-                    cjmorrill@gmail.com
-                    <ArrowUpRight className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </a>
                   <p className="mt-3 max-w-md text-[0.95rem] leading-7 text-[#b8bfd3]">
                     Open to frontend, product UI, and design-engineering work where quality and speed both matter.
                   </p>
