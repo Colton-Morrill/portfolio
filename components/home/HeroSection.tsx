@@ -4,6 +4,30 @@ import { ArrowDownCircle } from "lucide-react";
 import SectionShell from "@/components/home/SectionShell";
 import { HeroGeometric } from "@/components/ui/shape-landing-hero";
 
+type HeroWord = {
+  text: string;
+  gradient?: "purple" | "green" | "gold";
+  suffix?: string;
+};
+
+const heroTextLines: HeroWord[][] = [
+  [
+    { text: "Frontend" },
+    { text: "Engineering", gradient: "purple" },
+  ],
+  [
+    { text: "with" },
+    { text: "Design" },
+    { text: "Instinct", gradient: "green", suffix: "," },
+  ],
+  [
+    { text: "and" },
+    { text: "Code", gradient: "gold" },
+    { text: "That", gradient: "gold" },
+    { text: "Delivers", gradient: "gold" },
+  ],
+] as const;
+
 type HeroSectionProps = {
   gradientPurple: CSSProperties;
   gradientGreen: CSSProperties;
@@ -15,6 +39,12 @@ export default function HeroSection({
   gradientGreen,
   gradientGold,
 }: HeroSectionProps) {
+  const gradientStyles = {
+    purple: gradientPurple,
+    green: gradientGreen,
+    gold: gradientGold,
+  } as const;
+
   return (
     <main
       id="hero"
@@ -30,26 +60,39 @@ export default function HeroSection({
           Frontend Engineer
         </p>
         <h1 className="text hidden  overflow-visible pr-12 text-[clamp(4.1rem,6.8vw,6.35rem)] font-semibold leading-[0.91] tracking-[-0.06em] sm:block lg:pr-16">
-          <span className="block">
-            Frontend <span className="gradient-text font-black" style={gradientPurple}>Engineering</span>
-          </span>
-          <span className="block">
-            with Design <span className="gradient-text font-black" style={gradientGreen}>Instinct</span>,
-          </span>
-          <span className="block">
-            and <span className="gradient-text font-black" style={gradientGold}>Code That Delivers</span>
-          </span>
+          {heroTextLines.map((line, lineIndex) => (
+            <span key={lineIndex} className="block">
+              {line.map((word) => (
+                <span
+                  key={`${lineIndex}-${word.text}`}
+                  className={`hero-word mr-[0.16em] inline-block last:mr-0 ${word.gradient ? "gradient-text font-black" : ""}`}
+                  style={word.gradient ? gradientStyles[word.gradient] : undefined}
+                >
+                  {word.text}
+                  {word.suffix ?? ""}
+                </span>
+              ))}
+            </span>
+          ))}
         </h1>
         <div className="space-y-2 sm:hidden">
-          <h1 className="mobile-text1 text-[2.65rem] font-semibold leading-[0.98] tracking-[-0.05em]">
-            Frontend <span className="gradient-text font-black" style={gradientPurple}>Engineering</span>
-          </h1>
-          <h1 className="mobile-text2 text-[2.65rem] font-semibold leading-[0.98] tracking-[-0.05em]">
-            with Design <span className="gradient-text font-black" style={gradientGreen}>Instinct</span>,
-          </h1>
-          <h1 className="mobile-text3 text-[2.65rem] font-semibold leading-[0.98] tracking-[-0.05em]">
-            and <span className="gradient-text font-black" style={gradientGold}>Code That Delivers</span>
-          </h1>
+          {heroTextLines.map((line, lineIndex) => (
+            <h1
+              key={lineIndex}
+              className={`mobile-text${lineIndex + 1} text-[2.65rem] font-semibold leading-[0.98] tracking-[-0.05em]`}
+            >
+              {line.map((word) => (
+                <span
+                  key={`${lineIndex}-${word.text}`}
+                  className={`hero-word mr-[0.16em] inline-block last:mr-0 ${word.gradient ? "gradient-text font-black" : ""}`}
+                  style={word.gradient ? gradientStyles[word.gradient] : undefined}
+                >
+                  {word.text}
+                  {word.suffix ?? ""}
+                </span>
+              ))}
+            </h1>
+          ))}
         </div>
         <div className="hero-subcopy mt-12 max-w-3xl space-y-5 lg:mt-14">
           <p className="text-left text-[1.18rem] font-semibold leading-[1.48] text-slate-100 lg:text-[1.36rem]">

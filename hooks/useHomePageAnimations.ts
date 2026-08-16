@@ -19,40 +19,23 @@ export function useHomePageAnimations() {
     let cancelled = false;
     let teardown: (() => void) | undefined;
     const run = async () => {
-      const [{ gsap }, { ScrollTrigger }, { SplitText }] = await Promise.all([
+      const [{ gsap }, { ScrollTrigger }] = await Promise.all([
         import("gsap"),
         import("gsap/ScrollTrigger"),
-        import("gsap/SplitText"),
       ]);
 
       if (cancelled) return;
 
-      gsap.registerPlugin(SplitText, ScrollTrigger);
+      gsap.registerPlugin(ScrollTrigger);
       ScrollTrigger.config({
         limitCallbacks: true,
         ignoreMobileResize: true,
       });
 
       const mm = gsap.matchMedia();
-      const sectionSplits: InstanceType<typeof SplitText>[] = [];
       const marqueeTweens: Array<gsap.core.Tween> = [];
-      let desktopSplit: InstanceType<typeof SplitText> | undefined;
-      let mobileSplit1: InstanceType<typeof SplitText> | undefined;
-      let mobileSplit2: InstanceType<typeof SplitText> | undefined;
-      let mobileSplit3: InstanceType<typeof SplitText> | undefined;
       let mobileTimeline: gsap.core.Timeline | undefined;
       const clearAnimatedProps = "transform,opacity";
-
-      const createSplit = (selector: string, type: string) => {
-        const element = document.querySelector(selector);
-        if (!element) return undefined;
-        return new SplitText(element, {
-          type,
-          linesClass: "split-line",
-          wordsClass: "split-word",
-          charsClass: "split-char",
-        });
-      };
 
       const reveal = (
         target: gsap.TweenTarget,
@@ -70,15 +53,17 @@ export function useHomePageAnimations() {
           },
         });
 
-      mobileSplit1 = createSplit(".mobile-text1", "words");
-      mobileSplit2 = createSplit(".mobile-text2", "words");
-      mobileSplit3 = createSplit(".mobile-text3", "words");
+      const mobileWordGroups = [
+        document.querySelectorAll<HTMLElement>(".mobile-text1 .hero-word"),
+        document.querySelectorAll<HTMLElement>(".mobile-text2 .hero-word"),
+        document.querySelectorAll<HTMLElement>(".mobile-text3 .hero-word"),
+      ];
 
-      if (mobileSplit1?.words?.length || mobileSplit2?.words?.length || mobileSplit3?.words?.length) {
+      if (mobileWordGroups.some((group) => group.length)) {
         mobileTimeline = gsap.timeline();
-        [mobileSplit1, mobileSplit2, mobileSplit3].forEach((split) => {
-          if (!split?.words?.length) return;
-          mobileTimeline!.from(split.words, {
+        mobileWordGroups.forEach((words) => {
+          if (!words.length) return;
+          mobileTimeline!.from(words, {
             y: -100,
             opacity: 0,
             duration: 0.7,
@@ -147,10 +132,10 @@ export function useHomePageAnimations() {
       }
 
       mm.add("(min-width: 768px)", () => {
-        desktopSplit = createSplit(".text", "words");
+        const desktopWords = document.querySelectorAll<HTMLElement>(".text .hero-word");
 
-        if (desktopSplit?.words?.length) {
-          gsap.from(desktopSplit.words, {
+        if (desktopWords.length) {
+          gsap.from(desktopWords, {
             y: -100,
             opacity: 0,
             duration: 0.7,
@@ -161,14 +146,10 @@ export function useHomePageAnimations() {
         }
 
         document.querySelectorAll<HTMLElement>(".section-title").forEach((element) => {
-          const sectionSplit = new SplitText(element, { type: "lines" });
-          sectionSplits.push(sectionSplit);
-
-          gsap.from(sectionSplit.lines, {
-            yPercent: 110,
+          gsap.from(element, {
+            y: 32,
             opacity: 0,
             duration: 0.9,
-            stagger: 0.08,
             ease: "power4.out",
             clearProps: clearAnimatedProps,
             scrollTrigger: {
@@ -329,11 +310,6 @@ export function useHomePageAnimations() {
 
       teardown = () => {
         mobileTimeline?.kill();
-        mobileSplit1?.revert();
-        mobileSplit2?.revert();
-        mobileSplit3?.revert();
-        desktopSplit?.revert();
-        sectionSplits.forEach((sectionSplit) => sectionSplit.revert());
         marqueeTweens.forEach((tween) => tween.kill());
         mm.revert();
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
