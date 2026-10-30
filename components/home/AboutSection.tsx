@@ -18,10 +18,9 @@ const ghostTextStyle = {
 export default function AboutSection({ stackIcons }: AboutSectionProps) {
   return (
     <section className="section-reveal relative overflow-hidden py-16 lg:py-22">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,rgba(56,189,248,0.1),transparent_18%),radial-gradient(circle_at_76%_22%,rgba(99,102,241,0.12),transparent_22%),linear-gradient(180deg,rgba(3,7,18,0.22)_0%,rgba(0,0,0,0)_20%,rgba(0,0,0,0.24)_100%)]" />
-      <div className="pointer-events-none absolute inset-0 opacity-[0.08] [background-image:radial-gradient(circle_at_center,rgba(255,255,255,0.65)_1px,transparent_1px)] [background-size:28px_28px]" />
+      <div className="about-backdrop-blend pointer-events-none absolute inset-0" aria-hidden="true" />
 
-      <div className="about-marquee relative mb-8 w-screen overflow-hidden border-y border-white/10 bg-white/[0.03] py-4 shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur-sm lg:mb-12 lg:py-6">
+      <div className="about-marquee relative mb-8 w-screen overflow-hidden border-y border-white/10 py-4 lg:mb-12 lg:py-6">
         <div className="about-marquee-track flex w-max items-center whitespace-nowrap">
           {Array.from({ length: 2 }).map((_, groupIndex) => (
             <div key={groupIndex} className="flex items-center gap-8 pr-8 lg:gap-12 lg:pr-12">

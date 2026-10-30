@@ -56,8 +56,10 @@ export default function Home() {
         <div id="experience" className="scroll-spacer"></div>
         <ExperienceSection items={experienceItems} />
         <section className="contact-zone relative isolate flex h-screen min-h-screen flex-col overflow-hidden">
+          <div className="contact-backdrop-blend pointer-events-none absolute inset-0" aria-hidden="true">
           <div className="pointer-events-none absolute inset-0 z-0 bg-[linear-gradient(180deg,rgba(2,4,10,0.74)_0%,rgba(2,4,10,0.92)_34%,#02040a_100%)]" />
           <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-40 bg-[linear-gradient(180deg,rgba(2,4,10,0)_0%,rgba(2,4,10,0.28)_52%,rgba(2,4,10,0.72)_100%)]" />
+          </div>
           <ContactSection />
         </section>
       </div>

@@ -11,7 +11,7 @@ export function useHomePageAnimations() {
 
     if (reduceMotion) {
       if (yearCounter) {
-        yearCounter.textContent = "5";
+        yearCounter.textContent = "6";
       }
       return;
     }
@@ -36,6 +36,71 @@ export function useHomePageAnimations() {
       const marqueeTweens: Array<gsap.core.Tween> = [];
       let mobileTimeline: gsap.core.Timeline | undefined;
       const clearAnimatedProps = "transform,opacity";
+
+      mm.add("(min-width: 1101px) and (min-height: 781px) and (prefers-reduced-motion: no-preference)", () => {
+        const stories = Array.from(document.querySelectorAll<HTMLElement>("[data-featured-project]"));
+        const triggers: ReturnType<typeof ScrollTrigger.create>[] = [];
+        let initializing = true, refreshFrame = 0;
+        let previousOffset = NaN;
+        let previousPinned = false;
+        const syncBackdrop = () => {
+          if (initializing) return;
+          const y = window.scrollY;
+          let heldDistance = 0, pinned = false;
+          for (const trigger of triggers) {
+            const length = trigger.end - trigger.start;
+            if (length < 1) continue;
+            heldDistance += Math.max(0, Math.min(length, y - trigger.start));
+            if (y >= trigger.start && y < trigger.end) pinned = true;
+          }
+          // A stable viewport layer avoids a native-scroll frame followed by a
+          // downward correction when a fast wheel event crosses the pin start.
+          const offset = Math.round((heldDistance - y) * 1000) / 1000;
+          if (offset !== previousOffset) {
+            document.body.style.setProperty("--site-pattern-offset", `${offset}px`);
+            previousOffset = offset;
+          }
+          if (pinned !== previousPinned) {
+            document.body.toggleAttribute("data-pattern-pinned", pinned);
+            previousPinned = pinned;
+          }
+        };
+        stories.forEach(story => {
+          triggers.push(ScrollTrigger.create({
+            trigger: story,
+            start: "top top",
+            end: () => {
+              const stage = story.firstElementChild!;
+              const runway = getComputedStyle(stage).position === "sticky" ? Math.max(0, story.offsetHeight - innerHeight) : 0;
+              // Keep the pattern held until the sticky stage itself releases.
+              return `+=${runway}`;
+            },
+          }));
+        });
+        const backdropScroll = ScrollTrigger.create({
+          start: 0,
+          end: () => ScrollTrigger.maxScroll(window),
+          onUpdate: syncBackdrop,
+        });
+        initializing = false;
+        ScrollTrigger.addEventListener("refresh", syncBackdrop);
+        const resize = new ResizeObserver(() => {
+          if (!refreshFrame) refreshFrame = requestAnimationFrame(() => { refreshFrame = 0; ScrollTrigger.refresh(); });
+        });
+        stories.forEach(story => resize.observe(story));
+        syncBackdrop();
+        document.body.setAttribute("data-pattern-controlled", "");
+        return () => {
+          resize.disconnect();
+          cancelAnimationFrame(refreshFrame);
+          ScrollTrigger.removeEventListener("refresh", syncBackdrop);
+          backdropScroll.kill();
+          triggers.forEach(trigger => trigger.kill());
+          document.body.removeAttribute("data-pattern-pinned");
+          document.body.removeAttribute("data-pattern-controlled");
+          document.body.style.removeProperty("--site-pattern-offset");
+        };
+      });
 
       const reveal = (
         target: gsap.TweenTarget,
@@ -78,7 +143,7 @@ export function useHomePageAnimations() {
         const counterValue = { value: 0 };
 
         gsap.to(counterValue, {
-          value: 5,
+          value: 6,
           duration: 2,
           ease: "power2.out",
           snap: { value: 1 },

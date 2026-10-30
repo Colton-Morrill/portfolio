@@ -12,7 +12,7 @@ export default function ExperienceSection({
 }: ExperienceSectionProps) {
   return (
     <section className="experience-section section-reveal relative overflow-hidden py-16 lg:py-22">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_12%,rgba(96,165,250,0.08),transparent_22%),radial-gradient(circle_at_18%_36%,rgba(250,204,21,0.04),transparent_18%)]" />
+      <div className="experience-backdrop-blend pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_12%,rgba(96,165,250,0.08),transparent_22%),radial-gradient(circle_at_18%_36%,rgba(250,204,21,0.04),transparent_18%)]" aria-hidden="true" />
 
       <SectionShell className="relative">
         <p className="section-kicker mb-6 text-[0.76rem] font-semibold uppercase tracking-[0.38em] text-[#99a4d6]">

@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Colton Morrill portfolio
 
-## Getting Started
+Personal portfolio built with Next.js Pages Router, React, TypeScript, Tailwind CSS, GSAP, and Three.js.
 
-This is currently a work in progress, I am re-factoring this portfolio's code to match modern standards. 
+## Development
 
-## First, run the development server:
-
-```bash
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. On Windows PowerShell use `npm.cmd` if execution policy blocks `npm`.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Verification
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```sh
+npm run lint
+npm run build
+node --experimental-strip-types tests/project-logo-geometry.mjs
+npm run start -- -p 3101
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+With the production server running, use another terminal:
 
-## Learn More
+```sh
+node tests/featured-project.integration.mjs
+```
 
-To learn more about Next.js, take a look at the following resources:
+Browser checks use a headless Chromium instance with remote debugging on port 9223:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+node tests/project-layout.browser.mjs
+node tests/remaining-projects.browser.mjs
+node tests/project-gallery.browser.mjs
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+All checks default to http://localhost:3101. Set `PORTFOLIO_TEST_ORIGIN` to test another server. Run the gallery check against the development server too: it covers the React Strict Mode dialog lifecycle. Set `PORTFOLIO_TEST_MOTION=normal` to exercise normal motion; the default gallery check uses reduced motion. Browser screenshots go into the ignored `.next/` directory.
 
-## Deploy on Vercel
+The build checks TypeScript. Node 22 may print warnings for experimental TypeScript stripping in the geometry test. Fonts use `next/font/google`; a fresh build may need network access.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Editing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The homepage is `pages/index.tsx`, sections are in `components/home/`, and project content is in `data/portfolio.ts`. Shared metadata is in `data/site.ts`. Fonts and analytics are in `pages/_app.tsx`, global styles in `styles/globals.css`, and scroll motion in `hooks/useHomePageAnimations.ts`.
+
+- [Featured project implementation](docs/featured-project.md): cards, logos, screenshot galleries, and assets.
+- [Contributor guide](docs/agent-guide.md): source ownership and verification expectations.
+
+Older components remain in the repository; follow imports from the homepage before editing. Deployment follows the repository's existing hosting setup.

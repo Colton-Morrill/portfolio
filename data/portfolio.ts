@@ -17,6 +17,13 @@ export type ProjectImage = {
   code: string;
 };
 
+export type ProjectScreen = {
+  image: string;
+  label: string;
+  /** Optional viewBox for the visible area of a 1000px presentation asset. */
+  crop?: string;
+};
+
 export type ProjectCardData = {
   UrlPath: string;
   className: string;
@@ -49,6 +56,18 @@ export type ProjectCaseStudy = {
   gallery: ProjectImage[];
   imageAlt: string;
   accent: string;
+  featured?: {
+    id: string;
+    order: number;
+    color: string;
+    light: string;
+    category: string;
+    outcome: string;
+    contribution: string;
+    highlights: string[];
+    preview: string;
+    screens: ProjectScreen[];
+  };
 };
 
 export type ProjectArchiveEntry = {
@@ -97,7 +116,7 @@ export const featuredProjectRows: ProjectCardData[][] = [
         { image: "/press-3-01.png", code: "press" },
       ],
       ProjectTitle: "Press Sports",
-      ProjectSoftware: "Next.js, Figma",
+      ProjectSoftware: "React Native, Expo, Figma",
     },
     {
       UrlPath: "https://sicoustics.com/",
@@ -154,7 +173,7 @@ export const featuredProjectRows: ProjectCardData[][] = [
         { image: "/vib-3-01.png", code: "vibility" },
       ],
       ProjectTitle: "Vibility LMS",
-      ProjectSoftware: ".NET, Figma, Adobe CC",
+      ProjectSoftware: ".NET, React, React Native, Expo, Figma",
       ImageAlt: "Screenshot of the Vibility website homepage",
     },
     {
@@ -222,10 +241,26 @@ export const smallProjects: SmallProjectData[] = [
 export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     title: "Fund Launch AI",
+    featured: {
+      id: "fund-launch", order: 1, color: "#4843f6", light: "#cac8ff",
+      contribution: "Collaborated on design. Built nearly every major frontend feature and shipped updates.",
+      highlights: ["Guided fund builder", "Scrolldecks", "Legal templates"],
+      category: "Helping people build and launch investment funds",
+      outcome: "A guided fund builder, scrolldecks, and legal templates, all in one place.",
+      preview: "/projects/fund-launch-preview.webp",
+      screens: [
+        {image:"/projects/fund-launch-preview.webp",label:"Fund workspace"},
+        {image:"/fl/Screenshot 2026-03-31 094434 1@1x.png",label:"Fund builder"},
+        {image:"/fl/Screenshot 2026-03-31 094522 1@1x.png",label:"Workspace detail"},
+        {image:"/fl/Screenshot 2026-03-31 094549 1@1x.png",label:"Product view"},
+        {image:"/fl/Screenshot 2026-03-31 094620 1@1x.png",label:"Pitch deck / Light theme"},
+        {image:"/fl/image.png",label:"Pitch deck / Dark theme"},
+      ],
+    },
     href: "https://fundlaunch.com/",
     category: "Agentic fund creation platform",
     year: "2026",
-    role: "Leading frontend product direction for a platform that helps operators structure, validate, and launch investment funds with far less manual friction.",
+    role: "I worked with the team on the design and built the frontend for nearly every major feature. I also tested the work and released updates as the product grew.",
     summary:
       "Built a fully agentic workflow for fund creation, combining scrolldecks, legal template generation, and a guided fund builder into one product experience.",
     impact: [
@@ -233,7 +268,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Scores fund-builder inputs against real data and experience so users get sharper guidance while building.",
       "Packages decks, templates, and structured fund logic into one platform instead of disconnected services.",
     ],
-    stack: ["Next.js", "TypeScript", "AI Workflows", "Product Design"],
+    stack: ["Next.js", "TypeScript", "LangGraph", "Convex", "PostgreSQL", "AI Workflows", "Product Design", "Claude"],
     backgroundArt: "/fl/image.png",
     gallery: [
       { image: "/fl/image.png", code: "fundlaunch" },
@@ -247,9 +282,23 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   },
   {
     title: "AptoGenix",
+    featured: {
+      id: "aptogenix", order: 4, color: "#46d6bc", light: "#c5f5e8",
+      contribution: "Brought design and frontend development together across the storefront and admin experience.",
+      highlights: ["Brand-led storefront", "Catalog management", "Admin interfaces"],
+      category: "Making supplement shopping and store operations easier",
+      outcome: "A supplement storefront and supporting admin interfaces, built around the people shopping and the team running the catalog.",
+      preview: "/shop.aptogenix.com_.png",
+      screens: [
+        {image:"/shop.aptogenix.com_.png",label:"Storefront"},
+        {image:"/shop.aptogenix.com_Checkout.png",label:"Checkout"},
+        {image:"/portal.aptogenix.com_Admin.png",label:"Admin dashboard"},
+        {image:"/portal.aptogenix.com_Admin_Products.png",label:"Product management"},
+      ],
+    },
     href: "https://shop.aptogenix.com",
     category: "Ecommerce + operations",
-    year: "2024",
+    year: "2023",
     role: "Owned customer-facing storefront quality while aligning admin workflows and merchandising needs.",
     summary:
       "Modernized a supplement commerce experience with cleaner conversion paths, tighter visual trust cues, and practical interfaces for teams managing catalog complexity.",
@@ -295,18 +344,31 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   },
   {
     title: "Vibility LMS",
+    featured: {
+      id: "vibility", order: 3, color: "#5844ff", light: "#d4ceff",
+      contribution: "Led the redesign toward a modern web app experience, connecting design and frontend development.",
+      highlights: ["Legacy to modern", "Clearer learning UI", "Cross-platform design"],
+      category: "Bringing a legacy learning product into a modern web experience",
+      outcome: "A redesigned learning experience, moving the interface beyond the legacy product toward a modern web app.",
+      preview: "/vib-1-01.png",
+      screens: [
+        {image:"/vib-3-01.png",label:"Learning dashboard",crop:"540 222 427 246"},
+        {image:"/vib-2-01.png",label:"Member sign-in",crop:"74 529 426 246"},
+        {image:"/vib-1-01.png",label:"Website",crop:"246 335 508 665"},
+      ],
+    },
     href: "https://vibility.com/",
     category: "Learning platform",
     year: "2023",
-    role: "Bridged product requirements, stakeholder expectations, and frontend execution for a B2B learning experience.",
+    role: "Led the redesign of the legacy product toward a modern web learning experience, across a product spanning .NET, React, and React Native with Expo.",
     summary:
-      "Reworked the platform presentation and supporting interfaces to feel more premium, organized, and scalable as the product matured.",
+      "Led the redesign from a legacy learning product toward a modern web app experience, connecting product requirements with clearer interfaces and frontend execution.",
     impact: [
-      "Improved information hierarchy across a complex feature set.",
-      "Gave stakeholders a clearer system for discussing roadmap and UX priorities.",
-      "Focused on practical consistency instead of one-off page treatments.",
+      "Led the redesign from the legacy product toward a modern web learning experience.",
+      "Connected product requirements with design and frontend implementation.",
+      "Worked in the context of a product spanning legacy .NET, React, and React Native with Expo.",
     ],
-    stack: [".NET", "Figma", "Design Systems"],
+    stack: [".NET (legacy)", "React", "React Native", "Expo", "Figma"],
     backgroundArt: "/project-bg-vibility.svg",
     gallery: [
       { image: "/backdrop-flipped-01.png", code: "press" },
@@ -319,18 +381,31 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   },
   {
     title: "Press Sports",
+    featured: {
+      id: "press-sports", order: 2, color: "#4fe0ff", light: "#d0f6ff",
+      contribution: "Extended the mobile app, connected new APIs, and turned designs into working interfaces.",
+      highlights: ["Mobile features", "API integrations", "Design implementation"],
+      category: "Extending an existing sports app into a newer stack",
+      outcome: "An extended mobile app, connected to new APIs and shaped through hands-on design implementation.",
+      preview: "/press-1-01.png",
+      screens: [
+        {image:"/press-2-01.png",label:"Mobile profiles & video",crop:"509 246 383 479"},
+        {image:"/press-1-01.png",label:"Athlete profile",crop:"277 320 530 680"},
+        {image:"/press-3-01.png",label:"Community interactions",crop:"110 382 376 168"},
+      ],
+    },
     href: "https://profile.presssportsapp.com/media/PressSportsOfficial",
     category: "Social sports platform",
-    year: "2025",
-    role: "Led UI direction, responsive system work, and shipping velocity across growth-facing experiences.",
+    year: "2022",
+    role: "Extended the existing React Native/Expo app, connected new APIs for the modern stack, and implemented substantial frontend design work.",
     summary:
-      "Designed and built a more editorial, creator-first web experience that made the product feel like a sports media brand instead of a generic app shell.",
+      "Extended an existing React Native and Expo sports app, connecting it to new APIs and implementing designs as the team's stack evolved.",
     impact: [
-      "Turned brand intent into a frontend system that felt fast, current, and differentiated.",
-      "Balanced visual ambition with reusable patterns so launch pressure did not create design debt.",
-      "Focused on polish in the moments users actually judge: feed presentation, profile clarity, and motion.",
+      "Extended an existing mobile app as the team's technology stack evolved.",
+      "Connected the app to new APIs supporting the newer stack.",
+      "Implemented substantial frontend design work in the React Native and Expo app.",
     ],
-    stack: ["Next.js", "TypeScript", "Figma", "GSAP"],
+    stack: ["React Native", "Expo", "API Integration", "Figma"],
     backgroundArt: "/Press-Sports-Background.png",
     gallery: [
       { image: "/backdrop-01.png", code: "press" },

@@ -1,0 +1,36 @@
+.collection { margin:72px 0 24px; }
+.heading { display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:30px; }
+.eyebrow { margin:0 0 10px; color:#a8a8bc; font-size:10px; letter-spacing:.12em; text-transform:uppercase; line-height:1.6; }
+.heading h3 { max-width:26ch; margin:0; color:#ededf5; font-size:clamp(26px,3vw,38px); font-weight:500; letter-spacing:-.045em; line-height:1.2; text-wrap:balance; }
+.count { flex-shrink:0; color:#8d8da1; font-size:11px; padding-bottom:5px; }
+.tools { list-style:none; display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0; }
+.tools li { border:1px solid #ffffff15; border-radius:5px; background:#ffffff03; color:#bcbccd; padding:5px 8px; font-size:10px; line-height:1.5; }
+.rows { border-top:1px solid #ffffff18; }
+.row { display:grid; grid-template-columns:48px minmax(0,1fr) minmax(120px,auto) 44px; align-items:center; gap:22px; padding:24px 12px; border-bottom:1px solid #ffffff13; border-radius:8px; transition:background .25s ease; }
+a.row:hover { background:#ffffff04; }
+.row:focus-visible { outline:2px solid #d2d0ff; outline-offset:5px; }
+.icon { width:48px; height:48px; position:relative; display:grid; place-items:center; overflow:hidden; border-radius:12px; border:1px solid #ffffff18; background:#17171ce6; color:#bcbcd0; }
+.icon img { object-fit:contain; padding:5px; }
+.icon[data-brand="SiCoustics"] img { object-fit:none; object-position:left center; padding:0; }
+.identity .eyebrow { font-size:9px; margin-bottom:4px; }
+.identity h4 { margin:0; color:#e9e9f3; font-size:18px; font-weight:500; letter-spacing:-.025em; line-height:1.3; }
+.note { margin:7px 0 0; max-width:60ch; color:#a6a6ba; font-size:12px; line-height:1.65; }
+.arrow { justify-self:end; color:#aaaabd; transition:transform .25s ease,color .25s ease; }
+.row:hover .arrow { transform:translate(2px,-2px); color:white; }
+.internal { font-size:9px; color:#8c8c9f; justify-self:end; }
+@media(max-width:900px) {
+  .row { grid-template-columns:48px minmax(0,1fr) 44px; gap:16px; }
+  .row .tools { grid-column:2; grid-row:2; margin-top:-4px; }
+  .arrow,.internal { grid-column:3; grid-row:1; }
+}
+@media(max-width:767px) {
+  .collection { margin-top:48px; }
+  .heading { display:block; margin-bottom:24px; }
+  .count { display:block; margin-top:14px; }
+  .row { padding:22px 0; gap:12px; }
+  .note { font-size:12px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .arrow,.row { transition:none; }
+  .row:hover .arrow { transform:none; }
+}
