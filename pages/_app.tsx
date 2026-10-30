@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import { Analytics } from "@vercel/analytics/react";
 import { Manrope, Sora } from "next/font/google";
+import CursorAccent from '@/components/CursorAccent';
 
 import "../styles/globals.css";
 
@@ -20,6 +21,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div className={`${manrope.variable} ${sora.variable}`}>
       <Component {...pageProps} />
+      <CursorAccent />
       <Analytics />
     </div>
   );

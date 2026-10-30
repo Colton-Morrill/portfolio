@@ -1,8 +1,9 @@
 import type { CSSProperties } from "react";
-import { ArrowDownCircle } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 import SectionShell from "@/components/home/SectionShell";
 import { HeroGeometric } from "@/components/ui/shape-landing-hero";
+import styles from '@/styles/HeroSection.module.css';
 
 type HeroWord = {
   text: string;
@@ -67,7 +68,7 @@ export default function HeroSection({
               {line.map((word) => (
                 <span
                   key={`${lineIndex}-${word.text}`}
-                  className={`hero-word mr-[0.16em] inline-block last:mr-0 ${word.gradient ? "gradient-text font-black" : ""}`}
+                  className={`hero-word inline-block ${word.gradient ? "gradient-text font-black" : ""}`}
                   style={word.gradient ? gradientStyles[word.gradient] : undefined}
                 >
                   {word.text}
@@ -86,7 +87,7 @@ export default function HeroSection({
               {line.map((word) => (
                 <span
                   key={`${lineIndex}-${word.text}`}
-                  className={`hero-word mr-[0.16em] inline-block last:mr-0 ${word.gradient ? "gradient-text font-black" : ""}`}
+                  className={`hero-word inline-block ${word.gradient ? "gradient-text font-black" : ""}`}
                   style={word.gradient ? gradientStyles[word.gradient] : undefined}
                 >
                   {word.text}
@@ -98,22 +99,32 @@ export default function HeroSection({
         </div>
         <div className="hero-subcopy mt-12 max-w-3xl space-y-5 lg:mt-14">
           <p className="text-left text-[1.18rem] font-semibold leading-[1.48] text-slate-100 lg:text-[1.36rem]">
-            I am Colton Morrill, a <span className="soft-accent">product-minded frontend engineer</span> with{" "}
-            <span className="soft-accent">6+ years of experience</span> shipping high-quality interfaces,
-            design systems, and user-facing product work inside real teams.
+            I’m Colton Morrill, a <span className="soft-accent">product-minded frontend engineer</span> with{" "}
+            <span className="soft-accent">6+ years of experience</span> bringing design and development together.
           </p>
           <p className="max-w-2xl text-left text-[1rem] font-medium leading-[1.72] text-slate-300 lg:text-[1.08rem]">
-            I specialize in React, Next.js, TypeScript, and modern frontend architecture across
-            product UI, AI workflows, and full-stack delivery where speed, clarity, and polish all matter.
+            I’ve built major product features, led interface redesigns, and shipped web and mobile
+            experiences with React, Next.js, TypeScript, and React Native
+            <br/>
+            -
+            <br/>
+            From the first design
+            decisions through release.
           </p>
+          <div className="flex flex-wrap items-center gap-x-7 gap-y-3 pt-3">
+            <a href="#projects" className={`${styles.workLink} inline-flex min-h-11 items-center gap-2 rounded-full border border-violet-200/20 bg-violet-200/[0.07] px-5 py-2 text-sm font-medium text-slate-100 transition-colors hover:border-violet-200/40 hover:bg-violet-200/[0.12] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-200 motion-reduce:transition-none`}>
+              <svg className={styles.laser} aria-hidden="true" focusable="false">
+                {Array.from({length:14},(_,i)=><rect key={i} rx="22" ry="22" pathLength="100" style={{'--trail-offset':(13-i)*.75,opacity:Math.pow((i+1)/14,2)*.7} as CSSProperties}/>)}
+                <rect rx="22" ry="22" pathLength="100" className={styles.laserPoint}/>
+              </svg>
+              See my work <ArrowDown size={16} aria-hidden="true" />
+            </a>
+            <a href="#contact" className="inline-flex min-h-11 items-center gap-2 rounded-sm py-2 text-sm font-medium text-slate-300 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-200 motion-reduce:transition-none">
+              Get in touch <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </SectionShell>
-      <a
-        href="#projects"
-        className="group absolute bottom-10 left-1/2 z-10 hidden -translate-x-1/2 animate-bounce lg:block"
-      >
-        <ArrowDownCircle className="group-hover:text-blue-500 group-hover:transition" />
-      </a>
     </main>
   );
 }

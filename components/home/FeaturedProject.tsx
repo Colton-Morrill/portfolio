@@ -19,14 +19,14 @@ export default function FeaturedProject({project,index=0}:{project:ProjectCaseSt
   if(!identity)return null;
   return (
     <section ref={section} id={`project-${identity.id}`} data-featured-project={identity.id} data-layout={index%2?'logo-first':'card-first'} aria-labelledby={`${identity.id}-title`} className={`${styles.story} ${reveal.still?styles.still:''}`} style={{'--brand':rgb(identity.color),'--brand-light':rgb(identity.light)} as CSSProperties}>
-      <div className={styles.stage} data-phone-intro={reveal.phoneIntro || undefined} style={{'--reveal':reveal.reveal,'--light':reveal.light,'--mobile-cover':reveal.cover} as CSSProperties}>
+      <div className={styles.stage} style={{'--reveal':reveal.reveal,'--light':reveal.light} as CSSProperties}>
         <div className={styles.ambient} aria-hidden="true"/>
-        <div className={styles.logo} aria-hidden="true">
+        <div className={styles.logo} data-project-logo aria-hidden="true">
           <Image src={`/projects/${identity.id}-mark.svg`} alt="" fill sizes="(max-width:900px) 90vw, 45vw" className={`${styles.fallback} ${reveal.graphicsReady&&!reveal.graphicsFailed?styles.fallbackHidden:''}`}/>
-          {reveal.nearViewport&&!reveal.graphicsFailed?<ProjectLogo identity={identity.id} color={identity.color} progress={reveal.effectProgress} still={reveal.reducedMotion} ambientMotion={!reveal.mobile||reveal.cover<1} onReady={reveal.onReady} onFailure={reveal.onFailure}/>:null}
+          {reveal.nearViewport&&!reveal.graphicsFailed?<ProjectLogo identity={identity.id} color={identity.color} progress={reveal.effectProgress} still={reveal.reducedMotion} onReady={reveal.onReady} onFailure={reveal.onFailure}/>:null}
         </div>
         <div className={styles.cardWrap}>
-          <article className={styles.card} onFocusCapture={()=>{if(reveal.mobile)reveal.finishPhone();}}>
+          <article className={styles.card}>
             <div className={styles.cardTop}><span><i/> Design & frontend development</span><span>{project.year}</span></div>
             <p className={styles.category}>{project.category}</p>
             <h3 id={`${identity.id}-title`} className={styles.title}><span>{project.title}</span></h3>

@@ -1,6 +1,7 @@
-﻿import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { createLogoShapes } from '@/lib/projectLogoGeometry';
+import { logoLighting } from '@/lib/logoLighting';
 
 // Related accents are confined to the tunnel; each outer outline keeps its brand color.
 const tunnelAccents:Record<string,string>={
@@ -23,6 +24,22 @@ const palette = `
 uniform vec3 uColor;
 uniform float uTime;
 vec3 lightColor(vec2 p){ return uColor; }
+`;
+// Interpolate a fixed noise field as it drifts, avoiding frame-by-frame static.
+const printGrain = `
+uniform float uPixelRatio;
+float grainHash(vec2 cell){
+  vec3 p=fract(vec3(cell.xyx)*.1031);
+  p+=dot(p,p.yzx+33.33);
+  return fract((p.x+p.y)*p.z);
+}
+float paperGrain(vec2 drift){
+  vec2 point=gl_FragCoord.xy/uPixelRatio-drift;
+  vec2 cell=floor(point),f=fract(point);
+  f=f*f*(3.-2.*f);
+  return mix(mix(grainHash(cell),grainHash(cell+vec2(1.,0.)),f.x),
+             mix(grainHash(cell+vec2(0.,1.)),grainHash(cell+vec2(1.,1.)),f.x),f.y)*2.-1.;
+}
 `;
 const viewportFade = `
 uniform vec2 uViewport;
@@ -86,8 +103,10 @@ const glowFragment = `
 varying vec2 vUv;
 uniform sampler2D uMask;
 uniform float uCharge;
+uniform vec3 uCursor;
 ${palette}
 ${viewportFade}
+${printGrain}
 void main(){
   vec2 p=(vUv-.5)*5.4;
   float d=(texture2D(uMask,vUv).r-.502)*2.;
@@ -95,6 +114,21 @@ void main(){
   float charge=smoothstep(-.35,.5,mix(-3.7,3.7,uCharge)-diagonal);
   // Separate falloffs keep the source crisp and the surrounding spill soft.
   float halo=exp(-abs(d)/.022)*.3+exp(-abs(d)/.075)*.32+exp(-abs(d)/.22)*.065;
+  // Concentrate the printed texture near the source and soften the outer halo.
+  float grainFalloff=smoothstep(.003,.012,abs(d))*exp(-abs(d)/.065);
+  // The distance-field gradient points away from each contour, including cutouts.
+  vec2 texel=vec2(1./1024.,0.);
+  vec2 gradient=vec2(
+    texture2D(uMask,vUv+texel.xy).r-texture2D(uMask,vUv-texel.xy).r,
+    texture2D(uMask,vUv+texel.yx).r-texture2D(uMask,vUv-texel.yx).r);
+  vec2 outward=gradient/max(length(gradient),.0001);
+  vec2 drift=outward*uTime*6.+vec2(sin(p.y*7.+uTime*.65)*1.2,uTime*2.);
+  // Displace only the grain field: the steady light beneath it stays intact.
+  vec2 cursorDelta=(gl_FragCoord.xy/uViewport-uCursor.xy)*uViewport/uPixelRatio;
+  float cursorDistance=length(cursorDelta);
+  float repulsion=1.-smoothstep(0.,90.,cursorDistance);
+  drift+=cursorDelta/max(cursorDistance,1.)*repulsion*repulsion*30.*uCursor.z;
+  halo*=1.+paperGrain(drift)*.75*grainFalloff;
   float clip=1.-smoothstep(.42,.5,max(abs(vUv.x-.5),abs(vUv.y-.5)));
   gl_FragColor=vec4(lightColor(p),halo*charge*clip*canvasFade());
 }`;
@@ -106,7 +140,8 @@ attribute float aSeed;
 varying float vLight,vSoftness;
 void main(){
   vec3 p=position;
-  p.xy+=vec2(sin(uTime*.12+aSeed*17.),cos(uTime*.095+aSeed*23.))*.095;
+  p.xy+=vec2(sin(uTime*.18+aSeed*17.),cos(uTime*.14+aSeed*23.))*.18;
+  p.z+=sin(uTime*.11+aSeed*29.)*.08;
   float d=abs((texture2D(uMask,p.xy/5.4+.5).r-.502)*2.);
   float diagonal=p.x*.83+p.y*.55;
   float charge=smoothstep(-.35,.5,mix(-3.7,3.7,uCharge)-diagonal);
@@ -146,7 +181,7 @@ export default function ProjectLogo({identity,color,progress,still=false,ambient
     const camera=new THREE.PerspectiveCamera(35,1,.1,30);
     camera.position.z=9.6;
     const accent=tunnelAccents[identity]??color;
-    const uniforms={uMask:{value:null as THREE.Texture|null},uSweep:{value:0},uCharge:{value:0},uTime:{value:0},uViewport:{value:new THREE.Vector2(1,1)},uPixelRatio:{value:renderer.getPixelRatio()},uColor:{value:new THREE.Vector3(...[1,3,5].map(i=>parseInt(color.slice(i,i+2),16)/255))},uAccent:{value:new THREE.Vector3(...[1,3,5].map(i=>parseInt(accent.slice(i,i+2),16)/255))}};
+    const uniforms={uMask:{value:null as THREE.Texture|null},uSweep:{value:0},uCharge:{value:0},uTime:{value:0},uCursor:{value:new THREE.Vector3(.5,.5,0)},uViewport:{value:new THREE.Vector2(1,1)},uPixelRatio:{value:renderer.getPixelRatio()},uColor:{value:new THREE.Vector3(...[1,3,5].map(i=>parseInt(color.slice(i,i+2),16)/255))},uAccent:{value:new THREE.Vector3(...[1,3,5].map(i=>parseInt(accent.slice(i,i+2),16)/255))}};
     const material=new THREE.ShaderMaterial({vertexShader,fragmentShader,uniforms});
     const glowMaterial=new THREE.ShaderMaterial({
       vertexShader:'varying vec2 vUv; void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}',
@@ -196,7 +231,7 @@ export default function ProjectLogo({identity,color,progress,still=false,ambient
         if(!response.ok)throw new Error('Logo contour unavailable');
         const contours=await response.json() as number[][][];
         if(disposed){mask.dispose();return;}
-        geometry=new THREE.ExtrudeGeometry(createLogoShapes(contours),{depth:.12,bevelEnabled:true,bevelSegments:4,bevelThickness:.035,bevelSize:.025,curveSegments:3,steps:1});
+        geometry=new THREE.ExtrudeGeometry(createLogoShapes(contours,identity==='fund-launch'),{depth:.12,bevelEnabled:true,bevelSegments:4,bevelThickness:.035,bevelSize:.025,curveSegments:3,steps:1});
         geometry.translate(0,0,-.06);
         geometry.computeBoundingBox();
         const bounds=geometry.boundingBox!;
@@ -217,13 +252,16 @@ export default function ProjectLogo({identity,color,progress,still=false,ambient
     const observer=new IntersectionObserver(([entry])=>{visible=entry.isIntersecting;if(visible)wake();else suspend();});observer.observe(node);
     const reduced=matchMedia('(prefers-reduced-motion: reduce)');
     const pointer=new THREE.Vector2();
+    const cursorTarget=new THREE.Vector3(.5,.5,0);
     const onPointer=(event:PointerEvent)=>{
-      if(current.current.still||reduced.matches||!current.current.ambientMotion)return;
+      if(event.pointerType!=='mouse'||current.current.still||reduced.matches||!current.current.ambientMotion)return;
       const b=node.getBoundingClientRect();
       if(!b.width||!b.height)return;
+      const x=(event.clientX-b.left)/b.width,y=1-(event.clientY-b.top)/b.height;
+      cursorTarget.set(x,y,x>=0&&x<=1&&y>=0&&y<=1?1:0);
       pointer.set(THREE.MathUtils.clamp((event.clientX-b.left)/b.width*2-1,-1,1),THREE.MathUtils.clamp((event.clientY-b.top)/b.height*2-1,-1,1));wake();
     };
-    const onLeave=()=>{pointer.set(0,0);if(!current.current.still&&!reduced.matches)wake();};
+    const onLeave=()=>{pointer.set(0,0);cursorTarget.z=0;if(!current.current.still&&!reduced.matches)wake();};
     const parent=node.closest('section');
     parent?.addEventListener('pointermove',onPointer as EventListener);
     parent?.addEventListener('pointerleave',onLeave);
@@ -245,13 +283,21 @@ export default function ProjectLogo({identity,color,progress,still=false,ambient
       const stationary=c.still||reduced.matches;
       const progress=stationary?1:c.progress;
       if(progress!==previous){dirty=true;previous=progress;}
-      uniforms.uSweep.value=THREE.MathUtils.lerp(.32,1,THREE.MathUtils.smoothstep(progress,.015,.42));
-      uniforms.uCharge.value=THREE.MathUtils.smoothstep(progress,.24,.8);
+      const lighting=logoLighting(progress);
+      uniforms.uSweep.value=lighting.sweep;
+      uniforms.uCharge.value=lighting.charge;
       const ambient=!stationary&&c.ambientMotion&&uniforms.uCharge.value>0;
       if(ambient)activeTime+=dt;
       uniforms.uTime.value=stationary?0:activeTime;
       const rotation=stationary?0:THREE.MathUtils.lerp(-.32,.035,THREE.MathUtils.smoothstep(progress,0,.5))+pointer.x*.025;
       const ease=1-Math.exp(-dt*9);
+      const cursor=uniforms.uCursor.value;
+      if(stationary){cursor.z=0;cursorTarget.z=0;}
+      else {
+        // Follow the mouse promptly; let the displaced texture settle more slowly.
+        cursor.x=cursorTarget.x;cursor.y=cursorTarget.y;
+        cursor.z+=(cursorTarget.z-cursor.z)*(1-Math.exp(-dt*(cursorTarget.z?12:4)));
+      }
       const delta=rotation-group.rotation.y;
       const x=stationary?0:pointer.y*.016;
       const moving=!stationary&&(Math.abs(delta)>.0001||Math.abs(x-group.rotation.x)>.0001);

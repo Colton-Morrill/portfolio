@@ -137,6 +137,12 @@ textarea {
   background-position: center;
   isolation: isolate;
 }
+/* Keep word gaps independent of the gradient's glyph-clipping compensation. */
+#hero .hero-word { margin-inline: 0 0.22em; }
+#hero .hero-word.gradient-text { margin-inline: -0.12em 0.1em; }
+#hero .hero-word:last-child { margin-right: 0; }
+#hero .hero-word.gradient-text:last-child { margin-right: -0.12em; }
+
 .gradient-text div,
 .gradient-text span {
   background: inherit !important;

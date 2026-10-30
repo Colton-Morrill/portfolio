@@ -1,8 +1,7 @@
-import { useCallback, useEffect, useRef, useState, type RefObject } from 'react';
+import { useCallback, useEffect, useState, type RefObject } from 'react';
 
-/** Coordinates a native desktop scroll reveal and a brief, optional phone intro. */
+/** One reversible, scroll-driven reveal across desktop and stacked layouts. */
 export function useFeaturedProjectReveal(section:RefObject<HTMLElement|null>) {
-  const played=useRef(false);
   const [progress,setProgress]=useState(0);
   const [mobile,setMobile]=useState(false);
   const [still,setStill]=useState(false);
@@ -10,10 +9,8 @@ export function useFeaturedProjectReveal(section:RefObject<HTMLElement|null>) {
   const [nearViewport,setNearViewport]=useState(false);
   const [graphicsReady,setGraphicsReady]=useState(false);
   const [graphicsFailed,setGraphicsFailed]=useState(false);
-  const [phoneProgress,setPhoneProgress]=useState(0);
-  const finishPhone=useCallback(()=>{played.current=true;setPhoneProgress(1);},[]);
   const onReady=useCallback(()=>setGraphicsReady(true),[]);
-  const onFailure=useCallback(()=>{setGraphicsFailed(true);finishPhone();},[finishPhone]);
+  const onFailure=useCallback(()=>setGraphicsFailed(true),[]);
 
   useEffect(()=>{
     const el=section.current;if(!el)return;
@@ -32,7 +29,8 @@ export function useFeaturedProjectReveal(section:RefObject<HTMLElement|null>) {
       setStill(reduced.matches||naturalLayout);
       // Natural layouts have no sticky scroll runway. Reveal while the logo enters,
       // rather than treating a layout fallback as a request to disable animation.
-      const next=naturalLayout?(innerHeight*.45-r.top)/(innerHeight*.85):-r.top/Math.max(1,el.offsetHeight-innerHeight);
+      const logoTop=(el.querySelector('[data-project-logo]')??el).getBoundingClientRect().top;
+      const next=phone.matches||naturalLayout?(innerHeight*.85-logoTop)/(innerHeight*.5):-r.top/Math.max(1,el.offsetHeight-innerHeight);
       setProgress(Math.max(0,Math.min(1,next)));
     };
     const request=()=>{if(!frame)frame=requestAnimationFrame(update);};
@@ -52,36 +50,11 @@ export function useFeaturedProjectReveal(section:RefObject<HTMLElement|null>) {
     };
   },[section]);
 
-  useEffect(()=>{
-    const el=section.current;
-    if(!el||!mobile||still||!nearViewport||graphicsFailed||played.current)return;
-    let frame=0,timeout=0,started=false,disposed=false;
-    const begin=()=>{
-      if(started||disposed||played.current)return;
-      started=true;
-      const start=performance.now();
-      const tick=(now:number)=>{
-        if(disposed||played.current)return;
-        const p=Math.min(1,(now-start)/1500);
-        setPhoneProgress(p);
-        if(p<1)frame=requestAnimationFrame(tick);else played.current=true;
-      };
-      frame=requestAnimationFrame(tick);
-    };
-    const observer=new IntersectionObserver(([entry])=>{if(entry.isIntersecting)begin();},{rootMargin:'-5% 0px -25% 0px'});
-    if(graphicsReady)observer.observe(el);
-    else timeout=window.setTimeout(finishPhone,1500);
-    return()=>{disposed=true;cancelAnimationFrame(frame);clearTimeout(timeout);observer.disconnect();};
-  },[section,mobile,still,nearViewport,graphicsReady,graphicsFailed,finishPhone]);
-
-  const effectProgress=mobile?phoneProgress:progress;
-  const t=Math.max(0,Math.min(1,(phoneProgress-.52)/.48));
+  const effectProgress=progress;
   return {
-    mobile,still,reducedMotion,nearViewport,graphicsReady,graphicsFailed,onReady,onFailure,finishPhone,
+    mobile,still,reducedMotion,nearViewport,graphicsReady,graphicsFailed,onReady,onFailure,
     effectProgress,
-    cover:still||graphicsFailed?1:t*t*(3-2*t),
     reveal:reducedMotion?1:Math.max(0,Math.min(1,(effectProgress-.12)/.45)),
     light:reducedMotion?1:Math.max(0,Math.min(1,(effectProgress-.24)/.56)),
-    phoneIntro:mobile&&!still&&nearViewport&&!graphicsFailed,
   };
 }

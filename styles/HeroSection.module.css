@@ -1,0 +1,7 @@
+.workLink { position:relative; }
+.laser { position:absolute; inset:-1px; width:calc(100% + 2px); height:calc(100% + 2px); overflow:visible; pointer-events:none; }
+.laser rect { x:1px; y:1px; width:calc(100% - 2px); height:calc(100% - 2px); fill:none; stroke:#ba95ff; stroke-width:1.5; stroke-linecap:round; stroke-dasharray:.85 99.15; filter:drop-shadow(0 0 3px #ac7cff); animation:orbit 5s linear infinite; animation-delay:calc((var(--trail-offset,0) - 100)*.05s); }
+.laser rect.laserPoint { stroke:#faf2ff; stroke-width:2.2; stroke-dasharray:.5 99.5; filter:drop-shadow(0 0 2px #e4c6ff) drop-shadow(0 0 5px #ab78ff); }
+@keyframes orbit { from { stroke-dashoffset:0; } to { stroke-dashoffset:-100; } }
+@media(prefers-reduced-motion:reduce) { .laser rect { animation:none; } }
+@media(forced-colors:active) { .laser { display:none; } }

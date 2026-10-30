@@ -91,16 +91,16 @@ export type ExperienceData = {
 
 export const heroGradientStyles = {
   purple: {
-    "--from": "#a855f7",
-    "--to": "#643bf6ff",
+    "--from": "#ad87ee",
+    "--to": "#8770df",
   },
   green: {
-    "--from": "#1fb857ff",
-    "--to": "#07b69eff",
+    "--from": "#78be98",
+    "--to": "#5eb5a6",
   },
   gold: {
-    "--from": "#facc15",
-    "--to": "#fba23cff",
+    "--from": "#dcc17f",
+    "--to": "#cfa06e",
   },
 } as const;
 
@@ -268,7 +268,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Scores fund-builder inputs against real data and experience so users get sharper guidance while building.",
       "Packages decks, templates, and structured fund logic into one platform instead of disconnected services.",
     ],
-    stack: ["Next.js", "TypeScript", "LangGraph", "Convex", "PostgreSQL", "AI Workflows", "Product Design", "Claude"],
+    stack: ["Next.js", "TypeScript", "LangGraph", "Convex", "PostgreSQL", "Supabase", "AI Workflows", "Product Design", "Claude", "Codex", "Figma", "Databricks"],
     backgroundArt: "/fl/image.png",
     gallery: [
       { image: "/fl/image.png", code: "fundlaunch" },
@@ -368,7 +368,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "Connected product requirements with design and frontend implementation.",
       "Worked in the context of a product spanning legacy .NET, React, and React Native with Expo.",
     ],
-    stack: [".NET (legacy)", "React", "React Native", "Expo", "Figma"],
+    stack: [".NET (legacy)", "Next.js", "React Native", "Expo", "Figma"],
     backgroundArt: "/project-bg-vibility.svg",
     gallery: [
       { image: "/backdrop-flipped-01.png", code: "press" },

@@ -7,9 +7,14 @@ const contours=id=>JSON.parse(readFileSync(new URL(`../public/projects/${id}-con
 const apto=createLogoShapes(contours('aptogenix'));
 assert.equal(apto.length,2,'The helix body and head must be solid logo shapes');
 assert.deepEqual(apto.map(shape=>shape.holes.length).sort(),[0,4],'Four gaps must remain holes, never mirror-filled shapes');
-const fund=createLogoShapes(contours('fund-launch'));
+const fund=createLogoShapes(contours('fund-launch'),true);
 assert.equal(fund.length,2,'Fund Launch retains its two solid parts');
 assert.ok(fund.every(shape=>shape.holes.length===0));
+const fundGeometry=new THREE.ExtrudeGeometry(fund,{depth:.12,bevelEnabled:false});
+const fundMaterial=new THREE.MeshBasicMaterial({side:THREE.DoubleSide});
+const fundMesh=new THREE.Mesh(fundGeometry,fundMaterial);fundMesh.updateMatrixWorld();
+assert.ok(new THREE.Raycaster(new THREE.Vector3(1.10,.22,10),new THREE.Vector3(0,0,-1)).intersectObject(fundMesh).length>0,'The corner below the right swoop must remain solid');
+fundGeometry.dispose();fundMaterial.dispose();
 console.log('Logo geometry preserves solid bodies and all four AptoGenix gaps.');
 
 for(const [id,emptyPoint,solidPoint] of [
